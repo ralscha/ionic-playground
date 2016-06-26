@@ -15,16 +15,15 @@ public class GeoController {
 	public GeoController(ApplicationEventPublisher publisher) {
 		this.publisher = publisher;
 	}
-	
-	@PostMapping(path="/pos")
+
+	@PostMapping(path = "/pos")
 	public void consumeLocation(@RequestBody Position position) {
 		publisher.publishEvent(EventBusEvent.of(position));
 	}
-	
-	@PostMapping(path="/error")
+
+	@PostMapping(path = "/clienterror")
 	public void consumeLocation(String errorMessage) {
 		Application.logger.error(errorMessage);
 	}
-	
-	
+
 }

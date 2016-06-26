@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
+ 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -37,20 +37,16 @@
 			</exclusions>
 		</dependency>
 
-		<dependency>
+ 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jetty</artifactId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
 			<exclusions>
 				<exclusion>
-					<artifactId>websocket-server</artifactId>
-					<groupId>org.eclipse.jetty.websocket</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>javax-websocket-server-impl</artifactId>
-					<groupId>org.eclipse.jetty.websocket</groupId>
+					<artifactId>undertow-websockets-jsr</artifactId>
+					<groupId>io.undertow</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+ 		</dependency>
 
 		<dependency>
 			<groupId>org.immutables</groupId>
