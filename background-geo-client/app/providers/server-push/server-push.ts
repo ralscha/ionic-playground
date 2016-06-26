@@ -18,7 +18,7 @@ export class ServerPush {
   }
 
   pushError(error: string) {
-    this.http.post("http://192.168.178.20:8888/error", error, this.textOptions)
+    this.http.post("http://192.168.178.20:8888/clienterror", error, this.textOptions)
       .subscribe(() => { }, error => console.log(error));
   }
 }
