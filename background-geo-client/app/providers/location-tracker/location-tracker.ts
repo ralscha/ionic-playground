@@ -56,7 +56,6 @@ export class LocationTracker {
       backgroundGeoLocation.start();
 
       return () => {
-        console.log('unsubscribe');
         backgroundGeoLocation.stop();
       };
     });
