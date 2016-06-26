@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import {Position} from '../../position';
 
 @Injectable()
@@ -14,10 +14,11 @@ export class ServerPush {
 
   pushPosition(pos: Position) {
     this.http.post("http://192.168.178.20:8888/pos", JSON.stringify(pos), this.jsonOptions)
-             .subscribe(() => console.log('done'), error => console.log(error));
+      .subscribe(() => { }, error => console.log(error));
   }
 
   pushError(error: string) {
-    this.http.post("http://192.168.178.20:8888/error", error, this.textOptions);
+    this.http.post("http://192.168.178.20:8888/error", error, this.textOptions)
+      .subscribe(() => { }, error => console.log(error));
   }
 }
