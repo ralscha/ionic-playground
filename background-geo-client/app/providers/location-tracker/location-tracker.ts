@@ -10,12 +10,23 @@ declare var backgroundGeoLocation;
 @Injectable()
 export class LocationTracker {
 
+  startStationaryTracking(): Observable<any> {
+    return Observable.create(observer => {
+      backgroundGeoLocation.onStationary(location => {
+        console.log('[DEBUG] stationary recieved', location);
+        backgroundGeoLocation.finish();
+        observer.next(location);
+      });
+    });
+  }
+
   startTracking(): Observable<Position> {
     const backgroundOptions = {
       desiredAccuracy: 10,
       stationaryRadius: 20,
       distanceFilter: 30,
       stopOnTerminate: false,
+      debug: false,
       notificationTitle: 'background-geo',
       notificationText: 'Demonstrate background geolocation',
       activityType: 'AutomotiveNavigation',

@@ -11,6 +11,7 @@ import {Position} from '../../position';
 export class HomePage {
 
   private subscription: Subscription;
+  private stationarySub: Subscription;
   private tracking: boolean;
 
   constructor(private locationTracker: LocationTracker, private serverPush: ServerPush) {
@@ -22,10 +23,15 @@ export class HomePage {
     this.subscription = this.locationTracker.startTracking().subscribe(
       position => this.serverPush.pushPosition(position),
       error => this.serverPush.pushError(error));
+
+    this.stationarySub = this.locationTracker.startStationaryTracking().subscribe(
+      loc => console.log(loc),
+      error => this.serverPush.pushError(error));
   }
 
   stop() {
     this.subscription.unsubscribe();
+    this.stationarySub.unsubscribe();
     this.tracking = false;
   }
 }
