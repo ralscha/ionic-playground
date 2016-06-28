@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
@@ -22,14 +23,19 @@ public class EventBus {
 
 	private final ObjectMapper objectMapper;
 
+	private final ApplicationEventPublisher publisher;
+
 	@Autowired
-	public EventBus(ObjectMapper objectMapper) {
+	public EventBus(ObjectMapper objectMapper, ApplicationEventPublisher publisher) {
 		this.clients = new ConcurrentHashMap<>();
 		this.objectMapper = objectMapper;
+		this.publisher = publisher;
 	}
 
 	public void subscribe(EventBusClient client) {
 		this.clients.put(client.id(), client);
+
+		this.publisher.publishEvent(SubscribeEvent.of(client.id()));
 	}
 
 	public void unsubscribe(String clientId) {
@@ -52,24 +58,41 @@ public class EventBus {
 		}
 
 		final String json = data;
-		Set<String> failedClients = new HashSet<>();
 
-		clients.forEach((clientId, client) -> {
+		if (event.clientId() != null) {
+			EventBusClient client = clients.get(event.clientId());
 			if (client != null) {
 				try {
-					client.emitter().send(SseEmitter.event().name(event.name()).data(json));
+					client.emitter()
+							.send(SseEmitter.event().name(event.name()).data(json));
 				}
 				catch (Exception e) {
 					client.emitter().completeWithError(e);
-					failedClients.add(client.id());
+					clients.remove(event.clientId());
 				}
 			}
-			else {
-				failedClients.add(clientId);
-			}
-		});
+		}
+		else {
+			Set<String> failedClients = new HashSet<>();
 
-		failedClients.forEach(this.clients::remove);
+			clients.forEach((clientId, client) -> {
+				if (client != null) {
+					try {
+						client.emitter()
+								.send(SseEmitter.event().name(event.name()).data(json));
+					}
+					catch (Exception e) {
+						client.emitter().completeWithError(e);
+						failedClients.add(client.id());
+					}
+				}
+				else {
+					failedClients.add(clientId);
+				}
+			});
+
+			failedClients.forEach(this.clients::remove);
+		}
 	}
 
 }

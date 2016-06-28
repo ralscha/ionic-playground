@@ -1,53 +1,68 @@
 package ch.rasc.backgroundgeo;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.event.EventListener;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.rasc.backgroundgeo.eventbus.EventBusEvent;
+import ch.rasc.backgroundgeo.eventbus.SubscribeEvent;
 
 @RestController
 public class GeoController {
 
 	private final ApplicationEventPublisher publisher;
+	private final List<Position> positions;
+	private final List<Stationary> stationaries;
 
 	public GeoController(ApplicationEventPublisher publisher) {
 		this.publisher = publisher;
+		this.positions = new ArrayList<>();
+		this.stationaries = new ArrayList<>();
+	}
+
+	@EventListener
+	public void onSubscribe(SubscribeEvent event) {
+		if (!this.positions.isEmpty()) {
+			publisher.publishEvent(
+					EventBusEvent.of(event.clientId(), "pos", this.positions));
+		}
+
+		if (!this.stationaries.isEmpty()) {
+			publisher.publishEvent(
+					EventBusEvent.of(event.clientId(), "stationary", this.stationaries));
+		}
 	}
 
 	@PostMapping(path = "/pos")
 	public void consumeLocation(@RequestBody Position position) {
-		System.out.println("consumeLocation");
-		publisher.publishEvent(EventBusEvent.of("pos", position));
+		publisher.publishEvent(EventBusEvent.of("pos", Collections.singleton(position)));
+
+		this.positions.add(position);
+		if (this.positions.size() > 100) {
+			this.positions.remove(0);
+		}
 	}
-	
+
 	@PostMapping(path = "/stationary")
-	public void consumeStationary(@RequestBody Position position) {
-		System.out.println("consumeStationary");
-		publisher.publishEvent(EventBusEvent.of("stationary", position));
-	}	
+	public void consumeStationary(@RequestBody Stationary stationary) {
+		publisher.publishEvent(
+				EventBusEvent.of("stationary", Collections.singleton(stationary)));
+
+		this.stationaries.add(stationary);
+		if (this.stationaries.size() > 10) {
+			this.stationaries.remove(0);
+		}
+	}
 
 	@PostMapping(path = "/clienterror")
 	public void consumeError(String errorMessage) {
-		System.out.println("consumeError");
 		Application.logger.error(errorMessage);
 	}
 
-	@PostMapping(path = "/tracking")
-	public void tracking(@RequestParam Map<String,String> allRequestParams, HttpServletRequest request) {
-		System.out.println(request.getQueryString());
-		request.getParameterMap().forEach((k,v)->{
-			System.out.println(k+"->"+v);
-		});
-		System.out.println("tracking");
-		allRequestParams.forEach((k,v)->{
-			System.out.println(k+"->"+v);
-		});
-	}
 }
