@@ -65,6 +65,7 @@
 	</dependencies>
 
 	<build>
+	    <finalName>backgroundgeo</finalName>
 		<plugins>
 
 			<plugin>

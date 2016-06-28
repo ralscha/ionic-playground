@@ -57,9 +57,10 @@ public class EventBus {
 		clients.forEach((clientId, client) -> {
 			if (client != null) {
 				try {
-					client.emitter().send(SseEmitter.event().name("pos").data(json));
+					client.emitter().send(SseEmitter.event().name(event.name()).data(json));
 				}
 				catch (Exception e) {
+					client.emitter().completeWithError(e);
 					failedClients.add(client.id());
 				}
 			}

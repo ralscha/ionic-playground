@@ -19,8 +19,7 @@ public class EventBusController {
 	@GetMapping("/subscribe/{id}")
 	public SseEmitter eventbus(@PathVariable("id") String id) {
 		SseEmitter emitter = new SseEmitter(180_000L);
-		emitter.onTimeout(() -> onComplete(emitter, id));
-		emitter.onCompletion(() -> onComplete(emitter, id));
+		emitter.onTimeout(() -> onTimeout(emitter, id));
 
 		this.eventBus.subscribe(EventBusClient.of(id, emitter));
 		return emitter;
@@ -32,9 +31,9 @@ public class EventBusController {
 		this.eventBus.unsubscribe(id);
 	}
 
-	private void onComplete(SseEmitter emitter, String id) {
+	private void onTimeout(SseEmitter emitter, String id) {
 		this.eventBus.unsubscribe(id);
 		emitter.complete();
 	}
-
+	
 }
