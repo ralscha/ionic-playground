@@ -5,7 +5,7 @@ import {Stationary} from '../../stationary';
 
 @Injectable()
 export class ServerPush {
-  private serverURL: string = 'http://192.168.178.84:8888';
+  private serverURL: string = 'http://192.168.178.20:8888';
   private jsonOptions: RequestOptions;
   private textOptions: RequestOptions;
 

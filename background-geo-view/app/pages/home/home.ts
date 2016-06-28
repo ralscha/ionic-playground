@@ -36,15 +36,21 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   subscribeToServer() {
-    this.eventSource = new EventSource("subscribe/" + this.uuid);
-    //this.eventSource = new EventSource("http://192.168.178.84:8888/subscribe/" + this.uuid);
+    //this.eventSource = new EventSource("subscribe/" + this.uuid);
+    this.eventSource = new EventSource("http://192.168.178.20:8888/subscribe/" + this.uuid);
 
-    this.eventSource.addEventListener('pos', x => this.handlePos(JSON.parse(x.data)), false);
-    this.eventSource.addEventListener('stationary', x => this.handleStationary(JSON.parse(x.data)), false);
+    this.eventSource.addEventListener('pos', x => this.handlePositions(JSON.parse(x.data)), false);
+    this.eventSource.addEventListener('stationary', x => this.handleStationaries(JSON.parse(x.data)), false);
     //this.eventSource.addEventListener('error', x => console.error(x), false);
   }
+  
+  handlePositions(position: Position[]) {
+     for (let i = 0; i < position.length; i++) {
+         this.handlePosition(position[i]);
+     }
+  }
 
-  handlePos(position: Position) {
+  handlePosition(position: Position) {
     const latlng = new google.maps.LatLng(position.latitude, position.longitude);
 
     if (!this.currentLocationMarker) {
@@ -116,6 +122,12 @@ export class HomePage implements OnInit, OnDestroy {
 
     this.previousPosition = position;
 
+  }
+  
+  handleStationaries(stationary: Stationary[]) {
+     for (let i = 0; i < stationary.length; i++) {
+         this.handleStationary(stationary[i]);
+     }
   }
 
   handleStationary(stationary: Stationary) {
