@@ -25,7 +25,7 @@ export class HomePage {
       error => this.serverPush.pushError(error));
 
     this.stationarySub = this.locationTracker.startStationaryTracking().subscribe(
-      loc => console.log(loc),
+      loc => this.serverPush.pushStationary(loc),
       error => this.serverPush.pushError(error));
   }
 

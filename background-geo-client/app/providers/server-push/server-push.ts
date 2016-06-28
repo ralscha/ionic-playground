@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {Position} from '../../position';
+import {Stationary} from '../../stationary';
 
 @Injectable()
 export class ServerPush {
+  private serverURL: string = 'http://192.168.178.84:8888';
   private jsonOptions: RequestOptions;
   private textOptions: RequestOptions;
 
@@ -12,13 +14,18 @@ export class ServerPush {
     this.textOptions = new RequestOptions({ headers: new Headers({ 'Content-Type': 'text/plain' }) });
   }
 
+  pushStationary(stat: Stationary) {
+    this.http.post(this.serverURL + '/stationary', JSON.stringify(stat), this.jsonOptions)
+      .subscribe(() => { }, error => console.log(error));
+  }
+
   pushPosition(pos: Position) {
-    this.http.post("http://192.168.178.20:8888/pos", JSON.stringify(pos), this.jsonOptions)
+    this.http.post(this.serverURL + '/pos', JSON.stringify(pos), this.jsonOptions)
       .subscribe(() => { }, error => console.log(error));
   }
 
   pushError(error: string) {
-    this.http.post("http://192.168.178.20:8888/clienterror", error, this.textOptions)
+    this.http.post(this.serverURL + '/clienterror', error, this.textOptions)
       .subscribe(() => { }, error => console.log(error));
   }
 }

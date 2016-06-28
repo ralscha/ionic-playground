@@ -1,17 +1,26 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {NavController} from 'ionic-angular';
 import {UUID} from 'angular2-uuid';
 import {Observable} from 'rxjs/Observable';
+import {Position} from '../../position';
+import {Stationary} from '../../stationary';
 
 declare var EventSource;
 
 @Component({
   templateUrl: 'build/pages/home/home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
   private uuid: string;
   private map = null;
   private marker = null;
+  private eventSource = null;
+  private stationaryCircles: Array<google.maps.Circle> = [];
+  private currentLocationMarker: google.maps.Marker = null;
+  private locationAccuracyCircle: google.maps.Circle = null;
+  private path: google.maps.Polyline = null;
+  private previousPosition: Position = null;
+  private locationMarkers: Array<google.maps.Marker> = [];
 
   constructor(private navController: NavController) {
     this.uuid = UUID.UUID();
@@ -22,35 +31,121 @@ export class HomePage implements OnInit {
     this.subscribeToServer();
   }
 
+  ngOnDestroy() {
+    this.eventSource.close();
+  }
+
   subscribeToServer() {
-    const observable = Observable.create(observer => {
-      const eventSource = new EventSource("http://192.168.178.20:8888/subscribe/" + this.uuid);
-      eventSource.addEventListener('pos', x => observer.next(JSON.parse(x.data)), false);
-      eventSource.addEventListener('error', x => observer.error(x), false);
+    this.eventSource = new EventSource("subscribe/" + this.uuid);
+    //this.eventSource = new EventSource("http://192.168.178.84:8888/subscribe/" + this.uuid);
 
-      return () => {
-        eventSource.close();
-      };
-    });
+    this.eventSource.addEventListener('pos', x => this.handlePos(JSON.parse(x.data)), false);
+    this.eventSource.addEventListener('stationary', x => this.handleStationary(JSON.parse(x.data)), false);
+    //this.eventSource.addEventListener('error', x => console.error(x), false);
+  }
 
+  handlePos(position: Position) {
+    const latlng = new google.maps.LatLng(position.latitude, position.longitude);
 
-    observable.subscribe({
-      next: pos => this.showMarker(pos),
-      error: err => console.error(err)
-    });
+    if (!this.currentLocationMarker) {
+      this.currentLocationMarker = new google.maps.Marker({
+        map: this.map,
+        position: latlng,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 7,
+          fillColor: 'gold',
+          fillOpacity: 1,
+          strokeColor: 'white',
+          strokeWeight: 3
+        }
+      });
+      this.locationAccuracyCircle = new google.maps.Circle({
+        fillColor: 'purple',
+        fillOpacity: 0.4,
+        strokeOpacity: 0,
+        map: this.map,
+        center: latlng,
+        radius: position.accuracy
+      });
+    }
+    else {
+      this.currentLocationMarker.setPosition(latlng);
+      this.locationAccuracyCircle.setCenter(latlng);
+      this.locationAccuracyCircle.setRadius(position.accuracy);
+    }
+
+    if (this.previousPosition) {
+      this.locationMarkers.push(new google.maps.Marker({
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 7,
+          fillColor: 'green',
+          fillOpacity: 1,
+          strokeColor: 'white',
+          strokeWeight: 3
+        },
+        map: this.map,
+        position: new google.maps.LatLng(this.previousPosition.latitude, this.previousPosition.longitude)
+      }));
+
+      if (this.locationMarkers.length > 100) {
+        const removedMarker = this.locationMarkers.shift();
+        removedMarker.setMap(null);
+      }
+    }
+    else {
+      this.map.setCenter(latlng);
+      if (this.map.getZoom() < 15) {
+        this.map.setZoom(15);
+      }
+    }
+
+    if (!this.path) {
+      this.path = new google.maps.Polyline({
+        map: this.map,
+        strokeColor: 'blue',
+        strokeOpacity: 0.4
+      });
+    }
+    const pathArray = this.path.getPath();
+    pathArray.push(latlng);
+    if (pathArray.getLength() > 100) {
+      pathArray.removeAt(0);
+    }
+
+    this.previousPosition = position;
 
   }
 
-  showMarker(position:{latitude:number,longitude:number}) {
+  handleStationary(stationary: Stationary) {
+    const stationaryCircle = new google.maps.Circle({
+      fillColor: 'pink',
+      fillOpacity: 0.4,
+      strokeOpacity: 0,
+      map: this.map,
+      center: new google.maps.LatLng(stationary.latitude, stationary.longitude),
+      radius: stationary.radius
+    });
+    this.stationaryCircles.push(stationaryCircle);
+
+    if (this.stationaryCircles.length > 10) {
+      const removedCircle = this.stationaryCircles.shift();
+      removedCircle.setMap(null);
+    }
+
+  }
+
+  showMarker(position: Position) {
     if (this.marker != null) {
       this.marker.setMap(null);
     }
-    
+
     const latLng = new google.maps.LatLng(position.latitude, position.longitude);
     this.marker = new google.maps.Marker({
       map: this.map,
       position: latLng
-    });  
+    });
 
     this.map.setCenter(latLng);
     this.map.setZoom(10);
