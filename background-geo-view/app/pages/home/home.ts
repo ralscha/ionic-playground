@@ -36,8 +36,8 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   subscribeToServer() {
-    //this.eventSource = new EventSource("subscribe/" + this.uuid);
-    this.eventSource = new EventSource("http://192.168.178.20:8888/subscribe/" + this.uuid);
+    this.eventSource = new EventSource("subscribe/" + this.uuid);
+    //this.eventSource = new EventSource("http://192.168.178.20:8888/subscribe/" + this.uuid);
 
     this.eventSource.addEventListener('pos', x => this.handlePositions(JSON.parse(x.data)), false);
     this.eventSource.addEventListener('stationary', x => this.handleStationaries(JSON.parse(x.data)), false);
