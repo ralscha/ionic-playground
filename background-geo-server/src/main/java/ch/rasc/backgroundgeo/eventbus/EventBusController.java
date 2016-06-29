@@ -35,5 +35,5 @@ public class EventBusController {
 		this.eventBus.unsubscribe(id);
 		emitter.complete();
 	}
-	
+
 }

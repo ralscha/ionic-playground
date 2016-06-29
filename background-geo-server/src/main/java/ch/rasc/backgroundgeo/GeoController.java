@@ -29,19 +29,20 @@ public class GeoController {
 	@EventListener
 	public void onSubscribe(SubscribeEvent event) {
 		if (!this.positions.isEmpty()) {
-			publisher.publishEvent(
+			this.publisher.publishEvent(
 					EventBusEvent.of(event.clientId(), "pos", this.positions));
 		}
 
 		if (!this.stationaries.isEmpty()) {
-			publisher.publishEvent(
+			this.publisher.publishEvent(
 					EventBusEvent.of(event.clientId(), "stationary", this.stationaries));
 		}
 	}
 
 	@PostMapping(path = "/pos")
 	public void consumeLocation(@RequestBody Position position) {
-		publisher.publishEvent(EventBusEvent.of("pos", Collections.singleton(position)));
+		this.publisher
+				.publishEvent(EventBusEvent.of("pos", Collections.singleton(position)));
 
 		this.positions.add(position);
 		if (this.positions.size() > 100) {
@@ -51,7 +52,7 @@ public class GeoController {
 
 	@PostMapping(path = "/stationary")
 	public void consumeStationary(@RequestBody Stationary stationary) {
-		publisher.publishEvent(
+		this.publisher.publishEvent(
 				EventBusEvent.of("stationary", Collections.singleton(stationary)));
 
 		this.stationaries.add(stationary);

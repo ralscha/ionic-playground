@@ -44,7 +44,7 @@ public class EventBus {
 
 	@EventListener
 	public void handleEvent(EventBusEvent event) {
-		if (clients.isEmpty()) {
+		if (this.clients.isEmpty()) {
 			return;
 		}
 
@@ -60,7 +60,7 @@ public class EventBus {
 		final String json = data;
 
 		if (event.clientId() != null) {
-			EventBusClient client = clients.get(event.clientId());
+			EventBusClient client = this.clients.get(event.clientId());
 			if (client != null) {
 				try {
 					client.emitter()
@@ -68,14 +68,14 @@ public class EventBus {
 				}
 				catch (Exception e) {
 					client.emitter().completeWithError(e);
-					clients.remove(event.clientId());
+					this.clients.remove(event.clientId());
 				}
 			}
 		}
 		else {
 			Set<String> failedClients = new HashSet<>();
 
-			clients.forEach((clientId, client) -> {
+			this.clients.forEach((clientId, client) -> {
 				if (client != null) {
 					try {
 						client.emitter()
