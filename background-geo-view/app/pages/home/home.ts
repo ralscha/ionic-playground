@@ -35,22 +35,50 @@ export class HomePage implements OnInit, OnDestroy {
     this.eventSource.close();
   }
 
-  subscribeToServer() {
-    this.eventSource = new EventSource("subscribe/" + this.uuid);
-    //this.eventSource = new EventSource("http://192.168.178.20:8888/subscribe/" + this.uuid);
+  subscribeToServer(): void {
+    this.eventSource = new EventSource("http://192.168.178.20:8888/subscribe/" + this.uuid);
 
     this.eventSource.addEventListener('pos', x => this.handlePositions(JSON.parse(x.data)), false);
     this.eventSource.addEventListener('stationary', x => this.handleStationaries(JSON.parse(x.data)), false);
+    this.eventSource.addEventListener('clear', x => this.clear(), false);
     //this.eventSource.addEventListener('error', x => console.error(x), false);
   }
-  
-  handlePositions(position: Position[]) {
-     for (let i = 0; i < position.length; i++) {
-         this.handlePosition(position[i]);
-     }
+
+  clear(): void {
+    this.locationMarkers.forEach(r => r.setMap(null));
+    this.locationMarkers = [];
+
+    this.stationaryCircles.forEach(r => r.setMap(null));
+    this.stationaryCircles = [];
+
+    if (this.currentLocationMarker) {
+      this.currentLocationMarker.setMap(null);
+      this.currentLocationMarker = null;
+    }
+
+    if (this.locationAccuracyCircle) {
+      this.locationAccuracyCircle.setMap(null);
+      this.locationAccuracyCircle = null;
+    }
+
+    if (this.path) {
+      this.path.setMap(null);
+      this.path = null;
+    }
   }
 
-  handlePosition(position: Position) {
+  handlePositions(positions: Position[]): void {    
+    for (let i = 0; i < positions.length; i++) {
+      this.handlePosition(positions[i]);
+    }
+    if (positions.length > 0) {
+      const lastPos = positions[positions.length-1];
+      const latlng = new google.maps.LatLng(lastPos.latitude, lastPos.longitude);
+      this.map.setCenter(latlng);
+    }
+  }
+
+  handlePosition(position: Position): void {
     const latlng = new google.maps.LatLng(position.latitude, position.longitude);
 
     if (!this.currentLocationMarker) {
@@ -123,14 +151,14 @@ export class HomePage implements OnInit, OnDestroy {
     this.previousPosition = position;
 
   }
-  
-  handleStationaries(stationary: Stationary[]) {
-     for (let i = 0; i < stationary.length; i++) {
-         this.handleStationary(stationary[i]);
-     }
+
+  handleStationaries(stationary: Stationary[]): void {
+    for (let i = 0; i < stationary.length; i++) {
+      this.handleStationary(stationary[i]);
+    }
   }
 
-  handleStationary(stationary: Stationary) {
+  handleStationary(stationary: Stationary): void {
     const stationaryCircle = new google.maps.Circle({
       fillColor: 'pink',
       fillOpacity: 0.4,
@@ -148,7 +176,7 @@ export class HomePage implements OnInit, OnDestroy {
 
   }
 
-  showMarker(position: Position) {
+  showMarker(position: Position): void {
     if (this.marker != null) {
       this.marker.setMap(null);
     }
@@ -163,7 +191,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.map.setZoom(10);
   }
 
-  loadMap() {
+  loadMap(): void {
     let latLng = new google.maps.LatLng(39, 34);
 
     let mapOptions = {

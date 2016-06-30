@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,8 +40,15 @@ public class GeoController {
 		}
 	}
 
+	@DeleteMapping(path = "/clear")
+	public void clear() {
+		this.stationaries.clear();
+		this.positions.clear();
+		this.publisher.publishEvent(EventBusEvent.of("clear"));
+	}
+
 	@PostMapping(path = "/pos")
-	public void consumeLocation(@RequestBody Position position) {
+	public void handleLocation(@RequestBody Position position) {
 		this.publisher
 				.publishEvent(EventBusEvent.of("pos", Collections.singleton(position)));
 
@@ -51,7 +59,7 @@ public class GeoController {
 	}
 
 	@PostMapping(path = "/stationary")
-	public void consumeStationary(@RequestBody Stationary stationary) {
+	public void handleStationary(@RequestBody Stationary stationary) {
 		this.publisher.publishEvent(
 				EventBusEvent.of("stationary", Collections.singleton(stationary)));
 
@@ -62,7 +70,7 @@ public class GeoController {
 	}
 
 	@PostMapping(path = "/clienterror")
-	public void consumeError(String errorMessage) {
+	public void handleError(String errorMessage) {
 		Application.logger.error(errorMessage);
 	}
 

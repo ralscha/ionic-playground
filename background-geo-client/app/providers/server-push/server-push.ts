@@ -14,18 +14,23 @@ export class ServerPush {
     this.textOptions = new RequestOptions({ headers: new Headers({ 'Content-Type': 'text/plain' }) });
   }
 
-  pushStationary(stat: Stationary) {
+  pushStationary(stat: Stationary): void {
     this.http.post(this.serverURL + '/stationary', JSON.stringify(stat), this.jsonOptions)
       .subscribe(() => { }, error => console.log(error));
   }
 
-  pushPosition(pos: Position) {
+  pushPosition(pos: Position): void {
     this.http.post(this.serverURL + '/pos', JSON.stringify(pos), this.jsonOptions)
       .subscribe(() => { }, error => console.log(error));
   }
 
-  pushError(error: string) {
+  pushError(error: string): void {
     this.http.post(this.serverURL + '/clienterror', error, this.textOptions)
       .subscribe(() => { }, error => console.log(error));
   }
+
+  clear(): void {
+    this.http.delete(this.serverURL + '/clear').subscribe(() => { }, error => console.log(error));
+  }
+
 }
