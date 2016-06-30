@@ -59,7 +59,10 @@ export class LocationTracker {
       notificationTitle: 'background-geo',
       notificationText: 'Demonstrate background geolocation',
       activityType: 'AutomotiveNavigation',
-      locationProvider: backgroundGeoLocation.provider.ANDROID_DISTANCE_FILTER_PROVIDER
+      locationProvider: backgroundGeoLocation.provider.ANDROID_ACTIVITY_PROVIDER,
+      interval: 90000,
+      fastestInterval: 60000,
+      activitiesInterval: 80000
     };
 
     backgroundGeoLocation.configure(loc => {
