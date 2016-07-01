@@ -1,0 +1,1 @@
+http://www.morphatic.com/2016/06/23/creating-a-filter-pipe-for-angular-2-in-ionic-2/
