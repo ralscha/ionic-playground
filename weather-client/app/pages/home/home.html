@@ -23,7 +23,7 @@
 
 <ion-content #weatherContent *ngIf="locations.length" padding [ngClass]="curClass">
 
-  <ion-slides #mySlides (ionDidChange)="onSlideChanged()" pager="true">
+  <ion-slides #mySlides (ionDidChange)="onSlideChanged()" pager>
     <ion-slide *ngFor="let wd of weatherData">
       <h2 *ngIf="wd">{{wd.name}}</h2>
 
