@@ -1,0 +1,1 @@
+http://www.joshmorony.com/boosting-scroll-performance-in-ionic-2/
