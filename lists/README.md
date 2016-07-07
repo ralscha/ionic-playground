@@ -1,0 +1,1 @@
+http://www.joshmorony.com/an-introduction-to-lists-in-ionic-2/

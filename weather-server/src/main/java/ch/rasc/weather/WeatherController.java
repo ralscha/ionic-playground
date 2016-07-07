@@ -14,7 +14,6 @@ import ch.rasc.forcastio.model.FioBlock;
 import ch.rasc.forcastio.model.FioRequest;
 import ch.rasc.forcastio.model.FioResponse;
 import ch.rasc.forcastio.model.FioUnit;
-import ch.rasc.forcastio.model.ImmutableFioRequest;
 
 @RestController
 public class WeatherController {
@@ -49,9 +48,9 @@ public class WeatherController {
 	public FioResponse forecast(@RequestParam("lat") String latitude,
 			@RequestParam("lng") String longitude) throws Exception {
 
-		FioRequest request = ImmutableFioRequest.builder().latitude(latitude)
+		FioRequest request = FioRequest.builder().latitude(latitude)
 				.longitude(longitude)
-				.addExcludeBlock(FioBlock.ALERTS, FioBlock.MINUTELY, FioBlock.HOURLY)
+				.excludeBlock(FioBlock.ALERTS, FioBlock.MINUTELY, FioBlock.HOURLY)
 				.unit(FioUnit.SI).build();
 
 		return this.fioClient.forecastCall(request);
