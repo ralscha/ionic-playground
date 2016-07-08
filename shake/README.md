@@ -1,0 +1,1 @@
+https://www.raymondcamden.com/2016/07/07/working-with-ionic-native-shake-rattle-and-roll/
