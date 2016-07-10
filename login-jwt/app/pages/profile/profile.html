@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="login" padding>
+
+  <div *ngIf="auth.authenticated()">
+    <h1>Welcome, {{ user }}</h1>
+    <button block (click)="logout()">Logout</button>
+  </div>
+
+  <div *ngIf="!auth.authenticated()">
+
+    <ion-segment [(ngModel)]="authType">
+      <ion-segment-button value="login">
+        Login
+      </ion-segment-button>
+      <ion-segment-button value="signup">
+        Signup
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="authType">
+      <form *ngSwitchCase="'login'" #loginCreds="ngForm" (ngSubmit)="login(loginCreds.value)">
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input type="text" ngControl="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input type="password" ngControl="password"></ion-input>
+        </ion-item>
+
+        <div padding>
+          <button block type="submit">Login</button>
+        </div>
+
+      </form>
+
+      <form *ngSwitchCase="'signup'" #signupCreds="ngForm" (ngSubmit)="signup(signupCreds.value)">
+        <ion-item>
+          <ion-label>Username</ion-label>
+          <ion-input type="text" ngControl="username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input type="password" ngControl="password"></ion-input>
+        </ion-item>
+
+        <div padding>
+          <button block type="submit">Signup</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div padding>
+      <p *ngIf="error" class="error">{{ error._body }}</p>
+    </div>
+
+
+  </div>
+
+</ion-content>

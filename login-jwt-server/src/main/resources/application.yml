@@ -1,0 +1,10 @@
+app:
+  secret: the_secret
+  
+spring:
+  mvc:
+    favicon:
+      enabled: false
+  resources:
+    add-mappings: false
+
