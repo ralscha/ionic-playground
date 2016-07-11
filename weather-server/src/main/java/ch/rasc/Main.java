@@ -3,10 +3,7 @@ package ch.rasc;
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
 
 import ch.rasc.forcastio.FioClient;
 import ch.rasc.forcastio.model.FioBlock;
