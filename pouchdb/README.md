@@ -1,0 +1,1 @@
+http://gonehybrid.com/how-to-use-pouchdb-sqlite-for-local-storage-in-ionic-2/
