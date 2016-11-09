@@ -9,20 +9,20 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.GeocodingResult;
 
-import ch.rasc.forcastio.FioClient;
-import ch.rasc.forcastio.model.FioBlock;
-import ch.rasc.forcastio.model.FioRequest;
-import ch.rasc.forcastio.model.FioResponse;
-import ch.rasc.forcastio.model.FioUnit;
+import ch.rasc.darksky.DsClient;
+import ch.rasc.darksky.model.DsBlock;
+import ch.rasc.darksky.model.DsForecastRequest;
+import ch.rasc.darksky.model.DsResponse;
+import ch.rasc.darksky.model.DsUnit;
 
 @RestController
 public class WeatherController {
 	private final AppConfig appConfig;
-	private final FioClient fioClient;
+	private final DsClient dsClient;
 
 	public WeatherController(AppConfig appConfig) {
 		this.appConfig = appConfig;
-		this.fioClient = new FioClient(appConfig.getForecastioApiKey());
+		this.dsClient = new DsClient(appConfig.getDarkskyApiKey());
 	}
 
 	@CrossOrigin
@@ -45,15 +45,15 @@ public class WeatherController {
 
 	@CrossOrigin
 	@GetMapping("/forecast")
-	public FioResponse forecast(@RequestParam("lat") String latitude,
+	public DsResponse forecast(@RequestParam("lat") String latitude,
 			@RequestParam("lng") String longitude) throws Exception {
 
-		FioRequest request = FioRequest.builder().latitude(latitude)
+		DsForecastRequest request = DsForecastRequest.builder().latitude(latitude)
 				.longitude(longitude)
-				.excludeBlock(FioBlock.ALERTS, FioBlock.MINUTELY, FioBlock.HOURLY)
-				.unit(FioUnit.SI).build();
+				.excludeBlock(DsBlock.ALERTS, DsBlock.MINUTELY, DsBlock.HOURLY)
+				.unit(DsUnit.SI).build();
 
-		return this.fioClient.forecastCall(request);
+		return this.dsClient.sendForecastRequest(request);
 	}
 
 }

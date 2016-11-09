@@ -6,15 +6,15 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "app")
 @Component
 public class AppConfig {
-	private String forecastioApiKey;
+	private String darkskyApiKey;
 	private String googleMapApiKey;
 
-	public String getForecastioApiKey() {
-		return forecastioApiKey;
+	public String getDarkskyApiKey() {
+		return darkskyApiKey;
 	}
 
-	public void setForecastioApiKey(String forecastioApiKey) {
-		this.forecastioApiKey = forecastioApiKey;
+	public void setDarkskyApiKey(String darkskyApiKey) {
+		this.darkskyApiKey = darkskyApiKey;
 	}
 
 	public String getGoogleMapApiKey() {
