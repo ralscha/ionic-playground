@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons start>
-      <button royal (click)="doAdd()">
-      <ion-icon name="add-circle"></ion-icon>
-      </button>
+        <button ion-button (click)="doDelete()">
+          <ion-icon name="trash"></ion-icon>
+        </button>      
+        <button ion-button (click)="doAdd()">
+          <ion-icon name="add-circle"></ion-icon>
+        </button>
     </ion-buttons>
     <ion-title>
       Weather
@@ -11,30 +14,30 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content *ngIf="!locations.length" padding>
   <h2>No Locations</h2>
   <p>
     You currently don't have any locations. Please add one.
   </p>
 
-  <button full (click)="doAdd()">Add Location</button>
+  <button ion-button full (click)="doAdd()">Add Location</button>
 </ion-content>
+
 
 <ion-content #weatherContent *ngIf="locations.length" padding [ngClass]="curClass">
 
-  <ion-slides #mySlides (ionDidChange)="onSlideChanged()" pager>
+  <ion-slides [options]="slidesOptions" #mySlides (ionDidChange)="onSlideChanged()">
     <ion-slide *ngFor="let wd of weatherData">
       <h2 *ngIf="wd">{{wd.name}}</h2>
 
       <div *ngIf="wd">
         <p>
-          {{ wd.summary }}
+          {{wd.summary}}
         </p>
         <p style="text-align:justify">
-          It is currently {{ wd.temperature | number:'2.0-0' }} &deg;C and there is {{wd.precipProbability
-          | percent}} chance of rain. Tomorrow will be {{wd.tomorrow.summary}} with the low being {{ wd.tomorrow.temperatureMin
-          | number:'2.0-0' }} &deg;C and a high of {{ wd.tomorrow.temperatureMax | number:'2.0-0' }} &deg;C.
+          It is currently {{ wd.temperature | number:'2.0-0' }} &deg;C and there is {{wd.precipProbability | percent}} chance of rain.
+          Tomorrow will be {{wd.tomorrow.summary}} with the low being {{ wd.tomorrow.temperatureMin | number:'2.0-0' }} &deg;C
+          and a high of {{ wd.tomorrow.temperatureMax | number:'2.0-0' }} &deg;C.
         </p>
         <p style="text-align:justify" *ngIf="wd.nearestStormDistance">
           The nearest storm to you is {{wd.nearestStormDistance}} miles away.
@@ -44,7 +47,6 @@
   </ion-slides>
 
   <!--
-
 	<p>
 	Wind Speed: {{weather.windSpeed}} mph
 	<p>

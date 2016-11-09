@@ -1,5 +1,5 @@
 {
-  "name": "Weather",
+  "name": "weather-client",
   "app_id": "",
   "v2": true,
   "typescript": true

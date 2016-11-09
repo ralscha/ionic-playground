@@ -3,9 +3,9 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class GeocodeService {
+export class GeocodeProvider {
 
-  private endpoint: string = 'http://192.168.178.20:8888/geocode';
+  private endpoint: string = 'http://192.168.178.20:8080/geocode';
 
   constructor(private http: Http) {
   }

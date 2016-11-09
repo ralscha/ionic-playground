@@ -3,9 +3,9 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class WeatherService {
+export class WeatherProvider {
 
-  private endpoint: string = 'http://192.168.178.20:8888/forecast';
+  private endpoint: string = 'http://192.168.178.20:8080/forecast';
 
   constructor(private http: Http) {
   }
