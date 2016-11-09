@@ -1,26 +1,26 @@
-import {Component} from '@angular/core';
-import {NavController, Platform} from 'ionic-angular';
-import {CatProvider} from '../../providers/cat-provider/cat-provider';
-import {DeviceMotion} from 'ionic-native';
-import { Cat } from '../../cat.ts';
+import { CatProvider } from './../../providers/cat-provider';
+import { Cat } from './../../providers/cat';
+import { Component } from '@angular/core';
+import { DeviceMotion } from 'ionic-native';
+import { NavController, Platform } from 'ionic-angular';
 
 @Component({
-  providers: [CatProvider],
-  templateUrl: 'build/pages/home/home.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
-  public cats: Array<Cat>;
+  cats: Array<Cat>;
   private lastX: number;
   private lastY: number;
   private lastZ: number;
   private moveCounter: number = 0;
 
-  constructor(public catProvider: CatProvider, private navController: NavController, platform: Platform) {
+  constructor(private catProvider: CatProvider, private navController: NavController, platform: Platform) {
     this.loadCats();
 
     platform.ready().then(() => {
-      var subscription = DeviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
+      DeviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
 
         if (!this.lastX) {
           this.lastX = acc.x;
@@ -41,7 +41,6 @@ export class HomePage {
         }
 
         if (this.moveCounter > 2) {
-          console.log('SHAKE');
           this.loadCats();
           this.moveCounter = 0;
         }
@@ -53,11 +52,6 @@ export class HomePage {
       });
     });
 
-  }
-
-  loadMore() {
-    console.log('load more cats');
-    this.loadCats();
   }
 
   loadCats() {

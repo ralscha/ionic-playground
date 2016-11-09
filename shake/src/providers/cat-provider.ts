@@ -1,11 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Cat } from '../../cat.ts';
+import { Cat } from './cat';
 
-
-@Injectable()
 export class CatProvider {
-  data: Cat[];
+  private data: Cat[];
 
   constructor() {
     // hard coded initial data
@@ -19,7 +15,7 @@ export class CatProvider {
   makeCat(): Cat {
     return {
       "name": "Cat " + (this.data.length + 1),
-      "id": +(this.data.length + 1)
+      "id": + (this.data.length + 1)
     }
   }
 
@@ -29,4 +25,3 @@ export class CatProvider {
     return Promise.resolve(this.data);
   }
 }
-
