@@ -1,12 +1,14 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import { Component } from '@angular/core';
+
+import { NavController } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'build/pages/home/home.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class HomePage {
   
-  private items: { title: string, body: string, avatarUrl: string }[] = [];
+  items: { title: string, body: string, avatarUrl: string }[] = [];
 
   constructor(private navController: NavController) {
 

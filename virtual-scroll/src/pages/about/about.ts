@@ -1,16 +1,18 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import { Component } from '@angular/core';
+
+import { NavController } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'build/pages/about/about.html'
+  selector: 'page-about',
+  templateUrl: 'about.html'
 })
 export class AboutPage {
-  
-  private items: { title: string, body: string, avatarUrl: string }[] = [];
+
+  items: { title: string, body: string, avatarUrl: string }[] = [];
 
   constructor(private navController: NavController) {
      for (let i = 0; i < 2000; i++) {
-
+       
       let item = {
         title: 'Title',
         body: 'body',
@@ -20,4 +22,5 @@ export class AboutPage {
       this.items.push(item);
     }
   }
+
 }
