@@ -1,0 +1,1 @@
+http://www.joshmorony.com/creating-an-advanced-google-maps-component-in-ionic-2/
