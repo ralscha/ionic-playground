@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Contacts</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+    <ion-item-group *ngFor="let group of groupedContacts">
+      <ion-item-divider style="background-color: lightgray; color: black;">{{group.letter}}</ion-item-divider>
+      <ion-item *ngFor="let contact of group.contacts">{{contact}}</ion-item>
+    </ion-item-group>
+</ion-content>
