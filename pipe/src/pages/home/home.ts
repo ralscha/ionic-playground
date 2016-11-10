@@ -1,18 +1,16 @@
-import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
-import {ArrayFilterPipe} from "../../pipes/array-filter-pipe.ts";
+import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: 'build/pages/home/home.html',
-  pipes: [ArrayFilterPipe]
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
-  private players: Player[];
-  private teams: Team[];
-  private teamId: number;
+  players: Player[];
+  teams: Team[];
+  teamId: number;
 
-  constructor(private navController: NavController) {
+  constructor() {
 
     this.players = [
       {
