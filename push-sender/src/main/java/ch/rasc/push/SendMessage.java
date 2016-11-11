@@ -6,7 +6,6 @@ import java.util.Collections;
 public class SendMessage {
 
 	public static void main(String[] args) throws IOException {
-
 		FcmClient client = new FcmClient(args[0]);
 
 		FcmNotification notification = FcmNotification.builder()
