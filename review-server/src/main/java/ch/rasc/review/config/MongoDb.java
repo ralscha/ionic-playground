@@ -25,10 +25,7 @@ public class MongoDb {
 
 	@PostConstruct
 	public void createIndexes() {
-		// if (!indexExists(Review.class, "title")) {
-		// this.getCollection(Review.class)
-		// .createIndex(Indexes.ascending("title"));
-		// }
+		// nothing here
 	}
 
 	public boolean indexExists(Class<?> clazz, String indexName) {

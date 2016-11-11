@@ -1,15 +1,15 @@
 <ion-header>
-  <ion-navbar primary>
+  <ion-navbar transparent>
     <ion-title>
       Review King
     </ion-title>
     <ion-buttons end>
-      <button (click)="addReview()"><ion-icon name="add"></ion-icon></button>
+      <button ion-button icon-only (click)="addReview()"><ion-icon name="add"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="home" padding>
+<ion-content padding>
 
   <ion-list no-lines>
 
@@ -31,10 +31,10 @@
       </ion-item>
 
       <ion-item-options>
-        <button danger (click)="deleteReview(review)">
-            <ion-icon name="trash"></ion-icon>
-            Delete
-          </button>
+        <button ion-button color="danger" (click)="deleteReview(review)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
       </ion-item-options>
     </ion-item-sliding>
 
