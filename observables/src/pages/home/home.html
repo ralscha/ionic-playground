@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Wikipedia Search
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar [formControl]="term"></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items | async">{{item}}</ion-item>
+  </ion-list>
+</ion-content>
