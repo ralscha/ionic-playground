@@ -1,1 +1,0 @@
-http://www.joshmorony.com/an-in-depth-explanation-of-providers-in-ionic-2/
