@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Get a Quote!</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to the Ionic 2 Quotes App!</h2>
+  <p>You can get a regular quote below, or you can sign in to get a secret quote.</p>
+
+  <button ion-button (click)="getQuote()">Get Quote</button>
+  <button ion-button *ngIf="auth.authenticated()" (click)="getSecretQuote()">Get Secret Quote</button>
+
+  <h3 *ngIf="quote">{{ quote.joke }}</h3>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+</ion-content>

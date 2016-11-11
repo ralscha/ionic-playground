@@ -3,6 +3,7 @@ package ch.rasc.loginjwt;
 import java.util.Collections;
 import java.util.Map;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,15 +18,18 @@ public class SignupController {
 
 	private final TokenHandler tokenHandler;
 
-	public SignupController(UserService userService, TokenHandler tokenHandler) {
+	private final PasswordEncoder passwordEncoder;
+	
+	public SignupController(PasswordEncoder passwordEncoder, UserService userService, TokenHandler tokenHandler) {
 		this.userService = userService;
 		this.tokenHandler = tokenHandler;
+		this.passwordEncoder = passwordEncoder;
 	}
 
 	@CrossOrigin
 	@PostMapping("signup")
 	public Map<String, String> signup(@RequestBody SignupRequest request) {
-		User newUser = new User(request.username(), request.password());
+		User newUser = new User(request.username(), passwordEncoder.encode(request.password()));
 		this.userService.save(newUser);
 
 		String token = this.tokenHandler.createToken(newUser.getUsername());

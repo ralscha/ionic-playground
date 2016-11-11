@@ -1,15 +1,15 @@
+import { AuthService } from './../../providers/auth-service';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import {AuthService} from '../../auth';
-import {Http, Headers} from '@angular/http';
-import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
+import { Http } from '@angular/http';
+import { AuthHttp } from 'angular2-jwt';
 
 @Component({
-  templateUrl: 'build/pages/quotes/quotes.html',
+  selector: 'page-quotes',
+  templateUrl: 'quotes.html'
 })
 export class QuotesPage {
   API: string = "http://localhost:8080";
-  quote: {id:number,joke:string};
+  quote: { id: number, joke: string };
   error: string;
   auth: AuthService;
 
