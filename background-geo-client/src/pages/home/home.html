@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Background-Geolocation
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button color="primary" (click)="start()" [disabled]="tracking">Start Tracking</button>
+  <button ion-button color="primary" (click)="stop()" [disabled]="!tracking">Stop Tracking</button>
+  <button ion-button color="primary" (click)="clear()">Clear Data</button>
+</ion-content>

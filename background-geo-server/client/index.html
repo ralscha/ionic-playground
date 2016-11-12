@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Background Geolocation Example">
+    <meta name="author" content="Ralph">
+
+    <title>Background Geolocation</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 1rem;
+        }
+        
+        #map {
+            position: absolute;
+            top: 55px;
+            left: 10px;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h3>Background Geolocation Example</h3>
+        <div id="map"></div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2y-I-eMaEgzw2nB3_HV4eMRokbONHeDY&callback=init" async
+        defer></script>
+    <script src="eventsource.min.js"></script>
+    <script src="fetch.js"></script>
+    <script src="uuid.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

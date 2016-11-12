@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
- 			<exclusions>
+			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -36,22 +36,22 @@
 			</exclusions>
 		</dependency>
 
- 		<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-undertow</artifactId>
-			<exclusions>
-				<exclusion>
-					<artifactId>undertow-websockets-jsr</artifactId>
-					<groupId>io.undertow</groupId>
-				</exclusion>
-			</exclusions>
- 		</dependency>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.immutables</groupId>
 			<artifactId>value</artifactId>
-			<version>2.3.8</version>
+			<version>2.3.9</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.jodah</groupId>
+			<artifactId>expiringmap</artifactId>
+			<version>0.5.7</version>
 		</dependency>
 
 		<dependency>
@@ -64,7 +64,7 @@
 	</dependencies>
 
 	<build>
-	    <finalName>backgroundgeo</finalName>
+		<finalName>backgroundgeo</finalName>
 		<plugins>
 
 			<plugin>
@@ -85,28 +85,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.4.0</version>
-				<executions>
-					<execution>
-						<id>ionic-builder</id>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<phase>prepare-package</phase>
-						<configuration>
-							<executable>ionic</executable>
-							<workingDirectory>${basedir}/../background-geo-view</workingDirectory>
-							<arguments>
-								<argument>build</argument>
-							</arguments>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
@@ -115,16 +93,29 @@
 							<target>
 
 								<copy todir="${basedir}/target/classes/static">
-									<fileset dir="${basedir}/../background-geo-view/www/">
-									   <exclude name="**/*.map" />
+									<fileset dir="${basedir}/client">
+										<include name="index.html" />
+										<include name="bootstrap.min.css" />
 									</fileset>
 								</copy>
-								
-								<replace file="${basedir}/target/classes/static/build/js/app.bundle.js">
-									<replacefilter token="http://192.168.178.20:8888/subscribe/"
-										           value="subscribe/" />
+
+							   <concat destfile="${basedir}/target/classes/static/app.js">
+							     <fileset file="${basedir}/client/eventsource.min.js" />
+							     <fileset file="${basedir}/client/fetch.js" />
+							     <fileset file="${basedir}/client/uuid.js" />
+							     <fileset file="${basedir}/client/app.js" />
+							   </concat>
+
+								<checksum file="${basedir}/target/classes/static/app.js"
+									algorithm="SHA-1" property="app_sha1" />
+
+								<replace file="${basedir}/target/classes/static/index.html">
+								    <replacefilter token="&lt;script src=&quot;eventsource.min.js&quot;>&lt;/script>" value="" />
+								    <replacefilter token="&lt;script src=&quot;fetch.js&quot;>&lt;/script>" value="" />
+								    <replacefilter token="&lt;script src=&quot;uuid.js&quot;>&lt;/script>" value="" />
+									<replacefilter token="app.js" value="app.js?_dc=${app_sha1}" />
 								</replace>
-								
+
 							</target>
 						</configuration>
 						<goals>
@@ -133,8 +124,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
-			
+
 		</plugins>
 	</build>
 

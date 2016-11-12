@@ -29,14 +29,17 @@ public class GeoController {
 
 	@EventListener
 	public void onSubscribe(SubscribeEvent event) {
-		if (!this.positions.isEmpty()) {
-			this.publisher.publishEvent(
-					EventBusEvent.of(event.clientId(), "pos", this.positions));
+		if (event.name().equals("pos")) {
+			if (!this.positions.isEmpty()) {
+				this.publisher.publishEvent(
+						EventBusEvent.one(event.clientId(), "pos", this.positions));
+			}
 		}
-
-		if (!this.stationaries.isEmpty()) {
-			this.publisher.publishEvent(
-					EventBusEvent.of(event.clientId(), "stationary", this.stationaries));
+		else if (event.name().equals("stationary")) {
+			if (!this.stationaries.isEmpty()) {
+				this.publisher.publishEvent(EventBusEvent.one(event.clientId(),
+						"stationary", this.stationaries));
+			}
 		}
 	}
 
@@ -44,13 +47,13 @@ public class GeoController {
 	public void clear() {
 		this.stationaries.clear();
 		this.positions.clear();
-		this.publisher.publishEvent(EventBusEvent.of("clear"));
+		this.publisher.publishEvent(EventBusEvent.all("clear"));
 	}
 
 	@PostMapping(path = "/pos")
 	public void handleLocation(@RequestBody Position position) {
 		this.publisher
-				.publishEvent(EventBusEvent.of("pos", Collections.singleton(position)));
+				.publishEvent(EventBusEvent.all("pos", Collections.singleton(position)));
 
 		this.positions.add(position);
 		if (this.positions.size() > 100) {
@@ -61,7 +64,7 @@ public class GeoController {
 	@PostMapping(path = "/stationary")
 	public void handleStationary(@RequestBody Stationary stationary) {
 		this.publisher.publishEvent(
-				EventBusEvent.of("stationary", Collections.singleton(stationary)));
+				EventBusEvent.all("stationary", Collections.singleton(stationary)));
 
 		this.stationaries.add(stationary);
 		if (this.stationaries.size() > 10) {

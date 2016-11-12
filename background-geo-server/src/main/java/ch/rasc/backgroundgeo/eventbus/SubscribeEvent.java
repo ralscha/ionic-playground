@@ -10,8 +10,11 @@ public interface SubscribeEvent {
 	@Value.Parameter
 	String clientId();
 
-	public static SubscribeEvent of(String clientId) {
-		return ImmutableSubscribeEvent.of(clientId);
+	@Value.Parameter
+	String name();
+
+	public static SubscribeEvent of(String clientId, String name) {
+		return ImmutableSubscribeEvent.of(clientId, name);
 	}
 
 }
