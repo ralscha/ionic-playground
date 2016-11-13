@@ -1,26 +1,27 @@
-import {Component} from '@angular/core';
-import {Modal, NavParams, ViewController} from 'ionic-angular';
-import {BirthdayProvider} from '../../providers/birthday-provider/birthday-provider';
+import { BirthdayService } from './../../providers/birthday-service';
+import { Component } from '@angular/core';
+import { NavParams, ViewController } from 'ionic-angular';
 
 @Component({
-  templateUrl: 'build/pages/details/details.html',
+  selector: 'page-details',
+  templateUrl: 'details.html'
 })
 export class DetailsPage {
-  public birthday;
+  public birthday = {Name:'', Date: null};
   public isNew = true;
   public action = 'Add';
   public isoDate = '';
 
   constructor(private viewCtrl: ViewController,
     private navParams: NavParams,
-    private birthdayProvider: BirthdayProvider) {
+    private birthdayService: BirthdayService) {
   }
 
-  ionViewLoaded() {
+  ionViewDidLoad() {
     this.birthday = this.navParams.get('birthday');
 
-    if (!this.birthday) {
-      this.birthday = {};
+    if (!this.birthday || this.birthday.Date === null) {
+      this.birthday = {Name:'', Date: null};
     }
     else {
       this.isNew = false;
@@ -33,10 +34,10 @@ export class DetailsPage {
     this.birthday.Date = new Date(this.isoDate);
 
     if (this.isNew) {
-      this.birthdayProvider.add(this.birthday)
+      this.birthdayService.add(this.birthday)
         .catch(console.error.bind(console));
     } else {
-      this.birthdayProvider.update(this.birthday)
+      this.birthdayService.update(this.birthday)
         .catch(console.error.bind(console));
     }
 
@@ -44,7 +45,7 @@ export class DetailsPage {
   }
 
   delete() {
-    this.birthdayProvider.delete(this.birthday)
+    this.birthdayService.delete(this.birthday)
       .catch(console.error.bind(console));
 
     this.dismiss();

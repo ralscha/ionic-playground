@@ -1,13 +1,18 @@
-import {Injectable} from '@angular/core';
-let PouchDB = require('pouchdb');
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import * as PouchDB from 'pouchdb';
 
 @Injectable()
-export class BirthdayProvider {
+export class BirthdayService {
   private _db;
   private _birthdays;
 
   initDB() {
     this._db = new PouchDB('birthday2', { adapter: 'websql' });
+  }
+
+  constructor(public http: Http) {
   }
 
   add(birthday) {
@@ -49,6 +54,7 @@ export class BirthdayProvider {
       return Promise.resolve(this._birthdays);
     }
   }
+
 
   private onDatabaseChange = (change) => {
     var index = this.findIndex(this._birthdays, change.id);
