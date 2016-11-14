@@ -1,4 +1,4 @@
-package ch.rasc.backgroundgeo.eventbus;
+package ch.rasc.backgroundgeo;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
@@ -8,14 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import ch.rasc.sse.eventbus.SseEventBus;
+
 @Controller
 public class EventBusController {
 
-	private final EventBus eventBus;
+	private final SseEventBus eventBus;
 
 	private final ApplicationEventPublisher publisher;
 
-	public EventBusController(EventBus eventBus, ApplicationEventPublisher publisher) {
+	public EventBusController(SseEventBus eventBus, ApplicationEventPublisher publisher) {
 		this.eventBus = eventBus;
 		this.publisher = publisher;
 	}
@@ -23,10 +25,7 @@ public class EventBusController {
 	@CrossOrigin
 	@GetMapping("/register/{id}")
 	public SseEmitter eventbus(@PathVariable("id") String id) {
-		SseEmitter emitter = new SseEmitter(180_000L);
-		emitter.onTimeout(emitter::complete);
-		this.eventBus.registerClient(EventBusClient.of(id, emitter));
-		return emitter;
+		return eventBus.createSseEmitter(id);
 	}
 
 	@CrossOrigin

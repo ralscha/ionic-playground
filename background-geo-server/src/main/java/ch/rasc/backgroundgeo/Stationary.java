@@ -1,5 +1,7 @@
 package ch.rasc.backgroundgeo;
 
+import javax.annotation.Nullable;
+
 import org.immutables.value.Value;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,9 +14,17 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonDeserialize(as = ImmutableStationary.class)
 public interface Stationary {
 
+	@Nullable
+	Double accuracy();
+
+	@Nullable
+	Long time();
+
 	double latitude();
 
 	double longitude();
 
-	double radius();
+	@Nullable
+	Double radius();
+
 }

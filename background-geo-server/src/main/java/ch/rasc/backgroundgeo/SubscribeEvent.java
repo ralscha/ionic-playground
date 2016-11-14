@@ -1,7 +1,8 @@
-package ch.rasc.backgroundgeo.eventbus;
+package ch.rasc.backgroundgeo;
 
 import org.immutables.value.Value;
 import org.immutables.value.Value.Style.ImplementationVisibility;
+
 
 @Value.Style(visibility = ImplementationVisibility.PACKAGE)
 @Value.Immutable(copy = false, builder = false)

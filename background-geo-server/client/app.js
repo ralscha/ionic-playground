@@ -9,7 +9,9 @@ function init() {
 }
 
 window.onbeforeunload = function (e) {
-  eventSource.close();
+  if (eventSource) {
+    eventSource.close();
+  }
 }
 
 function loadMap() {
@@ -27,8 +29,18 @@ function loadMap() {
 function subscribeToServer() {
   eventSource = new EventSource(`/register/${uuid}`);
 
-  eventSource.addEventListener('pos', x => handlePositions(JSON.parse(x.data)), false);
-  eventSource.addEventListener('stationary', x => handleStationaries(JSON.parse(x.data)), false);
+  eventSource.addEventListener('pos', response => {
+		for (let line of response.data.split('\n')) {
+			handlePositions(JSON.parse(line));
+		}
+	}, false);
+  
+  eventSource.addEventListener('stationary', response => {
+		for (let line of response.data.split('\n')) {
+			handleStationaries(JSON.parse(line));
+		}
+	}, false);
+
   eventSource.addEventListener('clear', x => clear(), false);
   eventSource.addEventListener('open', () => fetch(`/subscribe/${uuid}/pos,stationary,clear`), false);
 }
@@ -150,21 +162,22 @@ function handleStationaries(stationary) {
 }
 
 function handleStationary(stationary) {
-  const stationaryCircle = new google.maps.Circle({
-    fillColor: 'pink',
-    fillOpacity: 0.4,
-    strokeOpacity: 0,
-    map: map,
-    center: new google.maps.LatLng(stationary.latitude, stationary.longitude),
-    radius: stationary.radius
-  });
-  stationaryCircles.push(stationaryCircle);
-
-  if (stationaryCircles.length > 10) {
-    const removedCircle = stationaryCircles.shift();
-    removedCircle.setMap(null);
+  if (stationary.radius) {
+	  const stationaryCircle = new google.maps.Circle({
+	    fillColor: 'pink',
+	    fillOpacity: 0.4,
+	    strokeOpacity: 0,
+	    map: map,
+	    center: new google.maps.LatLng(stationary.latitude, stationary.longitude),
+	    radius: stationary.radius
+	  });
+	  stationaryCircles.push(stationaryCircle);
+	
+	  if (stationaryCircles.length > 10) {
+	    const removedCircle = stationaryCircles.shift();
+	    removedCircle.setMap(null);
+	  }
   }
-
 }
 
 function showMarker(position) {

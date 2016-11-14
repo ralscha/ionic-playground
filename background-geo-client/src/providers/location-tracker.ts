@@ -1,3 +1,4 @@
+import { Platform } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { Geolocation, BackgroundGeolocation } from 'ionic-native';
 import { Position } from '../position';
@@ -8,9 +9,11 @@ import 'rxjs/add/operator/concat';
 @Injectable()
 export class LocationTracker {
 
-  constructor(private serverPush: ServerPush) {
-    //this.configureStationaryTracking();
-    this.configureTracking();
+  constructor(private serverPush: ServerPush, platform: Platform) {
+     platform.ready().then(() => {
+        this.configureStationaryTracking();
+        this.configureTracking();
+     });
   }
 
   startTracking(): void {
@@ -36,14 +39,14 @@ export class LocationTracker {
       });
     });
   }
-  /*
-    configureStationaryTracking(): void {
-      backgroundGeolocation.onStationary(location => {
-        this.serverPush.pushStationary(location);
-        backgroundGeoLocation.finish();
-      });
-    }
-  */
+
+  configureStationaryTracking(): void {
+    BackgroundGeolocation.onStationary().then(location => {
+      this.serverPush.pushStationary(location);
+      BackgroundGeolocation.finish();
+    });
+  }
+
   configureTracking(): void {
     const backgroundOptions = {
       desiredAccuracy: 10,

@@ -5,8 +5,8 @@ import { Stationary } from '../stationary';
 
 @Injectable()
 export class ServerPush {
-  //private serverURL: string = 'https://geo.rasc.ch';
-  private serverURL: string = 'http://192.168.178.20:8080';
+  private serverURL: string = 'https://geo.rasc.ch';
+  //private serverURL: string = 'http://192.168.178.20:8080';
   private jsonOptions: RequestOptions;
   private textOptions: RequestOptions;
 
