@@ -1,0 +1,1 @@
+https://github.com/ccoenraets/ionic2-realty-rest
