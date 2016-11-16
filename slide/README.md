@@ -1,0 +1,1 @@
+http://blog.ionic.io/creating-slides-in-ionic-2/
