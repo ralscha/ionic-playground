@@ -1,35 +1,28 @@
-import { PropertyDetailsPage } from './../property-details/property-details';
+import { PropertyDetailPage } from './../property-detail/property-detail';
 import { PropertyService } from './../../providers/property-service';
 import { Component } from '@angular/core';
-import { NavParams, NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-favorite-list',
   templateUrl: 'favorite-list.html'
 })
 export class FavoriteListPage {
-  properties;
-  selectedItem;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private propertyService: PropertyService) {
-    this.selectedItem = navParams.get('item');
+  properties: Array<any>;
+  propertyService: PropertyService;
+
+  constructor(public navCtrl: NavController, public service: PropertyService) {
+    this.propertyService = service;
+    this.properties = this.propertyService.getFavorites();
   }
 
-  ionViewDidLoad() {
-    this.propertyService.getFavorites().subscribe(
-      data => this.properties = data
-    );
+  itemTapped(property) {
+    this.navCtrl.push(PropertyDetailPage, property);
   }
 
-
-  itemTapped(event, property) {
-    this.navCtrl.push(PropertyDetailsPage, {
-      property: property
-    });
-  }
-
-  deleteItem(event, property) {
-    this.propertyService.unfavorite(property).subscribe();
+  deleteItem(property) {
+    this.propertyService.unfavorite(property);
   }
 
 }

@@ -7,14 +7,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
   <ion-list>
-    <button ion-item *ngFor="let broker of brokers" (click)="itemTapped($event, broker)">
+
+    <button ion-item *ngFor="let broker of brokers" (click)="openBrokerDetail(broker)">
             <ion-avatar item-left>
                 <img src="https://static.rasc.ch/demo/{{broker.picture}}"/>
             </ion-avatar>
             <h2>{{broker.firstName}} {{broker.lastName}}</h2>
             <p>{{broker.title}}</p>
         </button>
+
   </ion-list>
+
 </ion-content>

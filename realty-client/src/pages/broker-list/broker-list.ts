@@ -1,29 +1,22 @@
-import { BrokerDetailsPage } from './../broker-details/broker-details';
+import { BrokerDetailPage } from './../broker-detail/broker-detail';
 import { BrokerService } from './../../providers/broker-service';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-broker-list',
   templateUrl: 'broker-list.html'
 })
 export class BrokerListPage {
-  selectedItem;
-  brokers;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams, private brokerService: BrokerService) {
-    this.selectedItem = navParams.get('item');
+  brokers: Array<any>;
+
+  constructor(public navCtrl: NavController, public service: BrokerService) {
+    service.findAll().subscribe(data => this.brokers = data);
   }
 
-  ionViewDidLoad() {
-    this.brokerService.findAll().subscribe(
-      data => this.brokers = data
-    );
+  openBrokerDetail(broker) {
+    this.navCtrl.push(BrokerDetailPage, broker);
   }
 
-  itemTapped(event, broker) {
-    this.navCtrl.push(BrokerDetailsPage, {
-      broker: broker
-    });
-  }
 }

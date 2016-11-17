@@ -31,7 +31,7 @@ public class PropertyService {
 		ClassPathResource cpr = new ClassPathResource("/properties.txt");
 		try (InputStream is = cpr.getInputStream()) {
 			String json = StreamUtils.copyToString(is, StandardCharsets.UTF_8);
-			
+
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
 			mapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
@@ -57,13 +57,23 @@ public class PropertyService {
 		return this.propertyDb.get(id);
 	}
 
+	@GetMapping("/findByName/{name}")
+	@CrossOrigin
+	public List<Property> findById(@PathVariable("name") String name) {
+		String filter = name.toLowerCase();
+		return this.propertyDb.values().stream().filter(p -> {
+			String str = String.join(" ", p.title(), p.address(), p.city(),
+					p.description());
+			return str.toLowerCase().indexOf(filter) >= 0;
+		}).collect(Collectors.toList());
+	}
+
 	@GetMapping("/like/{id}")
 	@CrossOrigin
 	public int like(@PathVariable("id") int id) {
 		Property property = this.propertyDb.get(id);
 		int noOfLikes = property.likes() + 1;
-		this.propertyDb.put(id,
-				ImmutableProperty.copyOf(property).withLikes(noOfLikes));
+		this.propertyDb.put(id, ImmutableProperty.copyOf(property).withLikes(noOfLikes));
 		return noOfLikes;
 	}
 

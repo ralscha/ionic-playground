@@ -1,24 +1,28 @@
-import { FavoriteListPage } from './../pages/favorite-list/favorite-list';
-import { BrokerDetailsPage } from './../pages/broker-details/broker-details';
-import { BrokerListPage } from './../pages/broker-list/broker-list';
-import { PropertyDetailsPage } from './../pages/property-details/property-details';
-import { PropertyListPage } from './../pages/property-list/property-list';
-import { PropertyService } from './../providers/property-service';
 import { BrokerService } from './../providers/broker-service';
-import { WelcomePage } from './../pages/welcome/welcome';
+import { PropertyService } from './../providers/property-service';
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
+
+import { WelcomePage } from '../pages/welcome/welcome';
+import { PropertyListPage } from '../pages/property-list/property-list';
+import { PropertyDetailPage } from '../pages/property-detail/property-detail';
+import { BrokerListPage } from '../pages/broker-list/broker-list';
+import { BrokerDetailPage } from '../pages/broker-detail/broker-detail';
+import { FavoriteListPage } from '../pages/favorite-list/favorite-list';
+import { AboutPage } from '../pages/about/about';
+
 
 @NgModule({
   declarations: [
     MyApp,
     WelcomePage,
+    AboutPage,
     PropertyListPage,
-    PropertyDetailsPage,
+    PropertyDetailPage,
+    FavoriteListPage,
     BrokerListPage,
-    BrokerDetailsPage,
-    FavoriteListPage
+    BrokerDetailPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,12 +31,13 @@ import { MyApp } from './app.component';
   entryComponents: [
     MyApp,
     WelcomePage,
+    AboutPage,
     PropertyListPage,
-    PropertyDetailsPage,
+    PropertyDetailPage,
+    FavoriteListPage,
     BrokerListPage,
-    BrokerDetailsPage,
-    FavoriteListPage
+    BrokerDetailPage
   ],
-  providers: [BrokerService, PropertyService]
+  providers: [PropertyService, BrokerService]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,7 +1,7 @@
-page-broker-details {
+page-broker-detail {
   ion-card {
 
-    margin-top: 100px;
+    margin-top: 100px !important;
     overflow: visible;
 
     ion-card-content {
@@ -12,7 +12,10 @@ page-broker-details {
       padding-bottom: 28px;
 
       img {
+        height: 160px;
+        width: 160px;
         border-radius: 50%;
+        margin-top: -100px;
         border: solid 4px #FFFFFF;
         display: inline;
       }
@@ -31,4 +34,5 @@ page-broker-details {
     }
 
   }
+
 }

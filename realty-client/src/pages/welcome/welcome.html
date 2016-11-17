@@ -7,24 +7,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-slides pager loop="false" autoplay="false" index="1">
+<ion-content no-bounce>
+  <ion-slides [options]="{pager: true}">
 
-    <ion-slide padding>
-      <img src="assets/images/house.svg" />
-      <p>Your dream house is one tap away! Open the menu and select <strong>Properties</strong> to start your search.</p>
+    <ion-slide style="background-image: url('assets/img/slide_properties.jpg')">
+      <p>Your dream house is just a few taps away! Select Properties in the menu to start your search.</p>
     </ion-slide>
 
-    <ion-slide padding>
-      <img src="assets/images/brokers.svg" />
-      <p>Ionic Realty has the best brokers in the business. Open the menu and select <strong>Brokers</strong> to connect with
-        our brokers in a whole new way!</p>
+    <ion-slide style="background-image: url('assets/img/slide_brokers.jpg')">
+      <p>Select Brokers in the menu to connect with the best brokers in the business in a whole new way!</p>
     </ion-slide>
 
-    <ion-slide padding>
-      <img src="assets/images/favorites.svg" />
-      <p>Keep track of your <strong>favorites</strong> and get notified when events happen: price reductions, open houses, etc.</p>
+    <ion-slide style="background-image: url('assets/img/slide_favorites.jpg')">
+      <p>Keep track of your favorites and get notified in real time when important events happen.</p>
     </ion-slide>
 
   </ion-slides>
+
 </ion-content>

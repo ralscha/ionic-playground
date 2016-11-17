@@ -1,11 +1,18 @@
-import { FavoriteListPage } from './../pages/favorite-list/favorite-list';
-import { BrokerListPage } from './../pages/broker-list/broker-list';
-import { PropertyListPage } from './../pages/property-list/property-list';
-import { WelcomePage } from './../pages/welcome/welcome';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { PropertyListPage } from '../pages/property-list/property-list';
+import { BrokerListPage } from '../pages/broker-list/broker-list';
+import { FavoriteListPage } from '../pages/favorite-list/favorite-list';
+import { WelcomePage } from '../pages/welcome/welcome';
+import { AboutPage } from '../pages/about/about';
+
+export interface MenuItem {
+  title: string;
+  component: any;
+  icon: string;
+}
 
 @Component({
   templateUrl: 'app.html'
@@ -15,16 +22,25 @@ export class MyApp {
 
   rootPage: any = WelcomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<MenuItem>;
+
+  appMenuItems: Array<MenuItem>;
+
+  helpMenuItems: Array<MenuItem>;
 
   constructor(public platform: Platform) {
+
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Properties', component: PropertyListPage },
-      { title: 'Brokers', component: BrokerListPage },
-      { title: 'Favorites', component: FavoriteListPage }
+    this.appMenuItems = [
+      { title: 'Properties', component: PropertyListPage, icon: 'home' },
+      { title: 'Brokers', component: BrokerListPage, icon: 'people' },
+      { title: 'Favorites', component: FavoriteListPage, icon: 'star' },
+    ];
+
+    this.helpMenuItems = [
+      { title: 'Welcome', component: WelcomePage, icon: 'bookmark' },
+      { title: 'About', component: AboutPage, icon: 'information-circle' },
     ];
 
   }
@@ -33,7 +49,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
+      StatusBar.styleLightContent();
       Splashscreen.hide();
     });
   }

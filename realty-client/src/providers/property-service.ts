@@ -16,11 +16,23 @@ export class PropertyService {
             .catch(this.handleError);
     }
 
+    findByName(key:string) {
+        if (key && 0 !== key.length) {
+        return this.http.get(SERVER_URL + "/property/findByName/" + key)
+            .map(res => res.json())
+            .catch(this.handleError);
+        }
+        return this.findAll();
+    }
+
+    findById(id) {
+        return this.http.get(SERVER_URL + "/property/findById/" + id)
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
     getFavorites() {
-        return Observable.create(observer => {
-            observer.next(this.favorites);
-            observer.complete();
-        });
+        return this.favorites;
     }
 
     favorite(property) {
@@ -39,16 +51,12 @@ export class PropertyService {
     }
 
     unfavorite(property) {
-        return Observable.create(observer => {
-            for (let i = 0; i < this.favorites.length; i++) {
-                if (this.favorites[i].id === property.id) {
-                    this.favorites.splice(i, 1);
-                    break;
-                }
+        for (let i = 0; i < this.favorites.length; i++) {
+            if (this.favorites[i].id === property.id) {
+                this.favorites.splice(i, 1);
+                break;
             }
-            observer.next();
-            observer.complete();
-        });
+        }
     }
 
     like(property) {

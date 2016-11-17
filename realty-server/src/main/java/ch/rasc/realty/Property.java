@@ -14,6 +14,8 @@ public interface Property {
 
 	int id();
 
+	String address();
+	
 	String city();
 
 	String state();
@@ -25,21 +27,23 @@ public interface Property {
 
 	String title();
 
-	int beds();
+	int bedrooms();
 
-	int baths();
+	int bathrooms();
 
 	int likes();
-
-	@Nullable()
-	Integer sqft();
+	
+	double lng();
+	
+	double lat();
 	
 	int broker();
 
 	String pic();
-
+	
 	String thumb();
 
 	String description();
 
+	String tags();
 }

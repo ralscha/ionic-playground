@@ -23,7 +23,7 @@ $background-color:  #fff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #387ef5,
+  primary:    #84BF41,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
@@ -35,8 +35,7 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
-
+$toolbar-ios-background:                   color($colors, primary);
 
 // App Material Design Variables
 // --------------------------------------------------
@@ -49,8 +48,7 @@ $colors: (
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
-
-
+$toolbar-md-background:                   color($colors, primary);
 
 // App Theme
 // --------------------------------------------------
