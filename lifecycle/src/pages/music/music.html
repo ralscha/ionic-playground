@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Playing...</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only [navPush]="creditsPage">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div [style.backgroundImage]="'url(' + image +')'"></div>
+</ion-content>

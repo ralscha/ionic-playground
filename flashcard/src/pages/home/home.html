@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <flash-card *ngFor="let card of flashCards">
+    <div class="flash-card-front">{{card.front}}</div>
+    <div class="flash-card-back">{{card.back}}</div>
+  </flash-card>
+</ion-content>
