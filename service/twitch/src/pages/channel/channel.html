@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{data.channel.display_name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <iframe [src]="data.channel.name | safe:'resourceUrl'" width="100%" height="200" frameborder="0" scrolling="no"
+            allowfullscreen="true"></iframe>
+    <ion-card-content>
+      <ion-card-title>{{data.channel.status}}</ion-card-title>
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-left>
+            <img [src]="data.channel.logo"/>
+          </ion-avatar>
+          <ion-badge item-right>{{data.channel.display_name}}</ion-badge>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="game-controller-a" item-left></ion-icon>
+          Game
+          <ion-badge item-right>{{data.channel.game}}</ion-badge>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="eye" item-left></ion-icon>
+          Viewers
+          <ion-badge item-right>{{data.viewers | safe:'KFormate'}}</ion-badge>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

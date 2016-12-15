@@ -1,0 +1,1 @@
+http://www.joshmorony.com/create-an-animated-login-screen-in-ionic-2/

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Audio Recorder
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>
+    <button ion-button (click)="startRecording()" class="buttton-start-recording" [disabled]="audioRecorder.state != AudioRecorderState.Ready">
+      <ion-icon name="microphone"></ion-icon>
+      Start recording
+    </button>
+  </p>
+  <p>
+    <button ion-button (click)="stopRecording()" class="buttton-stop-recording" [disabled]="audioRecorder.state != AudioRecorderState.Recording">
+      <ion-icon name="mic-off"></ion-icon>
+      Stop recording
+    </button>
+  </p>
+  <p>
+    <button ion-button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
+      <ion-icon name="play"></ion-icon>
+      Start playback
+    </button>
+  </p>
+  <p>
+    <button ion-button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing">
+      <ion-icon name="square"></ion-icon>
+      Stop playback
+    </button>
+  </p>
+</ion-content>

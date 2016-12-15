@@ -1,0 +1,21 @@
+page-home {
+  .card-background{
+    ion-card{
+      position: relative;
+      text-align: center;
+    }
+    .card-title{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      font-weight: bold;
+      .display_name{
+        h1{
+          font-size: 2.0em;
+          background-color: rgba(136,136,136,.37);
+          color: #fff;
+        }
+      }
+    }
+  }
+}

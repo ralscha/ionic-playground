@@ -1,0 +1,1 @@
+https://devdactic.com/ionic-2-drag-and-drop/

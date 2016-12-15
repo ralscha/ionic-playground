@@ -1,0 +1,1 @@
+Examples that use the built-in ionic2/angular2 capabilities

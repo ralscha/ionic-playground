@@ -1,0 +1,1 @@
+http://www.joshmorony.com/filtering-mapping-and-reducing-arrays-in-ionic-2/

@@ -1,0 +1,1 @@
+Examples that are split into an app and server (spring boot) part

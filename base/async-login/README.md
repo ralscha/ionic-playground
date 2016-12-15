@@ -1,0 +1,1 @@
+http://www.joshmorony.com/creating-an-asynchronous-login-screen-in-ionic-2/

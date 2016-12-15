@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Devdactic Signature
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="title">Please draw your Signature</div>
+  <ion-row [class.drawing-active]="isDrawing">
+    <ion-col>
+      <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
+                     (onEndEvent)="drawComplete()"></signature-pad>
+    </ion-col>
+  </ion-row>
+  <button ion-button full color="danger" (click)="clearPad()">Clear</button>
+  <button ion-button full color="secondary" (click)="savePad()">Save</button>
+
+  <ion-row>
+    <ion-col>
+      <img *ngIf="signature" [src]="signature"/>
+    </ion-col>
+  </ion-row>
+</ion-content>

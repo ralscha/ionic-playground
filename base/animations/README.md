@@ -1,0 +1,1 @@
+http://www.joshmorony.com/using-the-web-animations-api-in-ionic-2/

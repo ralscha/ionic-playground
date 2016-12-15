@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item-sliding #itemOption [animateItemSliding]="shouldAnimate">
+
+      <button ion-item>
+        Item 1
+      </button>
+
+      <ion-item-options side="right" (ionSwipe)="archive($event)">
+        <button ion-button (click)="unread($event)">Unread</button>
+        <button ion-button color="secondary" expandable (click)="archive(itemOption)">
+          Archive
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+
+      <button ion-item>
+        Item 2
+      </button>
+
+      <ion-item-options side="right">
+        <button ion-button>Unread</button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+
+      <button ion-item>
+        Item 3
+      </button>
+
+      <ion-item-options side="right">
+        <button ion-button>Unread</button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+
+      <button ion-item>
+        Item 4
+      </button>
+
+      <ion-item-options side="right">
+        <button ion-button>Unread</button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>

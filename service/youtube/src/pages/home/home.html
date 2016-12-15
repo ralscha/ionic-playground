@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Youtube
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background">
+  <ion-card *ngFor="let data of datas">
+    <img src="{{data.snippet.thumbnails.medium.url}}"/>
+    <div class="card-title" (click)="openPlaylist(data.id)">
+      <h1>{{data.snippet.title}}</h1>
+    </div>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="infiniteScroll($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
