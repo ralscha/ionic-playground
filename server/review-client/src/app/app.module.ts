@@ -1,7 +1,7 @@
 import { AddReviewPage } from './../pages/add-review/add-review';
 import { Reviews } from './../providers/reviews';
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
@@ -20,6 +20,6 @@ import { HomePage } from '../pages/home/home';
     HomePage,
     AddReviewPage
   ],
-  providers: [Reviews]
+  providers: [Reviews, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

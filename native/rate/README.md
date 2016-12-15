@@ -1,0 +1,1 @@
+http://blog.ionic.io/ionic-native-getting-your-app-rated-and-reviewed/

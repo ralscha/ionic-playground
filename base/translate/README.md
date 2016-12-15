@@ -1,0 +1,1 @@
+http://blog.ionic.io/localize-your-app-with-ng2-translate/

@@ -1,7 +1,7 @@
 import { BrokerService } from './../providers/broker-service';
 import { PropertyService } from './../providers/property-service';
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -38,6 +38,6 @@ import { AboutPage } from '../pages/about/about';
     BrokerListPage,
     BrokerDetailPage
   ],
-  providers: [PropertyService, BrokerService]
+  providers: [PropertyService, BrokerService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule { }

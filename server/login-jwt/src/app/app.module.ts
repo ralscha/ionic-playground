@@ -1,7 +1,7 @@
 import { QuotesPage } from './../pages/quotes/quotes';
 import { ProfilePage } from './../pages/profile/profile';
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import {AUTH_PROVIDERS} from 'angular2-jwt';
@@ -23,6 +23,6 @@ import {AUTH_PROVIDERS} from 'angular2-jwt';
     ProfilePage,
     QuotesPage
   ],
-  providers: [AUTH_PROVIDERS]
+  providers: [AUTH_PROVIDERS, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

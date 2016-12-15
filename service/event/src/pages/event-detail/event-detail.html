@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row padding>
+    <ion-col width-80>
+      Current Revenue
+    </ion-col>
+    <ion-col width-20 [class.profitable]="currentEvent?.revenue > 0"
+      [class.no-profit]="currentEvent?.revenue < 0">
+      {{currentEvent?.revenue}}
+    </ion-col>
+  </ion-row>
+  <ion-card>
+    <ion-card-header>
+      {{currentEvent?.name}}
+    </ion-card-header>
+    <ion-card-content>
+      <p>Ticket: <strong>${{currentEvent?.price}}</strong></p>
+      <p>Date: <strong>{{currentEvent?.date}}</strong></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="add-guest-form">
+    <ion-card-header>
+      Add Guests
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label stacked>Name</ion-label>
+          <ion-input [(ngModel)]="guestName" type="text"
+            placeholder="What's your guest's name?"></ion-input>
+        </ion-item>
+        <span *ngIf="guestPicture">Picture taken!</span>
+
+        <button ion-button color="primary" block (click)="takePicture()">
+          Take a Picture
+        </button>
+
+        <button ion-button color="primary" block (click)="addGuest(guestName)">
+          Add Guest
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

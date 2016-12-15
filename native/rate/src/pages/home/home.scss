@@ -1,0 +1,9 @@
+page-home {
+  .container {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute !important;
+    text-align: center;
+    width: 100%;
+  }
+}

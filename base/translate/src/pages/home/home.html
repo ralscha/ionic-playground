@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <div>{{ 'HELLO' | translate:param }}</div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div [translate]="'HELLO'" [translateParams]="{value: 'world'}"> </div>
+  <hr>
+  <div translate [translateParams]="{value: 'world'}">HELLO</div>
+  <hr>
+  <button full ion-button (click)="changeLanguage('en')">EN</button>
+  <button full ion-button (click)="changeLanguage('es')">ES</button>
+</ion-content>

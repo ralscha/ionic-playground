@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Your Super Gallery</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+	  <ion-row *ngFor="let row of grid">
+	    <ion-col width-50 *ngFor="let file_uri of row">
+		    <img src="{{file_uri}}" />
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>	
+</ion-content>

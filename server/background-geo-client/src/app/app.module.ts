@@ -1,7 +1,7 @@
 import { ServerPush } from './../providers/server-push';
 import { LocationTracker } from './../providers/location-tracker';
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
@@ -18,6 +18,6 @@ import { HomePage } from '../pages/home/home';
     MyApp,
     HomePage
   ],
-  providers: [LocationTracker, ServerPush]
+  providers: [LocationTracker, ServerPush, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
