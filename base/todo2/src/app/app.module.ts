@@ -1,8 +1,8 @@
 import { Data } from './../providers/data';
 import { EditTodoPage } from './../pages/edit-todo/edit-todo';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
@@ -21,6 +21,6 @@ import { HomePage } from '../pages/home/home';
     HomePage,
     EditTodoPage
   ],
-  providers: [Data, Storage]
+  providers: [Data, Storage, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

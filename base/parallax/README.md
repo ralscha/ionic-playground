@@ -1,0 +1,1 @@
+http://www.joshmorony.com/high-performance-parallax-animation-in-ionic-2/
