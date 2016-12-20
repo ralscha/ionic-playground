@@ -1,0 +1,31 @@
+page-available-rooms {
+  ion-content{
+    background-color: map-get($colors, dark);
+  }
+
+  ion-card {
+    background-color: map-get($colors, dark);
+    position: relative;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .card-title-container {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+  }
+
+  .card-title {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    font-weight: bold;
+    display: inline;
+    color: #fff;
+  }
+
+  .room-description ion-icon {
+    margin-left: 10px;
+  }
+}

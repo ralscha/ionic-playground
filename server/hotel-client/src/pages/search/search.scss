@@ -1,0 +1,15 @@
+page-search {
+  ion-content {
+    background-color: map-get($colors, dark);
+  }
+
+  ion-label {
+    color: #fff;
+  }
+
+  ion-item {
+    color: #fff;
+    padding: 10px;
+    background-color: #acbebf;
+  }
+}

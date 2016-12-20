@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Available Rooms</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card tappable (click)="bookRoom(room)" *ngFor="let room of rooms">
+    <img class="header" src="http://placehold.it/500x500"/>
+    <div class="card-title-container">
+      <p class="card-title">{{room.type}}</p>
+      <p class="room-description">
+        <ion-icon name="cloud"></ion-icon>
+        {{room.beds}}
+        <ion-icon name="cash"></ion-icon>
+        {{room.costPerNight}}
+        <ion-icon name="people"></ion-icon>
+        {{room.maxOccupancy}}
+      </p>
+    </div>
+  </ion-card>
+</ion-content>

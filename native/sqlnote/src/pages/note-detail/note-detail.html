@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar>
+    {{note.title}}
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" value="" placeholder="My awesome note" [(ngModel)]="note.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea placeholder="This will be awesome..." [(ngModel)]="note.text"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class GeocodeProvider {
 
-  private endpoint: string = 'http://192.168.178.20:8080/geocode';
+  private endpoint: string = 'http://192.168.178.84:8080/geocode';
 
   constructor(private http: Http) {
   }

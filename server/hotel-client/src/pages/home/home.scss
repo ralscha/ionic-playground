@@ -1,0 +1,27 @@
+page-home {
+  ion-content {
+    background-color: map-get($colors, dark);
+  }
+
+  p {
+    background-color: #a0b1b2;
+    padding: 20px;
+    text-align: center;
+  }
+
+  ion-card {
+    position: relative;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .button-container{
+    width: 100%;
+    text-align: center;
+  }
+
+  .button-container button {
+    width: 90%;
+  }
+}

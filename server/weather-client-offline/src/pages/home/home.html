@@ -1,0 +1,22 @@
+<ion-content>
+
+  <div class="weather">
+
+    <ion-icon [name]="data?.icon"></ion-icon>
+
+    <div class="city">{{ data?.location }}</div>
+
+    <div class="weather-data">
+      <div class="temp-current">
+        <span>{{ data?.tempCurrent }}&deg;</span>
+      </div>
+      <div class="temp-high-low">
+        <span>H {{ data?.tempMax }}&deg;</span>
+        <span>L {{ data?.tempMin }}&deg;</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>

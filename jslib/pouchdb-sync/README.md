@@ -1,0 +1,1 @@
+https://www.joshmorony.com/offline-syncing-in-ionic-2-with-pouchdb-couchdb/

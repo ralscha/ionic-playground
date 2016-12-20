@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Camera Diagnostics
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>Bluetooth Enabled: {{bluetoothEnabled}}</p>
+  <p>GPS Enabled: {{gpsEnabled}}</p>
+  <p>Wifi Enabled: {{wifiEnabled}}</p>
+  <img src="{{img}}" *ngIf="img !== ''">
+  <button ion-button full color="primary" (click)="getPic('take')" *ngIf="cameraSupported">Take Picture</button>
+  <button ion-button full color="primary" (click)="getPic('select')">Select Picture</button>
+</ion-content>

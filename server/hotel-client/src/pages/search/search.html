@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Find a Room</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-label><ion-icon name="key"></ion-icon> Room Type</ion-label>
+      <ion-select [(ngModel)]="roomType">
+        <ion-option value="STANDARD">Standard</ion-option>
+        <ion-option value="STUDIO">Studio</ion-option>
+        <ion-option value="VILLA">Villa</ion-option>
+        <ion-option value="PENTHOUSE">Penthouse</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon name="people"></ion-icon> Beds</ion-label>
+      <ion-select [(ngModel)]="beds">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="6">6</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon name="people"></ion-icon> Guests</ion-label>
+      <ion-select [(ngModel)]="guests">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="6">6</ion-option>
+        <ion-option value="7">7</ion-option>
+        <ion-option value="8">8</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon name="clock"></ion-icon> Check in:</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" max="2020-12-31" pickerFormat="DD MM YYYY" [(ngModel)]="from"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon name="alarm"></ion-icon> Check out:</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" max="2020-12-31" pickerFormat="DD MM YYYY" [(ngModel)]="to"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <p item-left>Cost per night</p>
+      <p item-right>${{priceRange.lower}} - ${{priceRange.upper}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-range max="500" dualKnobs="true" pin="true" [(ngModel)]="priceRange" dark>
+        <ion-icon range-left small name="star-half"></ion-icon>
+        <ion-icon range-right name="star"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+  </ion-list>
+
+  <button (click)="findRooms()" ion-button full color="light">Find Rooms</button>
+
+</ion-content>

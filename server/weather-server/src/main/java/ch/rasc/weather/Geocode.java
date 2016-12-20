@@ -24,4 +24,9 @@ public interface Geocode {
 	@Nullable
 	String longitude();
 
+	@Nullable
+	String city();
+	
+	@Nullable
+	String state();	
 }

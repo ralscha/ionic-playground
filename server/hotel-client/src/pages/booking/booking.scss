@@ -1,0 +1,44 @@
+page-booking {
+  ion-content {
+    background-color: map-get($colors, dark);
+  }
+
+  ion-card {
+    position: relative;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  ion-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  ion-item {
+    background-color: #a0b1b2;
+  }
+
+  .card-title-container {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+  }
+
+  .card-title {
+    text-transform: capitalize;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: inline;
+    color: #fff;
+  }
+
+  .button-container {
+    width: 100%;
+    text-align: center !important;
+  }
+
+  .button-container button {
+    width: 80%;
+  }
+}

@@ -1,0 +1,1 @@
+https://www.raymondcamden.com/2016/08/02/working-with-ionic-native-using-the-diagnostics-plugin/

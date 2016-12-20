@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Booking</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <img class="header" src="http://placehold.it/500x500"/>
+    <div class="card-title-container">
+      <p class="card-title">{{room.type}}</p>
+    </div>
+  </ion-card>
+
+  <ion-list>
+
+    <ion-item>
+      <strong>Check In:</strong> {{checkIn}}
+    </ion-item>
+
+    <ion-item>
+      <strong>Check Out:</strong> {{checkOut}}
+    </ion-item>
+
+    <ion-item>
+      <strong>Beds:</strong> {{room.beds}}
+    </ion-item>
+
+    <ion-item>
+      <strong>Guests:</strong> {{details.guests}}
+    </ion-item>
+
+    <ion-item>
+      <strong>Per Night:</strong> ${{room.costPerNight}}
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <button (click)="book()" full ion-button color="light">Book Now</button>
+</ion-footer>

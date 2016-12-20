@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Eye Color</ion-label>
+      <ion-select [(ngModel)]="eyeColor" (ionChange)="pickEyeColor(eyeColor)">
+        <ion-option value="blue">Blue</ion-option>
+        <ion-option value="green">Green</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Over what age?</ion-label>
+      <ion-select [(ngModel)]="age" (ionChange)="pickOlderPeople(age)">
+        <ion-option value=30>30-39</ion-option>
+        <ion-option value=40>40-49</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item *ngFor="let person of people | async">
+      <h2>{{ person.name }}</h2>
+      <p>
+        AGE: {{ person.age }}
+      </p>
+      <p>
+        Eye Color: {{ person.eyeColor }}
+      </p>
+    </ion-item>
+  </ion-list>
+</ion-content>
