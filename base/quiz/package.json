@@ -4,6 +4,8 @@
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },
@@ -17,7 +19,7 @@
     "@angular/platform-browser": "2.2.1",
     "@angular/platform-browser-dynamic": "2.2.1",
     "@angular/platform-server": "2.2.1",
-    "@ionic/storage": "1.1.6",
+    "@ionic/storage": "1.1.7",
     "ionic-angular": "2.0.0-rc.4",
     "ionic-native": "2.2.11",
     "ionicons": "3.0.0",
@@ -25,7 +27,7 @@
     "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "0.0.47",
+    "@ionic/app-scripts": "0.0.48",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [

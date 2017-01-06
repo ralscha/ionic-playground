@@ -1,0 +1,1 @@
+http://www.joshmorony.com/create-marker-clusters-with-google-maps-in-ionic-2/

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Progressbar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <progress-bar [progress]="loadProgress"></progress-bar>
+    </ion-item>
+
+    <ion-item>
+      <ion-range disabled min="0" max="100" [ngModel]="loadProgress">
+        <ion-label range-left>0</ion-label>
+        <ion-label range-right>100</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button block (click)="startProgress()" [disabled]="subscription">Start</button>
+      <button ion-button block (click)="stopProgress()" [disabled]="!subscription">Stop</button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

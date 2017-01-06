@@ -1,0 +1,1 @@
+http://www.joshmorony.com/create-a-stylish-news-feed-layout-in-ionic-2/
