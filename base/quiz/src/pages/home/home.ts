@@ -13,33 +13,20 @@ export class HomePage {
 	hasAnswered: boolean = false;
 	score: number = 0;
 
-  slideOptions: any;
 	questions: any;
 
   constructor(public navCtrl: NavController, public dataService: Data) {
-
-    this.slideOptions = {
-      onlyExternal: true
-    };
-
   }
 
 	ionViewDidLoad() {
-
 		this.dataService.load().then((data) => {
-
 			data.map((question) => {
-
 	      		let originalOrder = question.answers;
 	      		question.answers = this.randomizeAnswers(originalOrder);
 	      		return question;
-
-	    	});		
-
+	    	});
 	    	this.questions = data;
-
 		});
-
 	}
 
 	nextSlide(){

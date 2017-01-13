@@ -14,7 +14,7 @@
 
   <button ion-button full (click)="doSearch()">Search</button>
   <ion-card>
-  <ion-slides [options]="{pager:true}" style="padding:3px"  *ngIf="haveData">
+  <ion-slides pager="true" paginationType="bullets"  *ngIf="haveData">
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.MediaUrl">
     </ion-slide>

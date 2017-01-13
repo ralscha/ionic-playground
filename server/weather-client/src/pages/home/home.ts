@@ -16,10 +16,6 @@ export class HomePage implements OnInit {
   public curClass: String;
   public weatherData: Array<any>;
 
-  slidesOptions = {
-    pager: true
-  }
-
   constructor(private weatherProvider: WeatherProvider,
     private geocodeProvider: GeocodeProvider,
     private nav: NavController,

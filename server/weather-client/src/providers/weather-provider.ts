@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class WeatherProvider {
 
-  private endpoint: string = 'http://192.168.178.84:8080/forecast';
+  private endpoint: string = 'http://localhost:8080/forecast';
 
   constructor(private http: Http) {
   }
