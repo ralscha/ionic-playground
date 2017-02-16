@@ -30,7 +30,7 @@
     "sw-toolbox": "3.4.0"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.0.0",
+    "@ionic/app-scripts": "1.1.0",
     "@types/papaparse": "^4.1.28",
     "@types/xml2js": "0.0.32",
     "typescript": "2.0.9"
