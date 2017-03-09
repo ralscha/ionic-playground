@@ -4,7 +4,7 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {FeedListPage} from "../pages/feed-list/feed-list";
 import {FeedService} from "../providers/feed-service";
-import {Storage} from "@ionic/storage";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -12,14 +12,15 @@ import {Storage} from "@ionic/storage";
     FeedListPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     FeedListPage
   ],
-  providers: [FeedService, Storage, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [FeedService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {
 }

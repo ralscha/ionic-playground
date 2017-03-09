@@ -4,7 +4,7 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {SafeHttp} from "../providers/safe-http";
 import {NetworkService} from "../providers/network-service";
-import {Storage} from "@ionic/storage";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -12,14 +12,15 @@ import {Storage} from "@ionic/storage";
     HomePage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage
   ],
-  providers: [Storage, SafeHttp, NetworkService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [SafeHttp, NetworkService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {
 }

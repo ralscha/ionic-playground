@@ -3,7 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {SignaturePadModule} from "angular2-signaturepad";
-import {Storage} from "@ionic/storage";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -12,13 +12,14 @@ import {Storage} from "@ionic/storage";
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    SignaturePadModule
+    SignaturePadModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage
   ],
-  providers: [Storage, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

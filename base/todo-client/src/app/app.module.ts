@@ -1,4 +1,4 @@
-import { Storage } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 import { AddItemPage } from './../pages/add-item/add-item';
 import { Data } from './../providers/data';
 import { ItemDetailPage } from './../pages/item-detail/item-detail';
@@ -15,7 +15,8 @@ import { HomePage } from '../pages/home/home';
     ItemDetailPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,6 +25,6 @@ import { HomePage } from '../pages/home/home';
     AddItemPage,
     ItemDetailPage
   ],
-  providers: [Storage, Data, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [Data, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
