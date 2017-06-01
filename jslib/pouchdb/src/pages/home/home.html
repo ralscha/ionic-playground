@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      80's Comic Faves
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <button
+      class="add"
+      ion-button
+      item-right
+      icon-right
+      margin-bottom
+      color="primary"
+      (click)="addCharacter()">
+      Add a character
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-item>
+
+  <div *ngIf="hasComics">
+    <ion-list>
+
+      <ion-item *ngFor="let comic of comics">
+        <ion-thumbnail item-left>
+          <img [src]="comic.image">
+        </ion-thumbnail>
+        <h2>{{ comic.character }} </h2>
+        <button
+          ion-button
+          clear
+          item-right
+          (click)="viewCharacter({'key':comic.id, 'rev':comic.rev })">
+          View
+        </button>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+</ion-content>
