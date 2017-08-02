@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.1.4",
-    "@types/papaparse": "^4.1.28",
+    "@types/papaparse": "^4.1.29",
     "@types/xml2js": "0.0.32",
     "typescript": "2.0.9"
   },

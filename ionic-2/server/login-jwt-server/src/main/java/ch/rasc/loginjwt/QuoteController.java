@@ -12,6 +12,7 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 @RestController
 public class QuoteController {
@@ -58,10 +59,12 @@ public class QuoteController {
 
 		Request getRequest = new Request.Builder().get().url(urlBuilder.build()).build();
 
-		try (Response response = this.httpClient.newCall(getRequest).execute()) {
-
-			String jsonData = response.body().string();
-			return objectMapper.readValue(jsonData, IcndbResponse.class);
+		try (Response response = this.httpClient.newCall(getRequest).execute(); ResponseBody body = response.body()) {
+			if (body != null) {
+				String jsonData = body.string();
+				return this.objectMapper.readValue(jsonData, IcndbResponse.class);
+			}
+			return null;
 		}
 
 	}

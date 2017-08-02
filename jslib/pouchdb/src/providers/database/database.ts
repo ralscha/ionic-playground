@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {AlertController} from "ionic-angular";
-import {Http} from "@angular/http";
 import "rxjs/add/operator/map";
 import PouchDB from "pouchdb";
 
@@ -13,8 +12,7 @@ export class DatabaseProvider {
   private _remoteDB: any;
   private _syncOpts: any;
 
-  constructor(private http: Http,
-              private alertCtrl: AlertController) {
+  constructor(private alertCtrl: AlertController) {
     this.initialiseDB();
   }
 

@@ -25,7 +25,7 @@ public class EventBusController {
 	@CrossOrigin
 	@GetMapping("/register/{id}")
 	public SseEmitter eventbus(@PathVariable("id") String id) {
-		return eventBus.createSseEmitter(id);
+		return this.eventBus.createSseEmitter(id);
 	}
 
 	@CrossOrigin

@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.3.RELEASE</version>
+		<version>1.5.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -94,7 +94,7 @@
 		<dependency>
 			<groupId>ch.rasc</groupId>
 			<artifactId>bsoncodec-apt</artifactId>
-			<version>1.0.3</version>
+			<version>1.0.4</version>
 			<optional>true</optional>
 		</dependency>
 
@@ -141,13 +141,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.6.2</version>
 				<configuration>
 					<debug>true</debug>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<parameters>true</parameters>
 					<compilerArgs>
-						<compilerArg>-parameters</compilerArg>
 						<compilerArg>-AgenerateCodecProvider=false</compilerArg>
 					</compilerArgs>
 				</configuration>

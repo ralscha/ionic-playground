@@ -9,6 +9,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class FcmClient {
 
@@ -43,8 +44,11 @@ public class FcmClient {
 		Request request = new Request.Builder().url(FCM_URL).post(requestBody)
 				.addHeader("Authorization", "key=" + this.authorizationKey).build();
 
-		try (Response response = this.httpClient.newCall(request).execute()) {
-			return response.body().string();
+		try (Response response = this.httpClient.newCall(request).execute();ResponseBody body = response.body()) {
+			if (body != null) {
+				return body.string();
+			}
+			return null;
 		}
 
 	}
