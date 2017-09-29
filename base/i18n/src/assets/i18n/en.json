@@ -1,0 +1,11 @@
+{
+  "HELLO": "Hello",
+  "AGE": "Age",
+  "ADDRESS": "Address",
+  "COUNTRY": "Country",
+  "CITY": "City",
+  "INFO": "This is the data we collected about you",
+  "BTN_ENGLISH": "Translate to English",
+  "BTN_SPANISH": "Translate to Spanish",
+  "TITLE": "Your information"
+}

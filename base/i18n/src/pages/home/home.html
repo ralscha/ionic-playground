@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ 'TITLE' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3> {{ 'HELLO' | translate }} {{ name }},</h3>
+
+  <p>
+    {{ 'INFO' | translate}}:
+  </p>
+
+  <ion-list no-lines>
+
+    <ion-item>
+      {{ 'AGE' | translate}}: {{ age }}
+    </ion-item>
+    <ion-item>
+      {{ 'COUNTRY' | translate}}: {{ country }}
+    </ion-item>
+    <ion-item>
+      {{ 'CITY' | translate}}: {{ city }}
+    </ion-item>
+    <ion-item>
+      {{ 'ADDRESS' | translate}}: {{ address }}
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="translateToEnglish()">
+    {{ "BTN_ENGLISH" | translate }}
+  </button>
+
+  <button ion-button block (click)="translateToSpanish()">
+    {{ "BTN_SPANISH" | translate }}
+  </button>
+
+</ion-content>
