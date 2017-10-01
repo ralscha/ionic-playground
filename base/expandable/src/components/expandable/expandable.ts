@@ -1,25 +1,20 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewChild, ElementRef, Renderer2} from '@angular/core';
 
 @Component({
-  selector: 'expandable',
-  templateUrl: 'expandable.html'
+    selector: 'expandable',
+    templateUrl: 'expandable.html'
 })
 export class ExpandableComponent {
 
-  @Input('expanded')
-  expanded: boolean;
+    @ViewChild('expandWrapper', {read: ElementRef}) expandWrapper;
+    @Input('expanded') expanded;
+    @Input('expandHeight') expandHeight;
 
-  @Input('expandHeight')
-  expandHeight: number;
+    constructor(public renderer: Renderer2) {
+    }
 
-  currentHeight: number = 0;
+    ngAfterViewInit() {
+        this.renderer.setStyle(this.expandWrapper.nativeElement, 'height', this.expandHeight + 'px');
+    }
 
-
-  constructor() {
-    console.log('Hello ExpandableComponent Component');
-  }
-
-  ngAfterViewInit() {
-
-  }
 }

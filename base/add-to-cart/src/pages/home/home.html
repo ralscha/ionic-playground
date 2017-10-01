@@ -1,0 +1,50 @@
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-title>
+      Cart Example
+    </ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-badge *ngIf="itemsInCart.length" [@cartBadge]="cartBadgeState">{{itemsInCart.length}}</ion-badge>
+        <ion-icon [@cartBadge]="cartBadgeState" name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let item of items">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="http://avatars.io/facebook/joshua.morony">
+      </ion-avatar>
+      <h2>Waterproof swimwear</h2>
+      <p>New this season</p>
+    </ion-item>
+
+    <img
+      src="https://images.unsplash.com/photo-1440756427076-7480f7eab5bd?dpr=2&auto=format&fit=crop&w=1080&h=725&q=80&cs=tinysrgb&crop=">
+
+    <ion-card-content>
+      <p>This stylish one-piece swimsuit uses cutting edge technology to keep you dry. It uses the latest photon
+        accelerated evaporation material, allowing the swimsuit to dry out
+        with just 6 hours of direct sunlight.</p>
+    </ion-card-content>
+
+    <div class="cart-buttons">
+      <button *ngIf="item.quantityInCart" [@addButton]="item.addButtonState" (@addButton.done)="addToCartFinished(item)"
+              color="light" ion-button small>
+        {{item.quantityInCart}}
+      </button>
+      <button (click)="addToCart(item)" ion-button icon-left small>
+        <ion-icon name="add"></ion-icon>
+        Add to Cart
+      </button>
+    </div>
+
+
+  </ion-card>
+
+</ion-content>

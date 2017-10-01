@@ -1,0 +1,45 @@
+page-home {
+
+  font-family: 'Avenir', sans-serif;
+
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  ion-header img {
+    opacity: 0.8;
+    padding: 20px;
+  }
+
+  ion-slides {
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+
+    ion-slide {
+      color: #fff;
+    }
+
+    h4 {
+      font-weight: bold;
+    }
+
+    .swiper-pagination-bullet {
+      background: map-get($colors, light);
+    }
+
+  }
+
+  button {
+    font-weight: bold;
+  }
+
+}

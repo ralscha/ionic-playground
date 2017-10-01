@@ -1,0 +1,1 @@
+https://www.joshmorony.com/creating-an-animated-splash-screen-in-ionic/

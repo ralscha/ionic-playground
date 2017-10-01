@@ -1,10 +1,9 @@
 expandable {
   .expand-wrapper {
-    height: 0;
     transition: 0.2s linear;
   }
 
-  .expanded {
-    height: 200px !important;
+  .collapsed {
+    height: 0 !important;
   }
 }

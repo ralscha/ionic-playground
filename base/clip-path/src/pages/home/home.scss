@@ -1,0 +1,47 @@
+page-home {
+
+  .scroll-content {
+    margin-top: 0 !important;
+  }
+
+  ion-header {
+    backdrop-filter: blur(8px);
+  }
+
+  ion-navbar {
+    opacity: 0.6;
+    box-shadow: 0px 1px 13px 1px rgba(0, 0, 0, 0.77);
+  }
+
+  ion-list {
+
+    margin: 0;
+
+    .item, .item-inner, ion-label {
+      background-color: #cecece;
+      padding: 0 !important;
+      margin: 0;
+    }
+
+  }
+
+  .trash {
+    animation: crossTransition 0.75s cubic-bezier(0.25, 0.79, 0.41, 1.15);
+    animation-fill-mode: forwards;
+  }
+
+}
+
+@keyframes crossTransition {
+
+  from {
+    opacity: 1;
+    clip-path: polygon(0 0, 0% 20%, 0 50%, 0 100%, 20% 100%, 50% 100%, 80% 100%, 100% 100%, 100% 50%, 100% 20%, 100% 0, 50% 0);
+  }
+
+  to {
+    opacity: 0.5;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+  }
+
+}

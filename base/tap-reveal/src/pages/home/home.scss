@@ -1,0 +1,17 @@
+page-home {
+  .tap-reveal-container {
+    width: 100%;
+  }
+
+  .before, .after {
+    width: 100%;
+    background-color: map-get($colors, danger);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+
+    h2 {
+      margin: 0px;
+    }
+  }
+}

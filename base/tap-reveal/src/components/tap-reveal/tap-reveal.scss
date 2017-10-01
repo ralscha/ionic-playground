@@ -1,0 +1,35 @@
+tap-reveal {
+
+  .tap-reveal-container {
+    position: relative;
+  }
+
+  .before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 1000ms;
+  }
+
+  .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1000ms;
+  }
+
+  .tap-reveal-after {
+
+    .before {
+      opacity: 0;
+    }
+
+    .after {
+      opacity: 1;
+    }
+
+  }
+
+}

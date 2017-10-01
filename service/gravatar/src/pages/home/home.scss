@@ -1,0 +1,34 @@
+page-home {
+  .scroll-content {
+    background-color: #737486;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  ion-avatar > img {
+    margin: auto;
+    width: 80px;
+    height: auto;
+  }
+
+  ion-input {
+    background-color: map-get($colors, light);
+    padding-left: 10px;
+    color: #6c6c6c;
+  }
+
+  ion-label {
+    color: #6c6c6c;
+  }
+
+  [floating] {
+    margin-left: 10px;
+  }
+
+  button {
+    width: 90%;
+  }
+
+}

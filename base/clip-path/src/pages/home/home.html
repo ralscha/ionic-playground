@@ -1,0 +1,20 @@
+<ion-header no-border>
+  <ion-navbar color="light">
+    <ion-title>
+      Bulk Delete
+    </ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only><ion-icon name="trash"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list no-lines>
+    <button detail-none ion-item *ngFor="let image of images" (click)="toggleImageDelete(image)">
+      <img [class.trash]="image.toBeDeleted" [src]="image.imagePath" />
+    </button>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,11 @@
+<div class="tap-reveal-container" (click)="toggle()" [class.tap-reveal-after]="toggled">
+
+  <div class="before">
+    <ng-content class="before" select=".tap-reveal-before"></ng-content>
+  </div>
+
+  <div class="after">
+    <ng-content select=".tap-reveal-after"></ng-content>
+  </div>
+
+</div>

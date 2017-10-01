@@ -1,0 +1,1 @@
+https://www.joshmorony.com/create-an-advanced-photo-tilt-component-in-ionic-2/

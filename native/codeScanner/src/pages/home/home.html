@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Barcode/QR Scanner v1.0</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button (click)="scan()">Scan ...</button>
+  <div *ngIf="scanData">
+    <ion-item>
+      Scanned Text : {{scanData.text}}
+    </ion-item>
+    <ion-item>
+      Scanned Format : {{scanData.format}}
+    </ion-item>
+  </div>
+
+  <ion-item>
+    <ion-label color="primary">Plaintext</ion-label>
+    <ion-input [(ngModel)]="encodeData"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="encodeText()">Encode Text</button>
+
+</ion-content>

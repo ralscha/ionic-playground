@@ -1,0 +1,62 @@
+<ion-header>
+
+  <expandable-header [scrollArea]="mycontent" headerHeight="125">
+    <ion-item>
+      <ion-label><ion-icon name="search"></ion-icon></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon name="funnel-outline"></ion-icon></ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </expandable-header>
+
+  <ion-navbar color="primary">
+    <ion-title>
+      Expandable Header
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen #mycontent>
+
+  <ion-card *ngFor="let test of testData">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+      </ion-avatar>
+      <h2>Marty McFly</h2>
+      <p>November 5, 1955</p>
+    </ion-item>
+
+    <img src="https://ionicframework.com/dist/preview-app/www/assets/img/advance-card-bttf.png">
+
+    <ion-card-content>
+      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+</ion-content>

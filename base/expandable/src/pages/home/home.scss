@@ -1,5 +1,11 @@
-page-home {
-  ion-thumbnail {
-    vertical-align: top;
+.ios, .md {
+
+  page-home {
+
+    button {
+      align-items: baseline;
+    }
+
   }
+
 }
