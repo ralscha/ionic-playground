@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Validator
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="form" (ngSubmit)="validateMe(form.value)">
+
+    <ion-item-group margin-bottom formGroupName="service">
+      <ion-item-divider color="light">
+        Select your preferred social media networks
+      </ion-item-divider>
+
+
+      <ion-item>
+        <ion-label>Facebook</ion-label>
+        <ion-checkbox
+          color="danger"
+          formControlName="facebook"></ion-checkbox>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Flickr</ion-label>
+        <ion-checkbox
+          color="danger"
+          checked="true"
+          formControlName="flickr"></ion-checkbox>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Instagram</ion-label>
+        <ion-checkbox
+          color="danger"
+          checked="true"
+          formControlName="instagram"></ion-checkbox>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Twitter</ion-label>
+        <ion-checkbox
+          color="danger"
+          formControlName="twitter"></ion-checkbox>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>YouTube</ion-label>
+        <ion-checkbox
+          color="danger"
+          formControlName="youtube"></ion-checkbox>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>WhatsApp</ion-label>
+        <ion-checkbox
+          color="danger"
+          checked="true"
+          formControlName="whatsapp"></ion-checkbox>
+      </ion-item>
+
+    </ion-item-group>
+
+
+    <ion-item>
+      <ion-label stacked>Message (Min 10 characters)</ion-label>
+      <ion-textarea
+        maxlength="300"
+        formControlName="message"
+        (keyup)="countCharacters($event)"></ion-textarea>
+    </ion-item>
+
+
+    <ion-item>
+      <span class="form-help">{{ 0 + charactersCounted }}/300 Characters</span>
+    </ion-item>
+
+
+    <ion-item>
+      <button
+        ion-button
+        color="primary"
+        text-center
+        block
+        [disabled]="!form.valid">
+        Submit me!
+      </button>
+    </ion-item>
+
+
+  </form>
+
+</ion-content>

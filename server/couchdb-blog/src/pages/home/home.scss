@@ -1,0 +1,37 @@
+.ios, .md {
+
+page-home {
+
+		ion-navbar {
+			-webkit-box-shadow: 0px -3px 29px -4px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px -3px 29px -4px rgba(0,0,0,0.75);
+			box-shadow: 0px -3px 29px -4px rgba(0,0,0,0.75);
+		}
+
+		ion-card {
+
+			background-color: #fff;
+			max-height: 300px;
+			border-radius: 0;
+
+			h2 {
+				margin: 20px;
+				font-weight: bold;
+			}
+
+			ion-card-content {
+				font-size: 0.9em;
+				opacity: 0.5;
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+	
+			ion-card-header {
+				padding: 0;
+			}
+
+		}
+
+	}
+
+}

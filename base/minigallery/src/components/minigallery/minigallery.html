@@ -1,0 +1,19 @@
+<div class="miniGallery" (click)="onGalleryTap()">
+  <h5 no-bold>{{galleryName}}</h5>
+  <h6 class="mg-smallText" text-uppercase><ion-icon name="compass"></ion-icon> {{location}} | {{totalPics}} Photos</h6>
+  <ion-row>
+    <ion-col col-5>
+      <img src="{{imageList[0]}}">
+    </ion-col>
+
+    <ion-col col-2>
+      <img src="{{imageList[1]}}">
+      <img src="{{imageList[2]}}">
+    </ion-col>
+
+    <ion-col col-5>
+      <img src="{{imageList[3]}}">
+    </ion-col>
+
+  </ion-row>
+</div>

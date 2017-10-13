@@ -1,0 +1,53 @@
+<ion-header>
+  <progress-bar [progress]="currentTrack.progress"></progress-bar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-card ion-fixed>
+
+    <ion-card-header>
+      {{currentTrack.artist}}
+    </ion-card-header>
+    <ion-card-content>
+      {{currentTrack.title}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list no-lines>
+    <button detail-none ion-item *ngFor="let track of tracks; let i = index;" (click)="track.playing ? pauseTrack(track) : playTrack(track)" [ngClass]="{ 'alternate': i % 2, 'playing': track.playing }">
+      <ion-avatar item-left>
+        <img [src]="'https://api.adorable.io/avatars/75/' + track.artist">
+        <ion-spinner item-right *ngIf="track.playing" name="bubbles" item-left></ion-spinner>
+      </ion-avatar>
+      <h2>{{track.artist}}</h2>
+      <p>{{track.title}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col width="33">
+        <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
+      </ion-col>
+
+      <ion-col width="33">
+        <button *ngIf="!currentTrack.playing" (click)="playTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
+        <button *ngIf="currentTrack.playing" (click)="pauseTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
+      </ion-col>
+
+      <ion-col width="33">
+        <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-footer>

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button (click)="close()">Cancel</button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button [disabled]="saveDisabled" ion-button (click)="save()">Save</button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="query" (ionInput)="searchPlace()"></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item *ngFor="let place of places" (touchstart)="selectPlace(place)">{{place.description}}</ion-item>
+  </ion-list>
+
+</ion-header>
+
+<ion-content>
+
+  <div #map id="map">
+    <ion-spinner></ion-spinner>
+  </div>
+
+</ion-content>

@@ -1,0 +1,17 @@
+page-location-select {
+  ion-list {
+    margin: 0 !important;
+  }
+
+  .scroll-content {
+    overflow: hidden;
+  }
+
+  #map {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

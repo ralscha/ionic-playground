@@ -1,0 +1,19 @@
+<ion-split-pane>
+  <!-- side menu  -->
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button ion-item (click)="open('NewsPage')" menuClose>News</button>
+        <button ion-item (click)="open('ProfilePage')" menuClose>Profile</button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- content -->
+  <ion-nav [root]="root" main #content></ion-nav>
+</ion-split-pane>

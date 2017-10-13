@@ -1,0 +1,31 @@
+page-home {
+  .accordion-list {
+    background: color($colors, light);
+    height: 100%;
+  }
+  .section {
+    background: #fff;
+    color: #000;
+    margin-bottom: 4px;
+  }
+  .section-active {
+    background: #ffc400;
+    color: #fff;
+  }
+
+  .child {
+    background: #e8e7e6;
+    color: #000;
+    margin-bottom: 4px;
+  }
+  .child-item {
+    background: #f3f2f1;
+    padding: 10px;
+  }
+  .label {
+    margin: 0px;
+  }
+  .list {
+    margin-bottom: 4px;
+  }
+}

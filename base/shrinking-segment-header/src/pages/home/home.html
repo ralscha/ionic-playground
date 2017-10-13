@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Profile
+    </ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only><ion-icon name="beer"></ion-icon></button>
+      <button ion-button icon-only><ion-icon name="bicycle"></ion-icon></button>
+      <button ion-button icon-only><ion-icon name="boat"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <shrinking-segment-header [scrollArea]="myContent" headerHeight="150">
+    <img src="https://avatars.io/instagram/pathmoretravelled" />
+    <h2>Josh</h2>
+  </shrinking-segment-header>
+
+  <ion-toolbar color="light" mode="md">
+    <ion-segment color="dark" mode="md" [(ngModel)]="section">
+      <ion-segment-button value="one">
+        <ion-icon name="home"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="two">
+        <ion-icon name="cog"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="three">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen #myContent>
+
+  <div [ngSwitch]="section">
+
+    <ion-list *ngSwitchCase="'one'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="https://avatars.io/instagram/unknown">
+        </ion-thumbnail>
+        <h2>Something</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'two'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="https://avatars.io/instagram/unknown">
+        </ion-thumbnail>
+        <h2>Something</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'three'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="https://avatars.io/instagram/unknown">
+        </ion-thumbnail>
+        <h2>Something</h2>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

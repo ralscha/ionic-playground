@@ -1,0 +1,1 @@
+https://devdactic.com/ionic-image-gallery-zoom

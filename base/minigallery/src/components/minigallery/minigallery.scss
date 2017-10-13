@@ -1,0 +1,22 @@
+minigallery {
+  .miniGallery {
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:1px solid #ccc;
+
+  }
+  .miniGallery ion-row ion-col {
+    padding:2px;
+  }
+
+  .miniGallery ion-row ion-col img {
+    border-radius:5px;
+  }
+
+  .mg-smallText {
+    font-size:11px;
+    color: #888;
+    margin-top:8px;
+    text-transform: uppercase;
+  }
+}

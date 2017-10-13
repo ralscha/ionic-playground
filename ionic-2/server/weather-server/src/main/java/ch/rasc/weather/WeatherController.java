@@ -32,8 +32,8 @@ public class WeatherController {
 	@GetMapping("/geocode")
 	public Geocode geocode(@RequestParam("address") String address) throws Exception {
 
-		GeoApiContext context = new GeoApiContext()
-				.setApiKey(appConfig.getGoogleMapApiKey());
+		GeoApiContext context = new GeoApiContext.Builder()
+				.apiKey(appConfig.getGoogleMapApiKey()).build();
 		GeocodingResult[] results = GeocodingApi.geocode(context, address).await();
 		if (results != null && results.length > 0) {
 			return ImmutableGeocode.builder().successful(true)
@@ -50,8 +50,8 @@ public class WeatherController {
 	public Geocode reverseGeocode(@RequestParam("lat") double lat,
 			@RequestParam("lng") double lng) throws Exception {
 
-		GeoApiContext context = new GeoApiContext()
-				.setApiKey(appConfig.getGoogleMapApiKey());
+		GeoApiContext context = new GeoApiContext.Builder()
+				.apiKey(appConfig.getGoogleMapApiKey()).build();
 		LatLng latLng = new LatLng(lat, lng);
 		GeocodingResult[] results = GeocodingApi.reverseGeocode(context, latLng).await();
 		if (results != null && results.length > 0) {

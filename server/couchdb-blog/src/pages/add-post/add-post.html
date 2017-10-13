@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Title</ion-label>
+      <ion-input [(ngModel)]="post.title" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Content</ion-label>
+      <ion-input [(ngModel)]="post.content" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <button (click)="save()" color="light" ion-button full>Save</button>
+</ion-footer>

@@ -1,0 +1,17 @@
+progress-bar {
+  .progress-outer {
+    width: 100%;
+    padding: 1px;
+    text-align: center;
+    background-color: map-get($colors, light);
+    color: #fff;
+  }
+
+  .progress-inner {
+    min-width: 1%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 2px;
+    background-color: map-get($colors, dark);
+  }
+}

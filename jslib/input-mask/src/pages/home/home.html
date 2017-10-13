@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Input Masking
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-label stacked>Phone Number</ion-label>
+      <ion-input type="text" [(ngModel)]="phoneNumber" [textMask]="{mask: masks.phoneNumber}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Card</ion-label>
+      <ion-input type="text" [(ngModel)]="cardNumber" [textMask]="{mask: masks.cardNumber}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Expiry</ion-label>
+      <ion-input type="text" [(ngModel)]="cardExpiry" [textMask]="{mask: masks.cardExpiry}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Order Code</ion-label>
+      <ion-input type="text" [(ngModel)]="orderCode" [textMask]="{mask: masks.orderCode}"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button outline (click)="save()">Save</button>
+
+</ion-content>
