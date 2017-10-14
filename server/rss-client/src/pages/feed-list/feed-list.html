@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar secondary>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="!selectedFeed">Newest Articles</ion-title>
+    <ion-title>{{selectedFeed?.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="feed-list" padding>
+  <ion-spinner *ngIf="loading" id="feed-spinner"></ion-spinner>
+  <ion-list *ngIf="selectedFeed" class="spinner">
+    <ion-item *ngFor="let item of articles" (click)="openArticle(item.link)" class="feed-article">
+      <div class="article-title">{{item.title}}</div><br>
+      <p [innerHtml]="item.description"></p>
+    </ion-item>
+  </ion-list>
+  <ion-row *ngIf="!selectedFeed">
+    <ion-col text-center>
+      Please select a feed!
+    </ion-col>
+  </ion-row>
+</ion-content>

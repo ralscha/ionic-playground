@@ -1,0 +1,21 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar secondary>
+      <ion-title>Recent articles</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let feed of feeds" (click)="openFeed(feed)">
+        {{feed.title}}
+      </button>
+    </ion-list>
+    <button ion-button full (click)="addFeed()" action secondary>
+      <ion-icon name="add"></ion-icon> Add Feed
+    </button>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
