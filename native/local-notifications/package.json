@@ -42,7 +42,7 @@
         "de.appplant.cordova.plugin.local-notification": "https://github.com/katzer/cordova-plugin-local-notifications"
     },
     "devDependencies": {
-        "@ionic/app-scripts": "3.0.0",
+        "@ionic/app-scripts": "3.0.1",
         "typescript": "2.5.3"
     },
     "description": "An Ionic project",

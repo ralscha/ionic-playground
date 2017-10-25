@@ -19,7 +19,7 @@ public class SignupController {
 	private final TokenHandler tokenHandler;
 
 	private final PasswordEncoder passwordEncoder;
-	
+
 	public SignupController(PasswordEncoder passwordEncoder, UserService userService, TokenHandler tokenHandler) {
 		this.userService = userService;
 		this.tokenHandler = tokenHandler;
@@ -29,7 +29,7 @@ public class SignupController {
 	@CrossOrigin
 	@PostMapping("signup")
 	public Map<String, String> signup(@RequestBody SignupRequest request) {
-		User newUser = new User(request.username(), passwordEncoder.encode(request.password()));
+		User newUser = new User(request.username(), this.passwordEncoder.encode(request.password()));
 		this.userService.save(newUser);
 
 		String token = this.tokenHandler.createToken(newUser.getUsername());
