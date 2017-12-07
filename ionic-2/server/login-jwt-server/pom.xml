@@ -49,15 +49,10 @@
 		<dependency>
 			<groupId>org.immutables</groupId>
 			<artifactId>value</artifactId>
-			<version>2.4.6</version>
+			<version>2.5.6</version>
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -72,6 +67,30 @@
 							<artifactId>value</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>				
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<debug>true</debug>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<parameters>true</parameters>
+					<annotationProcessorPaths>					
+						<path>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-configuration-processor</artifactId>
+							<version>1.5.9.RELEASE</version>
+						</path>
+						<path>
+							<groupId>org.immutables</groupId>
+							<artifactId>value</artifactId>
+							<version>2.5.6</version>
+						</path>						
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>

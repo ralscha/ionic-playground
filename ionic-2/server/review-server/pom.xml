@@ -49,40 +49,13 @@
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
-			<version>3.6.0-rc1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
+			<version>3.6.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>ch.rasc</groupId>
-			<artifactId>constgen</artifactId>
-			<version>1.0.3</version>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>ch.rasc</groupId>
-			<artifactId>bsoncodec</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.immutables</groupId>
-			<artifactId>value</artifactId>
-			<version>2.4.6</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>ch.rasc</groupId>
-			<artifactId>bsoncodec-apt</artifactId>
-			<version>1.0.4</version>
-			<optional>true</optional>
+			<artifactId>bsoncodec-annotations</artifactId>
+			<version>1.0.5</version>
 		</dependency>
 
 		<dependency>
@@ -99,30 +72,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>ch.rasc</groupId>
-							<artifactId>constgen</artifactId>
-						</exclude>
-						<exclude>
-							<groupId>ch.rasc</groupId>
-							<artifactId>bsoncodec-apt</artifactId>
-						</exclude>
-						<exclude>
-							<groupId>com.squareup</groupId>
-							<artifactId>javapoet</artifactId>
-						</exclude>
-						<exclude>
-							<groupId>org.immutables</groupId>
-							<artifactId>value</artifactId>
-						</exclude>
-						<exclude>
-							<groupId>com.google.code.findbugs</groupId>
-							<artifactId>jsr305</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
 
 			<plugin>
@@ -137,6 +86,28 @@
 					<compilerArgs>
 						<compilerArg>-AgenerateCodecProvider=false</compilerArg>
 					</compilerArgs>
+					<annotationProcessorPaths>					
+						<path>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-configuration-processor</artifactId>
+							<version>1.5.9.RELEASE</version>
+						</path>
+						<path>
+							<groupId>ch.rasc</groupId>
+							<artifactId>constgen</artifactId>
+							<version>1.0.3</version>
+						</path>
+						<path>
+							<groupId>ch.rasc</groupId>
+							<artifactId>bsoncodec-apt</artifactId>
+							<version>1.0.5</version>
+						</path>
+						<path>
+							<groupId>org.immutables</groupId>
+							<artifactId>value</artifactId>
+							<version>2.5.6</version>
+						</path>							
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 
