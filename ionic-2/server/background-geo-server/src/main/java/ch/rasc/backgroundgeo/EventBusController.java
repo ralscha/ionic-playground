@@ -1,5 +1,7 @@
 package ch.rasc.backgroundgeo;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +26,8 @@ public class EventBusController {
 
 	@CrossOrigin
 	@GetMapping("/register/{id}")
-	public SseEmitter eventbus(@PathVariable("id") String id) {
+	public SseEmitter eventbus(@PathVariable("id") String id, HttpServletResponse response) {
+		response.setHeader("Cache-Control", "no-store");
 		return this.eventBus.createSseEmitter(id);
 	}
 
