@@ -26,7 +26,7 @@ public interface Geocode {
 
 	@Nullable
 	String city();
-	
+
 	@Nullable
-	String state();	
+	String state();
 }

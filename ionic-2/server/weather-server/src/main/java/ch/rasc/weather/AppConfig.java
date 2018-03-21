@@ -10,7 +10,7 @@ public class AppConfig {
 	private String googleMapApiKey;
 
 	public String getDarkskyApiKey() {
-		return darkskyApiKey;
+		return this.darkskyApiKey;
 	}
 
 	public void setDarkskyApiKey(String darkskyApiKey) {
@@ -18,7 +18,7 @@ public class AppConfig {
 	}
 
 	public String getGoogleMapApiKey() {
-		return googleMapApiKey;
+		return this.googleMapApiKey;
 	}
 
 	public void setGoogleMapApiKey(String googleMapApiKey) {
