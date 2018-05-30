@@ -8,7 +8,7 @@ export class GoogleMapsProvider {
   mapLoaded: any;
   mapLoadedObserver: any;
   currentMarker: any;
-  apiKey: string = "AIzaSyB2y-I-eMaEgzw2nB3_HV4eMRokbONHeDY";
+  apiKey: string = "AIzaSyAZjJ216B4aJGdXTwXNevmXesob9RUSlPc";
 
   init(mapElement: any): Promise<any> {
     this.mapElement = mapElement;
