@@ -93,8 +93,13 @@
 
 		<dependency>
 			<groupId>ch.rasc</groupId>
+			<artifactId>bsoncodec-annotations</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.rasc</groupId>
 			<artifactId>bsoncodec-apt</artifactId>
-			<version>1.0.4</version>
+			<version>1.0.6</version>
 			<optional>true</optional>
 		</dependency>
 
