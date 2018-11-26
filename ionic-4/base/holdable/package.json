@@ -1,0 +1,43 @@
+{
+  "name": "holdable",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build-prod": "ng build --prod",
+    "serve-www": "http-server www -o -a localhost -p 1234",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "7.0.4",
+    "@angular/core": "7.0.4",
+    "@angular/forms": "7.0.4",
+    "@angular/http": "7.0.4",
+    "@angular/platform-browser": "7.0.4",
+    "@angular/platform-browser-dynamic": "7.0.4",
+    "@angular/router": "7.0.4",
+    "@ionic/angular": "4.0.0-beta.15",
+    "core-js": "2.5.7",
+    "rxjs": "6.3.3",
+    "zone.js": "0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "0.10.6",
+    "@angular-devkit/build-angular": "0.10.6",
+    "@angular-devkit/core": "7.0.6",
+    "@angular-devkit/schematics": "7.0.6",
+    "@angular/cli": "7.0.6",
+    "@angular/compiler": "7.0.4",
+    "@angular/compiler-cli": "7.0.4",
+    "@angular/language-service": "7.0.4",
+    "@ionic/angular-toolkit": "1.1.0",
+    "@types/node": "10.12.8",
+    "codelyzer": "4.5.0",
+    "http-server": "0.11.1",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "typescript": "3.1.6"
+  }
+}

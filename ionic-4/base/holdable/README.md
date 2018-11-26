@@ -1,0 +1,1 @@
+https://angularfirebase.com/lessons/hold-to-delete-button-angular-directive-with-firestore/

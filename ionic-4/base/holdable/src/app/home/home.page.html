@@ -1,0 +1,13 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Holdable Button
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-button [disabled]="oneSecondHold" appHoldable (holdTime)="holdHandler($event)">Hold Me</ion-button>
+    <ion-button [disabled]="!oneSecondHold" (click)="onReset()">Reset</ion-button>
+    <progress [value]="progress" max="100" class="danger"></progress>
+</ion-content>
