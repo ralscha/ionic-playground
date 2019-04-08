@@ -1,0 +1,1 @@
+https://www.joshmorony.com/animating-list-items-in-ionic-with-intersection-observer-api/

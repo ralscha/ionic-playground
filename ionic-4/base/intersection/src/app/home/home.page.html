@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      List Animation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none" appAnimateItems>
+    <ion-item *ngFor="let message of messages">
+      <h2>{{ message.title }}</h2>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+      Transition
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card (click)="launchDetail($event)" *ngFor="let card of cards">
+    <img src="http://placehold.it/600x300" />
+  </ion-card>
+
+</ion-content>

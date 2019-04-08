@@ -1,0 +1,1 @@
+https://www.joshmorony.com/creating-a-custom-scroll-vanish-directive-with-ionic-web-components/

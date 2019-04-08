@@ -1,0 +1,49 @@
+ion-item {
+  color: #fff;
+}
+
+$steps: 10;
+$gradient-color: #2ecc71;
+$amount: 3;
+
+.darken {
+  --ion-background-color: linear-gradient(#{$gradient-color}, #{darken($gradient-color, $steps * $amount)} 50%);
+}
+
+.darken ion-item {
+  --ion-background-color: #{darken($gradient-color, $steps * $amount)};
+}
+
+@for $i from 0 through $steps {
+  .darken ion-item:nth-child(#{$i}){
+    --ion-background-color: #{darken($gradient-color, $i * $amount)};
+  }
+}
+
+.saturate {
+  --ion-background-color: linear-gradient(#{$gradient-color}, #{saturate($gradient-color, $steps * $amount)} 50%);
+}
+
+.saturate ion-item {
+  --ion-background-color: #{saturate($gradient-color, $steps * $amount)};
+}
+
+@for $i from 0 through $steps {
+  .saturate ion-item:nth-child(#{$i}){
+    --ion-background-color: #{saturate($gradient-color, $i * $amount)};
+  }
+}
+
+.hue {
+  --ion-background-color: linear-gradient(#{$gradient-color}, #{adjust-hue($gradient-color, $steps * 8)} 50%);
+}
+
+.hue ion-item {
+  --ion-background-color: #{adjust-hue($gradient-color, $steps * 8)};
+}
+
+@for $i from 0 through $steps {
+  .hue ion-item:nth-child(#{$i}){
+    --ion-background-color: #{adjust-hue($gradient-color, $i * 8)};
+  }
+}

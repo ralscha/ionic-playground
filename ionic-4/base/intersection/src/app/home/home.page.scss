@@ -1,0 +1,10 @@
+ion-item {
+  transition: .3s ease-in-out;
+}
+
+.exit-enter-styles {
+
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+
+}

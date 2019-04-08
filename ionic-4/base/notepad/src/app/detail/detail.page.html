@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/notes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ note.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteNote()">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-textarea (input)="noteChanged()" [(ngModel)]="note.content" placeholder="...something on your mind?"></ion-textarea>
+</ion-content>

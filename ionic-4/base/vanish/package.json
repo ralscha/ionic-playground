@@ -1,0 +1,43 @@
+{
+  "name": "vanish",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build-prod": "ng build --prod",
+    "serve-www": "http-server www -o -a localhost -p 1234",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "7.2.12",
+    "@angular/core": "7.2.12",
+    "@angular/forms": "7.2.12",
+    "@angular/http": "7.2.12",
+    "@angular/platform-browser": "7.2.12",
+    "@angular/platform-browser-dynamic": "7.2.12",
+    "@angular/router": "7.2.12",
+    "@ionic/angular": "4.2.0",
+    "core-js": "2.6.5",
+    "rxjs": "6.4.0",
+    "zone.js": "0.9.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "0.13.8",
+    "@angular-devkit/build-angular": "0.13.8",
+    "@angular-devkit/core": "7.3.8",
+    "@angular-devkit/schematics": "7.3.8",
+    "@angular/cli": "7.3.8",
+    "@angular/compiler": "7.2.12",
+    "@angular/compiler-cli": "7.2.12",
+    "@angular/language-service": "7.2.12",
+    "@ionic/angular-toolkit": "1.5.0",
+    "@types/node": "11.13.0",
+    "codelyzer": "4.5.0",
+    "http-server": "0.11.1",
+    "ts-node": "8.0.3",
+    "tslint": "5.15.0",
+    "typescript": "3.2.4"
+  }
+}

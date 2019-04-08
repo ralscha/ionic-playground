@@ -1,0 +1,1 @@
+https://www.joshmorony.com/creating-an-achievement-unlocked-animation-with-angular-animations-in-ionic/

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+      Add Players
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list lines="none">
+    <form [formGroup]="myForm">
+      <ion-item *ngFor="let control of myForm.controls | keyvalue">
+        <ion-input required type="text" [formControlName]="control.key" placeHolder="player name..."></ion-input>
+        <ion-icon (click)="removeControl(control)" name="close-circle"></ion-icon>
+      </ion-item>
+    </form>
+  </ion-list>
+
+  <ion-button expand="full" color="light" (click)="addControl()">Add Player</ion-button>
+
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+      Achievements
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="displayAchievement" class="achievement-container" @container>
+
+    <div class="medal" @badge>
+      <img src="assets/medal.png" />
+    </div>
+
+    <div class="message" @message>
+      <h5>Tutorial Completed</h5>
+    </div>
+
+  </div>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacus neque, imperdiet ac maximus at, sagittis vel turpis. Nullam ac enim vel ante tincidunt iaculis. Suspendisse ultrices luctus orci, a bibendum nisi consectetur consequat. Nam rhoncus nec dolor pulvinar porta. Aliquam erat volutpat. Nunc pretium mauris ipsum, quis pulvinar tellus tincidunt sit amet. Integer auctor ultrices rutrum. Suspendisse faucibus, urna in consectetur rutrum, orci turpis vestibulum nibh, eu fermentum nisi elit dignissim libero. Donec vestibulum, diam aliquet aliquet dapibus, quam nisi mattis neque, nec elementum mauris justo at tortor. Sed tempus sed nisi id tincidunt. In enim nisi, consectetur eget euismod semper, gravida ac ligula.
+  </p>
+
+  <ion-button (click)="test()" color="light" fill="outline">Test Achievement</ion-button>
+
+</ion-content>

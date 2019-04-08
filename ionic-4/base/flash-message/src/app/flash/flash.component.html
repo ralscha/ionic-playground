@@ -1,0 +1,11 @@
+<div (click)="hide()" @messageState *ngIf="active" class="flash-container" [ngClass]="activeClass">
+
+  <app-time-bar></app-time-bar>
+
+  <div class="message">
+    {{message}}
+  </div>
+
+  <p class="dismiss">tap to dismiss</p>
+
+</div>

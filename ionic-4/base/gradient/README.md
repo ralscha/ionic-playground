@@ -1,0 +1,1 @@
+https://www.joshmorony.com/creating-a-list-gradient-effect-with-sass-in-ionic/

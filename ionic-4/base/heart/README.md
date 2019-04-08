@@ -1,0 +1,1 @@
+https://www.joshmorony.com/twitter-style-heart-like-animation-with-angular-animations-in-ionic/

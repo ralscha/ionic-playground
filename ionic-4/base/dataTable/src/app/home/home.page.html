@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      ngx-Table
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ngx-datatable class="fullscreen" class="material" [rows]="rows" columnMode="force" sortType="multi" [reorderable]="false"
+                 [rowHeight]="50" [rowClass]="getRowClass" [summaryRow]="true" summaryPosition="top">
+
+    <ngx-datatable-column prop="name" [resizeable]="false">
+      <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+        <span (click)="sort()">Special User</span>
+      </ng-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{ value }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Gender" [summaryFunc]="genderSummary"></ngx-datatable-column>
+
+    <ngx-datatable-column name="Age" [summaryFunc]="ageSummary"></ngx-datatable-column>
+
+    <ngx-datatable-column name="id" [resizeable]="false">
+      <ng-template ngx-datatable-header-template>
+        Action
+      </ng-template>
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <ion-button size="small" fill="outline" color="light" (click)="open(row)">Details</ion-button>
+      </ng-template>
+    </ngx-datatable-column>
+
+  </ngx-datatable>
+</ion-content>
