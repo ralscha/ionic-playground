@@ -26,7 +26,7 @@ class Startup {
 	private void init() {
 
 		MongoCollection<Room> roomCollection = this.mongoDb.getCollection(Room.class);
-		if (roomCollection.count() == 0) {
+		if (roomCollection.countDocuments() == 0) {
 
 			Random rnd = new Random();
 			for (int i = 0; i < 150; i++) {
