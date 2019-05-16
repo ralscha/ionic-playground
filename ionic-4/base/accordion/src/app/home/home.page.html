@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Accordion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card (click)="expandItem(item)" *ngFor="let item of items">
+    <ion-card-header>
+      <ion-card-title>My Neighbor Totoro</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <app-expandable expandHeight="120px" [expanded]="item.expanded">
+        <p>
+          Hello there.
+        </p>
+        <p>
+          Hello there.
+        </p>
+        <p>
+          Hello there.
+        </p>
+        <p>
+          Hello there.
+        </p>
+        <p>
+          Hello there.
+        </p>
+        <p>
+          Hello there.
+        </p>
+      </app-expandable>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
