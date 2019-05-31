@@ -5,8 +5,8 @@ import {TimeBarComponent} from '../time-bar/time-bar.component';
 
 @Component({
   selector: 'flash',
-  templateUrl: 'flash.component.html',
-  styleUrls: ['flash.component.scss'],
+  templateUrl: './flash.component.html',
+  styleUrls: ['./flash.component.scss'],
   animations: [
     trigger('messageState', [
       transition('void => *', [
@@ -21,7 +21,7 @@ import {TimeBarComponent} from '../time-bar/time-bar.component';
 })
 export class FlashComponent {
 
-  @ViewChild(TimeBarComponent) set tb(timeBar: TimeBarComponent) {
+  @ViewChild(TimeBarComponent, { static: false }) set tb(timeBar: TimeBarComponent) {
 
     if (typeof (timeBar) !== 'undefined') {
       timeBar.startTimer(this.duration);
@@ -29,11 +29,11 @@ export class FlashComponent {
 
   }
 
-  private active = false;
-  private message = '';
+  active = false;
+  message = '';
   private duration: number;
   private timeout;
-  private activeClass = 'secondary';
+  activeClass = 'secondary';
 
   constructor(private readonly flashService: FlashService) {
     this.flashService.show = this.show.bind(this);

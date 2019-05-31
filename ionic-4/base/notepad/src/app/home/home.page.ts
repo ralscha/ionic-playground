@@ -1,25 +1,24 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertController, NavController} from '@ionic/angular';
+import {AlertController} from '@ionic/angular';
 import {NotesService} from '../services/notes.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
 
-  constructor(private readonly notesService: NotesService,
-              private readonly alertCtrl: AlertController,
-              private readonly navCtrl: NavController){
+  constructor(public readonly notesService: NotesService,
+              private readonly alertCtrl: AlertController) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.notesService.load();
   }
 
-  addNote(){
+  addNote() {
 
     this.alertCtrl.create({
       header: 'New Note',

@@ -11,7 +11,7 @@ import { Note } from '../interfaces/note';
 })
 export class DetailPage implements OnInit {
 
-  private note: Note;
+  note: Note;
 
   constructor(private route: ActivatedRoute, private notesService: NotesService, private navCtrl: NavController) {
 

@@ -8,7 +8,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 })
 export class DetailPage implements OnInit {
 
-  @ViewChild('header') headerImage: ElementRef;
+  @ViewChild('header', { static: true }) headerImage: ElementRef;
 
   constructor(
     private modalCtrl: ModalController,

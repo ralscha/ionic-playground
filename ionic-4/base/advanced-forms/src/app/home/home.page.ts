@@ -5,12 +5,12 @@ import {AgeValidator} from '../validators/age';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss']
 })
 export class HomePage {
 
-  @ViewChild('signupSlider') signupSlider;
+  @ViewChild('signupSlider', { static: true }) signupSlider;
 
   public slideOneForm: FormGroup;
   public slideTwoForm: FormGroup;

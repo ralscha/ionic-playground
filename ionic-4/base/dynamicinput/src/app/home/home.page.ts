@@ -3,8 +3,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss']
 })
 export class HomePage {
   public myForm: FormGroup;
