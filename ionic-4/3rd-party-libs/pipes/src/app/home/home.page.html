@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Ionic + ngx Pipes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <p>{{ 'The world is your oyster.' | shorten: 10: '...'}}</p>
+  <p>{{ ' whats up? ' | trim }}</p>
+
+  <ion-item *ngFor="let item of arr | initial: 1">
+    {{ item }}
+  </ion-item>
+
+  <ion-item *ngFor="let item of arr | reverse">
+    {{ item }}
+  </ion-item>
+
+  <p>{{ myObj | keys }}</p>
+  <p>{{ myObj | values }}</p>
+
+  <ion-button (click)="callPipe()">Call Pipe from Code</ion-button>
+
+</ion-content>

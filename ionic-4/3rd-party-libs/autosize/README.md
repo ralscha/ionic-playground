@@ -1,0 +1,1 @@
+https://ionicacademy.com/chat-elastic-textarea/

@@ -1,0 +1,1 @@
+https://ionicacademy.com/pass-data-angular-router-ionic-4/

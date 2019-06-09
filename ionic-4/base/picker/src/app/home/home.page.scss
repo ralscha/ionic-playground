@@ -1,0 +1,13 @@
+.special-done {
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.academy-picker {
+  --background: #88bdff;
+  --ion-text-color: #fff;
+
+  .picker-opt-selected {
+    color: red;
+  }
+}

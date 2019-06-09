@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Ionic Picker
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label>Framework: </ion-label>
+    <ion-label color="primary">{{ framework }}</ion-label>
+    <ion-button slot="end" fill="clear" (click)="showBasicPicker()">Select</ion-button>
+  </ion-item>
+
+
+  <ion-row text-center>
+    <ion-col size="4">Game</ion-col>
+    <ion-col size="4">Category</ion-col>
+    <ion-col size="4">Rating</ion-col>
+  </ion-row>
+
+  <ion-row text-center>
+    <ion-col size="4">{{ selected[0] }}</ion-col>
+    <ion-col size="4">{{ selected[1] }}</ion-col>
+    <ion-col size="4">{{ selected[2] }}</ion-col>
+  </ion-row>
+
+  <ion-button expand="block" (click)="showAdvancedPicker()">Show Advanced Picker</ion-button>
+</ion-content>
