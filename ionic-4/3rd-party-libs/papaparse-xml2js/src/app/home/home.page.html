@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Data
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item-group>
+    <ion-item-divider color="light">XML</ion-item-divider>
+    <ion-item *ngFor="let item of xmlItems">
+      {{item.id}}, {{item.firstName}} {{item.lastName}}, {{item.email}}
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">CSV</ion-item-divider>
+    <ion-item *ngFor="let item of csvItems">
+      {{item.id}}, {{item.firstName}} {{item.lastName}}, {{item.email}}
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">TSV</ion-item-divider>
+    <ion-item *ngFor="let item of tsvItems">
+      {{item.id}}, {{item.firstName}} {{item.lastName}}, {{item.email}}
+    </ion-item>
+  </ion-item-group>
+</ion-content>

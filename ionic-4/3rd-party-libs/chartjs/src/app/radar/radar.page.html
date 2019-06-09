@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Radar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <canvas [chartType]="radarChartType" [datasets]="radarChartData"
+          [labels]="radarChartLabels"
+          baseChart
+          height="300"></canvas>
+</ion-content>

@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <canvas [chartType]="pieChartType" [data]="pieChartData"
+          [labels]="pieChartLabels"
+          baseChart
+          height="300"></canvas>
+</ion-content>

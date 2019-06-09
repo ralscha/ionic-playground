@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <canvas [chartType]="barChartType" [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [legend]="barChartLegend"
+          [options]="barChartOptions"
+          baseChart
+          height="300">
+  </canvas>
+
+</ion-content>
