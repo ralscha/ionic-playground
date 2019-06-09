@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Notifications
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-button expand="block" (click)="scheduleNotification()">Schedule</ion-button>
+  <ion-button expand="block" (click)="recurringNotification()">Every Minute</ion-button>
+  <ion-button expand="block" (click)="repeatingDaily()">Daily</ion-button>
+  <ion-button expand="block" (click)="getAll()">Get All</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let n of scheduled">
+      <ion-label>
+        {{ n.id }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

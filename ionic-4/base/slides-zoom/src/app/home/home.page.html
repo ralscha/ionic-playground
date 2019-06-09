@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Ionic Image Gallery
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides [options]="sliderOpts">
+    <ion-slide *ngFor="let img of [1, 2, 3]">
+      <img (click)="viewImage(img)" class="ion-tappable" src="assets/img/{{ img }}.jpg">
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

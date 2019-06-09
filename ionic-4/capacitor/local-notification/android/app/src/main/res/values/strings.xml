@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">localnotification</string>
+    <string name="title_activity_main">localnotification</string>
+    <string name="package_name">ch.rasc.localnotification</string>
+    <string name="fileprovider_authority">ch.rasc.localnotification.fileprovider</string>
+    <string name="custom_url_scheme">ch.rasc.localnotification</string>
+</resources>
