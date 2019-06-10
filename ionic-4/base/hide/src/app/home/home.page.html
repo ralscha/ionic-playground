@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Ionic Role Elements
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="full" (click)="loginAdmin()" *ngIf="!authenticated">Login as Admin</ion-button>
+  <ion-button expand="full" (click)="loginUser()" *ngIf="!authenticated">Login as User</ion-button>
+  <ion-button expand="full" (click)="logout()" *ngIf="authenticated">Logout</ion-button>
+
+  <ion-card color="primary" *appHasRole="['read-content']" [@fadeInOut]>
+    <ion-card-header>My Read Content</ion-card-header>
+    <ion-card-content>Things every logged in user can see</ion-card-content>
+  </ion-card>
+
+  <ion-card color="secondary" *appHasRole="['purchase-items']" [@fadeInOut]>
+    <ion-card-header>My User Purchase Content</ion-card-header>
+    <ion-card-content>Things only the user can see</ion-card-content>
+  </ion-card>
+
+  <ion-card color="tertiary" *appHasRole="['write-content', 'admin']" [@fadeInOut]>
+    <ion-card-header>My Admin Content</ion-card-header>
+    <ion-card-content>Things only theadmin can see</ion-card-content>
+  </ion-card>
+</ion-content>
