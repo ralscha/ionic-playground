@@ -8,12 +8,11 @@
     </ion-header>
 
     <ion-content>
-      <ion-list>
+      <ion-list lines="full">
         <ion-menu-toggle *ngFor="let p of pages" [autoHide]="false">
           <ion-item [class.active-item]="selectedPath.startsWith(p.url)" [routerLink]="p.url" routerDirection="root">
-            <ion-label>
-              {{ p.title }}
-            </ion-label>
+            <ion-icon [name]="p.icon" slot="start"></ion-icon>
+            <ion-label>{{ p.title }}</ion-label>
           </ion-item>
         </ion-menu-toggle>
 

@@ -13,11 +13,13 @@ export class MenuPage {
   pages = [
     {
       title: 'First Page with Tabs',
-      url: '/menu/first'
+      url: '/menu/first',
+      icon: 'bicycle'
     },
     {
       title: 'Second Page blank',
-      url: '/menu/second'
+      url: '/menu/second',
+      icon: 'airplane'
     }
   ];
 
