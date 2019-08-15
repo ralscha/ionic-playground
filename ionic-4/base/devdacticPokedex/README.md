@@ -1,0 +1,1 @@
+https://devdactic.com/ionic-4-pokedex-search-scroll/

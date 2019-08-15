@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">{{ details?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="details">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let sprite of details.images">
+        <img [src]="sprite" style="height: 250px;">
+      </ion-slide>
+    </ion-slides>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-capitalize">#{{ details.id }} {{ details.name }}
+          <ion-chip color="primary" *ngFor="let t of details.types">
+            <ion-label>{{ t.type.name }}</ion-label>
+          </ion-chip>
+        </ion-card-title>
+        <ion-card-subtitle class="ion-text-capitalize">{{ details.weight }} lbs</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-item>
+            <ion-label text-wrap><b>Abilities:</b> <span *ngFor="let a of details.abilities; let isLast = last"
+                                                         class="ion-text-capitalize">
+                {{ a.ability.name }}{{ !isLast ? ',' : '' }}
+              </span></ion-label>
+          </ion-item>
+          <ion-item *ngFor="let s of details.stats" class="ion-text-capitalize">
+            <ion-label slot="start"><b>{{ s.stat.name }}:</b></ion-label>
+            <ion-label slot="end">
+              {{ s.base_stat }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
