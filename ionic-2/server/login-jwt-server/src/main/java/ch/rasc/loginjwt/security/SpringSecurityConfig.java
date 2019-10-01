@@ -16,7 +16,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	private JsonLoginHandler jsonLoginHandler;
 
 	@Autowired
-	private StatelessAuthenticationFilter statelessAuthenticationFilter;
+	private TokenHandler tokenHandler;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -46,7 +46,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
               .authenticationEntryPoint(new Http401UnauthorizedEntryPoint())
               .and()
 
-		  .addFilterBefore(this.statelessAuthenticationFilter,
+		  .addFilterBefore(new StatelessAuthenticationFilter(this.tokenHandler),
 				           UsernamePasswordAuthenticationFilter.class);
 	}
 
