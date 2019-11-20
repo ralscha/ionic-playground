@@ -28,7 +28,7 @@ export class HomePage {
 
   currentUser = 'simon';
   newMsg = '';
-  @ViewChild(IonContent, {static: false}) content: IonContent;
+  @ViewChild(IonContent) content: IonContent;
 
   constructor() {
   }

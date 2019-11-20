@@ -11,7 +11,7 @@
     <ion-input [(ngModel)]="myid" clearInput></ion-input>
   </ion-item>
 
-  <ion-button expand="full" [routerLink]="['/second', myid]" [routerDirection]="forward">Push with Router Link</ion-button>
+  <ion-button expand="full" [routerLink]="['/second', myid]" routerDirection="forward">Push with Router Link</ion-button>
   <ion-button expand="full" (click)="pushPage()">Push with function</ion-button>
   <ion-button expand="full" (click)="openModal()">Open Modal</ion-button>
   <ion-button expand="full" (click)="openPopover($event)">Open Popover</ion-button>

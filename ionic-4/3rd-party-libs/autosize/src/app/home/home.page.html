@@ -13,13 +13,13 @@
       <ion-col size="9" *ngIf="message.user !== currentUser" class="message other-message">
         <b>{{ message.user }}</b><br>
         <span>{{ message.msg }}</span>
-        <div class="time" text-right><br>{{ message.createdAt | date:'short' }}</div>
+        <div class="time" class="ion-text-right"><br>{{ message.createdAt | date:'short' }}</div>
       </ion-col>
 
       <ion-col offset="3" size="9" *ngIf="message.user === currentUser" class="message my-message">
         <b>{{ message.user }}</b><br>
         <span>{{ message.msg }}</span>
-        <div class="time" text-right><br>{{ message.createdAt | date:'short' }}</div>
+        <div class="time" class="ion-text-right"><br>{{ message.createdAt | date:'short' }}</div>
       </ion-col>
 
     </ion-row>

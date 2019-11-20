@@ -3,6 +3,7 @@ package ch.rasc.review.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "mongodb")
+@Component
 public class MongoProperties {
 
 	private String uri = "mongodb://localhost";

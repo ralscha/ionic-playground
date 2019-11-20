@@ -50,7 +50,7 @@ export class HomePage {
   ];
 
   // Interesting part starts here
-  @ViewChild('selectComponent', {static: false}) selectComponent: IonicSelectableComponent;
+  @ViewChild('selectComponent') selectComponent: IonicSelectableComponent;
   toggle = true;
   group = null;
   selected = [];

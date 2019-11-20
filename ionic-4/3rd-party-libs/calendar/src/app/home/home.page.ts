@@ -9,6 +9,7 @@ import {formatDate} from '@angular/common';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
+  collapseCard: boolean;
   event = {
     title: '',
     desc: '',
@@ -27,7 +28,7 @@ export class HomePage implements OnInit {
     currentDate: new Date(),
   };
 
-  @ViewChild(CalendarComponent, {static: false}) myCal: CalendarComponent;
+  @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
   constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
   }

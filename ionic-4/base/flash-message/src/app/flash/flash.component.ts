@@ -21,7 +21,7 @@ import {TimeBarComponent} from '../time-bar/time-bar.component';
 })
 export class FlashComponent {
 
-  @ViewChild(TimeBarComponent, { static: false }) set tb(timeBar: TimeBarComponent) {
+  @ViewChild(TimeBarComponent) set tb(timeBar: TimeBarComponent) {
 
     if (typeof (timeBar) !== 'undefined') {
       timeBar.startTimer(this.duration);

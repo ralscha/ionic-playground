@@ -29,7 +29,7 @@
       <ion-card-content>
         <ion-list lines="full">
           <ion-item>
-            <ion-label text-wrap><b>Abilities:</b> <span *ngFor="let a of details.abilities; let isLast = last"
+            <ion-label class="ion-text-wrap"><b>Abilities:</b> <span *ngFor="let a of details.abilities; let isLast = last"
                                                          class="ion-text-capitalize">
                 {{ a.ability.name }}{{ !isLast ? ',' : '' }}
               </span></ion-label>

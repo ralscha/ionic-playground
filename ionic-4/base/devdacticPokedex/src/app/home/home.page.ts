@@ -14,7 +14,7 @@ export class HomePage implements AfterViewInit {
   pokemon: Pokemon[] = [];
   searching = false;
 
-  @ViewChild(IonInfiniteScroll, {static: false})
+  @ViewChild(IonInfiniteScroll)
   infinite: IonInfiniteScroll;
 
   constructor(private readonly pokeService: PokemonService) {
