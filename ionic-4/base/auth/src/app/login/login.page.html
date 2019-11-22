@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Devdactic Auth</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-row>
+        <ion-col offset-lg="3" offset-md="2" offset-sm="1" offset-xl="4" size="12" size-lg="6" size-md="8" size-sm="10"
+                 size-xl="4">
+
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title class="ion-text-center">Your Account</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+
+                    <ion-item lines="none">
+                        <ion-label position="stacked">Email</ion-label>
+                        <ion-input [(ngModel)]="credentials.email" name="email" placeholder="Email"
+                                   type="email"></ion-input>
+                    </ion-item>
+
+                    <ion-item lines="none">
+                        <ion-label position="stacked">Password</ion-label>
+                        <ion-input [(ngModel)]="credentials.pw" name="password" placeholder="Password" type="password">
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-button (click)="login()" expand="block">Login</ion-button>
+                    <ion-button color="secondary" expand="block" routerDirection="forward" routerLink="/register">
+                        Register
+                    </ion-button>
+
+                </ion-card-content>
+            </ion-card>
+
+        </ion-col>
+    </ion-row>
+
+</ion-content>
