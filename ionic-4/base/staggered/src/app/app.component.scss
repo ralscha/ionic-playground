@@ -1,0 +1,16 @@
+ion-item {
+  --ion-item-background: #f6f6f6;
+  margin: 20px;
+  animation: popIn .2s calc(var(--animation-order) * 70ms) both ease-in;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
