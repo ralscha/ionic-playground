@@ -4,7 +4,7 @@ import {animate, style, transition, trigger} from '@angular/animations';
 import {TimeBarComponent} from '../time-bar/time-bar.component';
 
 @Component({
-  selector: 'flash',
+  selector: 'app-flash',
   templateUrl: './flash.component.html',
   styleUrls: ['./flash.component.scss'],
   animations: [

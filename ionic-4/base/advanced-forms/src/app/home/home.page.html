@@ -19,7 +19,7 @@
 
 <ion-content>
 
-  <ion-slides #signupSlider pager>
+  <ion-slides #signupSlider [pager]="true">
 
     <ion-slide>
 
@@ -94,7 +94,7 @@
             <ion-select
               [class.invalid]="!slideTwoForm.controls.privacy.valid && (slideTwoForm.controls.privacy.dirty || submitAttempt)"
               formControlName="privacy">
-              <ion-select-option value="public" checked="true">Public</ion-select-option>
+              <ion-select-option value="public">Public</ion-select-option>
               <ion-select-option value="friends">Friends Only</ion-select-option>
               <ion-select-option value="private">Private</ion-select-option>
             </ion-select>

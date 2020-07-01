@@ -11,7 +11,7 @@
   <ion-list lines="none">
     <form [formGroup]="myForm">
       <ion-item *ngFor="let control of myForm.controls | keyvalue">
-        <ion-input required type="text" [formControlName]="control.key" placeHolder="player name..."></ion-input>
+        <ion-input [required]="true" type="text" [formControlName]="control.key" placeHolder="player name..."></ion-input>
         <ion-icon (click)="removeControl(control)" name="close-circle"></ion-icon>
       </ion-item>
     </form>

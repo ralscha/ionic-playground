@@ -2,28 +2,21 @@ import {Directive, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 import {DomController} from '@ionic/angular';
 
 @Directive({
-  selector: '[myScrollVanish]'
+  selector: '[appMyScrollVanish]'
 })
 export class ScrollVanishDirective implements OnInit {
 
-  @Input('myScrollVanish') scrollArea;
+  @Input('appMyScrollVanish') scrollArea;
 
   private hidden = false;
   private triggerDistance = 20;
 
   constructor(private element: ElementRef, private renderer: Renderer2, private domCtrl: DomController) {
-
   }
 
-
   ngOnInit() {
-
     const content = document.querySelector('ion-content');
-
     content.addEventListener('ionScroll', (scrollEvent: any) => {
-
-// console.log(scrollEvent.detail)
-
       const delta = scrollEvent.detail.deltaY;
 
       if (scrollEvent.detail.currentY === 0 && this.hidden) {

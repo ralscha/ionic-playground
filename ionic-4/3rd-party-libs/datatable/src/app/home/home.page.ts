@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AlertController, NavController, NavParams} from '@ionic/angular';
+import {SortType} from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'app-home',
@@ -7,26 +8,28 @@ import {AlertController, NavController, NavParams} from '@ionic/angular';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage {
+  public readonly sortType = SortType.multi;
+
   rows = [
     {
-      'name': 'Ethel Price',
-      'gender': 'female',
-      'age': 22
+      name: 'Ethel Price',
+      gender: 'female',
+      age: 22
     },
     {
-      'name': 'Claudine Neal',
-      'gender': 'female',
-      'age': 55
+      name: 'Claudine Neal',
+      gender: 'female',
+      age: 55
     },
     {
-      'name': 'Beryl Rice',
-      'gender': 'female',
-      'age': 67
+      name: 'Beryl Rice',
+      gender: 'female',
+      age: 67
     },
     {
-      'name': 'Simon Grimm',
-      'gender': 'male',
-      'age': 28
+      name: 'Simon Grimm',
+      gender: 'male',
+      age: 28
     }
   ];
 

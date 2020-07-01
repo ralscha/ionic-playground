@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ngx-datatable class="fullscreen" class="material" [rows]="rows" columnMode="force" sortType="multi" [reorderable]="false"
+  <ngx-datatable class="fullscreen material" [rows]="rows" columnMode="force" [sortType]="sortType" [reorderable]="false"
                  [rowHeight]="50" [rowClass]="getRowClass" [summaryRow]="true" summaryPosition="top">
 
     <ngx-datatable-column prop="name" [resizeable]="false">

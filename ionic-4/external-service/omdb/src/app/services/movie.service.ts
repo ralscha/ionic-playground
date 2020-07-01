@@ -26,8 +26,8 @@ export class MovieService {
    * Get data from the OmdbApi
    * map the result to return only the results that we need
    *
-   * @param {string} title Search Term
-   * @param {SearchType} type movie, series, episode or empty
+   * @param title Search Term
+   * @param type movie, series, episode or empty
    * @returns Observable with the search results
    */
   searchData(title: string, type: SearchType): Observable<any> {
@@ -39,7 +39,7 @@ export class MovieService {
   /**
    * Get the detailed information for an ID using the "i" parameter
    *
-   * @param {string} id imdbID to retrieve information
+   * @param id imdbID to retrieve information
    * @returns Observable with detailed information
    */
   getDetails(id) {

@@ -10,7 +10,7 @@
 <ion-content>
 
   <div *ngIf="details">
-    <ion-slides pager="true" [options]="slideOpts">
+    <ion-slides [pager]="true" [options]="slideOpts">
       <ion-slide *ngFor="let sprite of details.images">
         <img [src]="sprite" style="height: 250px;">
       </ion-slide>

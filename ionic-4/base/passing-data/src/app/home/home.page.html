@@ -8,7 +8,7 @@
 
 <ion-content class="ion-padding">
   <ion-item>
-    <ion-input [(ngModel)]="myid" clearInput></ion-input>
+    <ion-input [(ngModel)]="myid" [clearInput]="true"></ion-input>
   </ion-item>
 
   <ion-button expand="full" [routerLink]="['/second', myid]" routerDirection="forward">Push with Router Link</ion-button>

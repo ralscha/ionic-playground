@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary" [myScrollVanish]="scrollArea">
+  <ion-toolbar color="primary" [appMyScrollVanish]="scrollArea">
     <ion-title>
       Browse Animals
     </ion-title>
@@ -20,7 +20,7 @@
   </ion-segment>
 </ion-header>
 
-<ion-content #scrollArea scrollEvents="true">
+<ion-content #scrollArea [scrollEvents]="true">
 
   <ion-list>
     <ion-item *ngFor="let test of tests">

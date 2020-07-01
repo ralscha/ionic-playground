@@ -1,5 +1,5 @@
 <ion-list>
-  <ion-item (click)="select(lng.value)" *ngFor="let lng of languages" button detail="false">
+  <ion-item (click)="select(lng.value)" *ngFor="let lng of languages" [button]="true" [detail]="false">
     <img [src]="lng.img" slot="start">
     <ion-label class="ion-text-wrap">
       {{ lng.text }}

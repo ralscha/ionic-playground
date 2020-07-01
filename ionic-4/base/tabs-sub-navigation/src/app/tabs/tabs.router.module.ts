@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {TabsPage} from './tabs.page';
 
 const routes: Routes = [
   {
@@ -25,8 +25,14 @@ const routes: Routes = [
           }
         ]
       },
-      { path: 'tab2/products', loadChildren: () => import('../tab2/product-list/product-list.module').then(m => m.ProductListPageModule) },
-      { path: 'tab2/products/:id', loadChildren: () => import('../tab2/view-product/view-product.module').then(m => m.ViewProductPageModule) },
+      {
+        path: 'tab2/products',
+        loadChildren: () => import('../tab2/product-list/product-list.module').then(m => m.ProductListPageModule)
+      },
+      {
+        path: 'tab2/products/:id',
+        loadChildren: () => import('../tab2/view-product/view-product.module').then(m => m.ViewProductPageModule)
+      },
       {
         path: 'tab3',
         children: [
@@ -56,4 +62,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule {
+}

@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import {Injectable} from '@angular/core';
+import {Storage} from '@ionic/storage';
 
-import { Note } from '../interfaces/note';
+import {Note} from '../interfaces/note';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,9 @@ import { Note } from '../interfaces/note';
 export class NotesService {
 
   public notes: Note[] = [];
-  public loaded: boolean = false;
+  public loaded = false;
 
   constructor(private storage: Storage) {
-
   }
 
   load(): Promise<boolean> {
@@ -24,7 +23,7 @@ export class NotesService {
       this.storage.get('notes').then((notes) => {
 
         // Only set this.notes to the returned value if there were values stored
-        if(notes != null){
+        if (notes != null) {
           this.notes = notes;
         }
 
@@ -51,11 +50,11 @@ export class NotesService {
   createNote(title): void {
 
     // Create a unique id that is one larger than the current largest id
-    let id = Math.max(...this.notes.map(note => parseInt(note.id)), 0) + 1;
+    const id = Math.max(...this.notes.map(note => parseInt(note.id, 10)), 0) + 1;
 
     this.notes.push({
       id: id.toString(),
-      title: title,
+      title,
       content: ''
     });
 
@@ -66,10 +65,10 @@ export class NotesService {
   deleteNote(note): void {
 
     // Get the index in the array of the note that was passed in
-    let index = this.notes.indexOf(note);
+    const index = this.notes.indexOf(note);
 
     // Delete that element of the array and resave the data
-    if(index > -1){
+    if (index > -1) {
       this.notes.splice(index, 1);
       this.save();
     }

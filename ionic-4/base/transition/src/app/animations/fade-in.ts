@@ -1,13 +1,13 @@
-import { Animation } from '@ionic/core';
+import { createAnimation  } from '@ionic/core';
 
-export function myFadeInAnimation(AnimationC: Animation, baseEl: HTMLElement): Promise<Animation> {
+export function myFadeInAnimation(baseEl: HTMLElement) {
 
-  const baseAnimation = new AnimationC();
+  const baseAnimation = createAnimation();
 
-  const backdropAnimation = new AnimationC();
+  const backdropAnimation = createAnimation();
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop'));
 
-  const wrapperAnimation = new AnimationC();
+  const wrapperAnimation = createAnimation();
   wrapperAnimation.addElement(baseEl.querySelector('.modal-wrapper'));
 
   wrapperAnimation.beforeStyles({ opacity: 1 })
@@ -15,12 +15,12 @@ export function myFadeInAnimation(AnimationC: Animation, baseEl: HTMLElement): P
 
   backdropAnimation.fromTo('opacity', 0.01, 0.4);
 
-  return Promise.resolve(baseAnimation
+  return baseAnimation
     .addElement(baseEl)
     .easing('cubic-bezier(0.36,0.66,0.04,1)')
     .duration(1000)
     .beforeAddClass('show-modal')
-    .add(backdropAnimation)
-    .add(wrapperAnimation));
+    .addAnimation(backdropAnimation)
+    .addAnimation(wrapperAnimation);
 
 }

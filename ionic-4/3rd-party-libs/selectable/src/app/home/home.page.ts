@@ -8,6 +8,7 @@ import {IonicSelectableComponent} from 'ionic-selectable';
 })
 export class HomePage {
 
+  selectedUsers = null;
   users = [
     {
       id: 0,

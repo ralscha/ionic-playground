@@ -20,12 +20,12 @@
 
   <ion-list>
 
-    <ion-item *ngFor="let item of (results | async)" [routerLink]="['/', 'movies', item.imdbID]" button>
+    <ion-item *ngFor="let item of (results | async)" [routerLink]="['/', 'movies', item.imdbID]" [button]="true">
       <ion-avatar slot="start">
         <img *ngIf="item.Poster != 'N/A'" [src]="item.Poster">
       </ion-avatar>
 
-      <ion-label text-wrap>
+      <ion-label class="ion-text-wrap">
         <h3>{{ item.Title }}</h3>
         {{ item.Year }}
       </ion-label>

@@ -22,8 +22,9 @@
         </ion-menu-toggle>
         <!-- Item with Children -->
 
-        <ion-item (click)="p.open = !p.open" *ngIf="p.children?.length > 0" [class.parent-active]="p.open" button
-                  detail="false">
+        <ion-item (click)="p.open = !p.open" *ngIf="p.children?.length > 0" [class.parent-active]="p.open"
+                  [button]="true"
+                  [detail]="false">
           <ion-icon *ngIf="!p.open" name="arrow-forward" slot="start"></ion-icon>
           <ion-icon *ngIf="p.open" name="arrow-down" slot="start"></ion-icon>
           <ion-label>{{ p.title }}</ion-label>
