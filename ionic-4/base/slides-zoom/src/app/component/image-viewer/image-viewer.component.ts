@@ -18,10 +18,10 @@ export class ImageViewerComponent implements OnInit {
   constructor(private modalController: ModalController) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  closeModal() {
+  closeModal(): void {
     this.modalController.dismiss();
   }
 }

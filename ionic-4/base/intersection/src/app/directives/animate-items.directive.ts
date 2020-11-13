@@ -6,15 +6,15 @@ import {IonItem} from '@ionic/angular';
 })
 export class AnimateItemsDirective implements AfterViewInit {
 
-  private observer: IntersectionObserver;
+  private observer!: IntersectionObserver;
 
-  @ContentChildren(IonItem, {read: ElementRef}) items: QueryList<ElementRef>;
+  @ContentChildren(IonItem, {read: ElementRef}) items!: QueryList<ElementRef>;
 
-  constructor(private renderer: Renderer2) {
+  constructor(private readonly renderer: Renderer2) {
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
 
     this.observer = new IntersectionObserver((entries) => {
 

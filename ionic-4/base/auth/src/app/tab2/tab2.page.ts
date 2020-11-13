@@ -8,16 +8,16 @@ import {AuthService} from '../services/auth.service';
 })
 export class Tab2Page {
 
-    user = null;
+    user: any = null;
 
     constructor(private auth: AuthService) {
     }
 
-    ionViewWillEnter() {
+    ionViewWillEnter(): void {
         this.user = this.auth.getUser();
     }
 
-    logout() {
+    logout(): void {
         this.auth.logout();
     }
 }

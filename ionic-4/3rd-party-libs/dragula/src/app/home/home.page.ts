@@ -52,7 +52,7 @@ export class HomePage {
     });
   }
 
-  addTodo() {
+  addTodo(): void {
     switch (this.selectedQuadrant) {
       case 'q1':
         this.todo.color = 'primary';
@@ -67,6 +67,7 @@ export class HomePage {
         this.todo.color = 'warning';
         break;
     }
+    // @ts-ignore
     this[this.selectedQuadrant].push(this.todo);
     this.todo = {value: '', color: ''};
   }

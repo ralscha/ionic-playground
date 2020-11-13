@@ -9,10 +9,8 @@ export class HomePage {
 
   public messages;
 
-  constructor(){
-
+  constructor() {
     this.messages = new Array(100).fill({title: 'Hello'});
-
   }
 
 }

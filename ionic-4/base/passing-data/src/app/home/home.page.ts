@@ -10,18 +10,18 @@ import {PopoverPage} from '../pages/popover/popover.page';
 })
 export class HomePage {
 
-  myid: string;
+  myid = '';
 
   constructor(private readonly navCtrl: NavController,
               private readonly modalCtrl: ModalController,
               private readonly popoverCtrl: PopoverController) {
   }
 
-  pushPage() {
+  pushPage(): void {
     this.navCtrl.navigateForward(`/second/${this.myid}`);
   }
 
-  async openModal() {
+  async openModal(): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: ModalPage,
       componentProps: {myid: this.myid}
@@ -31,7 +31,7 @@ export class HomePage {
   }
 
 
-  async openPopover(event: Event) {
+  async openPopover(event: Event): Promise<void> {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
       componentProps: {myid: this.myid},

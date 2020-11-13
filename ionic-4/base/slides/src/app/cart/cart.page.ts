@@ -8,17 +8,18 @@ import {CartService} from '../cart.service';
 })
 export class CartPage implements OnInit {
 
-  selectedItems = [];
+  selectedItems: any = [];
 
   total = 0;
 
   constructor(private readonly cartService: CartService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const items = this.cartService.getCart();
-    const selected = {};
-    for (const obj of items) {
+    const selected: any = {};
+    for (const item of items) {
+      const obj: any = item;
       if (selected[obj.id]) {
         selected[obj.id].count++;
       } else {
@@ -26,7 +27,7 @@ export class CartPage implements OnInit {
       }
     }
     this.selectedItems = Object.keys(selected).map(key => selected[key]);
-    this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), 0);
+    this.total = this.selectedItems.reduce((a: any, b: any) => a + (b.count * b.price), 0);
   }
 
 }

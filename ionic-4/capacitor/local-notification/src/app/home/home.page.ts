@@ -27,7 +27,7 @@ export class HomePage {
 
   }
 
-  scheduleNotification() {
+  scheduleNotification(): void {
     Plugins.LocalNotifications.schedule({
       notifications: [
         {
@@ -35,8 +35,8 @@ export class HomePage {
           body: 'Simons Notification',
           id: 1,
           schedule: { at: new Date(Date.now() + 5_000) },
-          sound: null,
-          attachments: null,
+          sound: undefined,
+          attachments: undefined,
           actionTypeId: '',
           extra: { mydata: 'My hidden message this is' }
         }
@@ -45,7 +45,7 @@ export class HomePage {
 
   }
 
-  recurringNotification() {
+  recurringNotification(): void {
     Plugins.LocalNotifications.schedule({
       notifications: [
         {
@@ -53,8 +53,8 @@ export class HomePage {
           body: 'Simons Recurring Notification',
           id: 22,
           schedule: { every: 'minute'},
-          sound: null,
-          attachments: null,
+          sound: undefined,
+          attachments: undefined,
           actionTypeId: '',
           extra: null
         }
@@ -62,7 +62,7 @@ export class HomePage {
     });
   }
 
-  repeatingDaily() {
+  repeatingDaily(): void {
     Plugins.LocalNotifications.schedule({
       notifications: [
         {
@@ -70,8 +70,8 @@ export class HomePage {
           body: 'Code something epic today!',
           id: 42,
           schedule: { every: 'day', on: { hour: 9, minute: 30 } },
-          sound: null,
-          attachments: null,
+          sound: undefined,
+          attachments: undefined,
           actionTypeId: '',
           extra: null
         }
@@ -79,7 +79,7 @@ export class HomePage {
     });
   }
 
-  showAlert(header: string, sub: string, msg: string) {
+  showAlert(header: string, sub: string, msg: string): void{
     this.alertCtrl.create({
       header,
       subHeader: sub,
@@ -88,7 +88,7 @@ export class HomePage {
     }).then(alert => alert.present());
   }
 
-  getAll() {
+  getAll(): void {
     Plugins.LocalNotifications.getPending().then(list => this.scheduled = list.notifications);
   }
 

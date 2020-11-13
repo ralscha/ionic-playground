@@ -9,13 +9,13 @@ import { PickerOptions } from '@ionic/core';
 })
 export class HomePage {
 
-  framework = '';
-  selected = ['', '', ''];
+  framework: string | undefined = '';
+  selected: (string | undefined)[] = ['', '', ''];
 
   constructor(private readonly pickerCtrl: PickerController) {
   }
 
-  async showBasicPicker() {
+  async showBasicPicker(): Promise<void> {
     const opts: PickerOptions = {
       buttons: [
         {
@@ -41,11 +41,13 @@ export class HomePage {
     picker.present();
     picker.onDidDismiss().then(async data => {
       const col = await picker.getColumn('framework');
-      this.framework = col.options[col.selectedIndex].text;
+      if (col && col.selectedIndex) {
+        this.framework = col.options[col.selectedIndex].text;
+      }
     });
   }
 
-  async showAdvancedPicker() {
+  async showAdvancedPicker(): Promise<void> {
     const opts: PickerOptions = {
       cssClass: 'academy-picker',
       buttons: [
@@ -90,11 +92,13 @@ export class HomePage {
       const game = await picker.getColumn('game');
       const cat = await picker.getColumn('category');
       const rating = await picker.getColumn('rating');
-      this.selected = [
-        game.options[game.selectedIndex].text,
-        cat.options[cat.selectedIndex].text,
-        rating.options[rating.selectedIndex].text
-      ];
+      if (game?.selectedIndex && cat?.selectedIndex && rating?.selectedIndex) {
+        this.selected = [
+          game?.options[game.selectedIndex].text,
+          cat?.options[cat.selectedIndex].text,
+          rating?.options[rating.selectedIndex].text
+        ];
+      }
     });
   }
 

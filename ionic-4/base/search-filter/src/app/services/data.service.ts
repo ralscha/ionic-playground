@@ -18,7 +18,7 @@ export class DataService {
   }
 
   filterItems(searchTerm: string) {
-    return this.items.filter(item => {
+    return this.items.filter((item: {title: string}) => {
       return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
   }

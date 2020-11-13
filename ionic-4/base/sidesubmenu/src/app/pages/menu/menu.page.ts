@@ -32,4 +32,8 @@ export class MenuPage {
       ]
     }
   ];
+
+  hasChildren(p: any): boolean {
+    return p.children?.length && p.children?.length > 0;
+  }
 }

@@ -19,7 +19,7 @@ export class HomePage {
   constructor(private readonly modalController: ModalController) {
   }
 
-  async viewImage(img, title: string = '', description: string = '') {
+  async viewImage(img: number, title: string = '', description: string = ''): Promise<void> {
     const modal = await this.modalController.create({
       component: ImageViewerComponent,
       componentProps: {

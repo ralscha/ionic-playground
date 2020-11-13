@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
 })
 export class MoviesPage {
 
-  results: Observable<any>;
+  results: Observable<any> | null = null;
   searchTerm = '';
   type: SearchType = SearchType.all;
 
@@ -20,7 +20,7 @@ export class MoviesPage {
   constructor(private readonly movieService: MovieService) {
   }
 
-  searchChanged() {
+  searchChanged(): void {
     // Call our service function which returns an Observable
     this.results = this.movieService.searchData(this.searchTerm, this.type);
   }

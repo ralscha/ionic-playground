@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/notes"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ note.title }}</ion-title>
+    <ion-title>{{ note?.title }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="deleteNote()">
         <ion-icon slot="icon-only" name="trash"></ion-icon>

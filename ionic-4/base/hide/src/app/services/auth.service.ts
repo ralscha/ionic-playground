@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 export interface User {
   name: string;
@@ -11,9 +11,9 @@ export interface User {
 })
 export class AuthService {
 
-  private currentUser = new BehaviorSubject<User>(null);
+  private currentUser = new BehaviorSubject<User | null>(null);
 
-  login(name: string) {
+  login(name: string): void {
     if (name === 'user') {
       this.currentUser.next({
         name: 'Dummy User',
@@ -27,17 +27,17 @@ export class AuthService {
     }
   }
 
-  getUser$() {
+  getUser$(): Observable<User | null> {
     return this.currentUser.asObservable();
   }
 
-  logout() {
+  logout(): void {
     this.currentUser.next(null);
   }
 
   hasRoles(roles: string[]): boolean {
     for (const role of roles) {
-      if (!this.currentUser.getValue() || !this.currentUser.getValue().roles.includes(role)) {
+      if (!this.currentUser.getValue() || !this.currentUser.getValue()?.roles.includes(role)) {
         return false;
       }
     }

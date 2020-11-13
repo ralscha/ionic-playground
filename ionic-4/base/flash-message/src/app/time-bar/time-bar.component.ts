@@ -7,10 +7,10 @@ import {Component, ElementRef, Renderer2} from '@angular/core';
 })
 export class TimeBarComponent {
 
-  constructor(private renderer: Renderer2, private element: ElementRef) {
+  constructor(private readonly renderer: Renderer2, private readonly element: ElementRef) {
   }
 
-  startTimer(time) {
+  startTimer(time: number): void {
     this.renderer.setStyle(this.element.nativeElement.children[0], 'transition', 'width ' + time + 'ms linear');
     setTimeout(() => {
       this.renderer.setStyle(this.element.nativeElement.children[0], 'width', '0%');

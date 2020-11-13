@@ -22,11 +22,11 @@ export class HomePage {
     ];
   }
 
-  expandItem(item): void {
+  expandItem(item: { expanded: boolean }): void {
     if (item.expanded) {
       item.expanded = false;
     } else {
-      this.items.map(listItem => {
+      this.items.map((listItem: { expanded: boolean }) => {
         if (item === listItem) {
           listItem.expanded = !listItem.expanded;
         } else {

@@ -33,20 +33,17 @@ export class CartService {
     }
   ];
 
-  private cart = [];
+  private cart: any = [];
 
-  constructor() {
-  }
-
-  getProducts() {
+  getProducts(): any {
     return this.data;
   }
 
-  getCart() {
+  getCart(): any {
     return this.cart;
   }
 
-  addProduct(product) {
+  addProduct(product: any): void {
     this.cart.push(product);
   }
 }

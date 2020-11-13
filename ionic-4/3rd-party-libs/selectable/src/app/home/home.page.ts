@@ -51,7 +51,7 @@ export class HomePage {
   ];
 
   // Interesting part starts here
-  @ViewChild('selectComponent') selectComponent: IonicSelectableComponent;
+  @ViewChild('selectComponent') selectComponent!: IonicSelectableComponent;
   toggle = true;
   group = null;
   selected = [];
@@ -59,25 +59,26 @@ export class HomePage {
   constructor() {
   }
 
-  userChanged(event: { component: IonicSelectableComponent, value: any }) {
+  // tslint:disable-next-line:no-any
+  userChanged(event: { component: IonicSelectableComponent, value: any }): void {
     console.log('Selected: ', event);
   }
 
-  openFromCode() {
+  openFromCode(): void {
     this.selectComponent.open();
   }
 
-  clear() {
+  clear(): void {
     this.selectComponent.clear();
     this.selectComponent.close();
   }
 
-  toggleItems() {
+  toggleItems(): void {
     this.selectComponent.toggleItems(this.toggle);
     this.toggle = !this.toggle;
   }
 
-  confirm() {
+  confirm(): void {
     this.selectComponent.confirm();
     this.selectComponent.close();
   }

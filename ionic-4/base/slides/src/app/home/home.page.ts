@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-  cart = [];
-  items = [];
+  cart: any = [];
+  items: any = [];
 
   sliderConfig = {
     slidesPerView: 1.6,
@@ -21,16 +21,16 @@ export class HomePage implements OnInit {
   constructor(private readonly router: Router,
               private readonly cartService: CartService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.items = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
   }
 
-  addToCart(product) {
+  addToCart(product: any): void {
     this.cartService.addProduct(product);
   }
 
-  openCart() {
+  openCart(): void {
     this.router.navigate(['cart']);
   }
 

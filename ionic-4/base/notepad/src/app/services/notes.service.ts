@@ -11,7 +11,7 @@ export class NotesService {
   public notes: Note[] = [];
   public loaded = false;
 
-  constructor(private storage: Storage) {
+  constructor(private readonly storage: Storage) {
   }
 
   load(): Promise<boolean> {
@@ -42,12 +42,12 @@ export class NotesService {
     this.storage.set('notes', this.notes);
   }
 
-  getNote(id): Note {
+  getNote(id: string): Note | undefined {
     // Return the note that has an id matching the id passed in
     return this.notes.find(note => note.id === id);
   }
 
-  createNote(title): void {
+  createNote(title: string): void {
 
     // Create a unique id that is one larger than the current largest id
     const id = Math.max(...this.notes.map(note => parseInt(note.id, 10)), 0) + 1;
@@ -62,7 +62,7 @@ export class NotesService {
 
   }
 
-  deleteNote(note): void {
+  deleteNote(note: Note): void {
 
     // Get the index in the array of the note that was passed in
     const index = this.notes.indexOf(note);

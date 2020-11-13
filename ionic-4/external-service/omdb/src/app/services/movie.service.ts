@@ -42,7 +42,7 @@ export class MovieService {
    * @param id imdbID to retrieve information
    * @returns Observable with detailed information
    */
-  getDetails(id) {
-    return this.httpClient.get(`${this.url}?i=${id}&plot=full&apikey=${environment.omdbKey}`);
+  getDetails(id: any): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}?i=${id}&plot=full&apikey=${environment.omdbKey}`);
   }
 }

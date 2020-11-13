@@ -1,13 +1,15 @@
-import { createAnimation  } from '@ionic/core';
+import { createAnimation, Animation  } from '@ionic/core';
 
-export function myFadeInAnimation(baseEl: HTMLElement) {
+export function myFadeInAnimation(baseEl: HTMLElement): Animation {
 
   const baseAnimation = createAnimation();
 
   const backdropAnimation = createAnimation();
+  // @ts-ignore
   backdropAnimation.addElement(baseEl.querySelector('ion-backdrop'));
 
   const wrapperAnimation = createAnimation();
+  // @ts-ignore
   wrapperAnimation.addElement(baseEl.querySelector('.modal-wrapper'));
 
   wrapperAnimation.beforeStyles({ opacity: 1 })

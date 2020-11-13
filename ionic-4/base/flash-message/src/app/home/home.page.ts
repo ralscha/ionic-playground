@@ -8,15 +8,11 @@ import {FlashService} from '../flash.service';
 })
 export class HomePage {
 
-  constructor(private flashService: FlashService) {
-
+  constructor(private readonly flashService: FlashService) {
   }
 
-  ionViewDidLoad(){
 
-  }
-
-  testFlash(){
+  testFlash(): void {
     this.flashService.show('Base is under attack!', 2000, 'danger');
   }
 }

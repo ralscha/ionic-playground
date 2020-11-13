@@ -20,7 +20,7 @@ export class HomePage {
               private readonly alertCtrl: AlertController) {
   }
 
-  async showAlert() {
+  async showAlert(): Promise<void> {
     const alert = await this.alertCtrl.create({
       header: this.translate.instant('ALERT.header'),
       message: this.translate.instant('ALERT.msg'),
@@ -29,7 +29,8 @@ export class HomePage {
     alert.present();
   }
 
-  async openLanguagePopover(ev) {
+  // tslint:disable-next-line:no-any
+  async openLanguagePopover(ev: any): Promise<void> {
     const popover = await this.popoverCtrl.create({
       component: LanguagePopoverPage,
       event: ev

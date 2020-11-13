@@ -8,12 +8,12 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class SecondPage implements OnInit {
 
-  passedId = null;
+  passedId: string | null = null;
 
   constructor(private readonly activatedRoute: ActivatedRoute) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.passedId = this.activatedRoute.snapshot.paramMap.get('myid');
   }
 

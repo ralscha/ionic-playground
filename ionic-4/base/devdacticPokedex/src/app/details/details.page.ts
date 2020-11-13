@@ -10,7 +10,7 @@ import {Pokemon} from '../pokemon';
 })
 export class DetailsPage implements OnInit {
 
-  details: Pokemon;
+  details: Pokemon | null = null;
 
   slideOpts = {
     autoplay: {
@@ -23,11 +23,13 @@ export class DetailsPage implements OnInit {
               private readonly route: ActivatedRoute) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const index = this.route.snapshot.paramMap.get('index');
-    this.pokeService.getPokeDetails(index).subscribe(details => {
-      this.details = details;
-    });
+    if (index) {
+      this.pokeService.getPokeDetails(index).subscribe(details => {
+        this.details = details;
+      });
+    }
   }
 
 }

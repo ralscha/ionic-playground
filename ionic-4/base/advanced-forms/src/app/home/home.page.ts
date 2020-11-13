@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsernameValidator} from '../validators/username';
 import {AgeValidator} from '../validators/age';
+import {IonSlides} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import {AgeValidator} from '../validators/age';
 })
 export class HomePage {
 
-  @ViewChild('signupSlider', { static: true }) signupSlider;
+  @ViewChild('signupSlider', { static: true }) signupSlider!: IonSlides;
 
   public slideOneForm: FormGroup;
   public slideTwoForm: FormGroup;
@@ -32,15 +33,15 @@ export class HomePage {
 
   }
 
-  next() {
+  next(): void {
     this.signupSlider.slideNext();
   }
 
-  prev() {
+  prev(): void {
     this.signupSlider.slidePrev();
   }
 
-  save() {
+  save(): void {
     this.submitAttempt = true;
 
     if (!this.slideOneForm.valid) {

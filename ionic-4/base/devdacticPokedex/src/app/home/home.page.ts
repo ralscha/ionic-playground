@@ -15,16 +15,16 @@ export class HomePage implements AfterViewInit {
   searching = false;
 
   @ViewChild(IonInfiniteScroll)
-  infinite: IonInfiniteScroll;
+  infinite!: IonInfiniteScroll;
 
   constructor(private readonly pokeService: PokemonService) {
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.loadPokemon();
   }
 
-  loadPokemon(loadMore = false, event?) {
+  loadPokemon(loadMore = false, event?: any): void {
     if (loadMore) {
       this.offset += 25;
     }
@@ -43,7 +43,7 @@ export class HomePage implements AfterViewInit {
     }, error => this.searching = false);
   }
 
-  onSearchChange(e) {
+  onSearchChange(e: any): void {
     let value = e.detail.value;
     this.searching = true;
 

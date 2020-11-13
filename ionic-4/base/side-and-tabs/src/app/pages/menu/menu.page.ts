@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router, RouterEvent} from '@angular/router';
+import {Router, Event, RouterEvent} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -24,9 +24,11 @@ export class MenuPage {
   ];
 
   constructor(private readonly router: Router) {
-    this.router.events.subscribe((event: RouterEvent) => {
-      if (event && event.url) {
-        this.selectedPath = event.url;
+    this.router.events.subscribe((event: Event) => {
+      if (event && !(event instanceof RouterEvent) || event.url) {
+        if (event instanceof RouterEvent) {
+          this.selectedPath = event.url;
+        }
       }
     });
   }

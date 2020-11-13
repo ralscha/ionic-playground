@@ -7,10 +7,10 @@ import {AuthService} from '../services/auth.service';
 export class HasRoleDirective implements OnInit {
 
   @Input('appHasRole')
-  roles: string[];
-
+  roles!: string[];
 
   constructor(private readonly authService: AuthService,
+              // tslint:disable-next-line:no-any
               private readonly templateRef: TemplateRef<any>,
               private readonly viewContainer: ViewContainerRef) { }
 

@@ -15,7 +15,7 @@ export class PokemonService {
   constructor(private readonly http: HttpClient) {
   }
 
-  getPokemon(offset = 0) {
+  getPokemon(offset = 0): Observable<Pokemon[]> {
     return this.http
       .get<{results: Pokemon[]}>(`${this.baseUrl}/pokemon?offset=${offset}&limit=25`)
       .pipe(
@@ -30,7 +30,7 @@ export class PokemonService {
       );
   }
 
-  findPokemon(search): Observable<Pokemon> {
+  findPokemon(search: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${this.baseUrl}/pokemon/${search}`).pipe(
       map(pokemon => {
         pokemon.image = this.getPokeImage(pokemon.id);
@@ -40,15 +40,18 @@ export class PokemonService {
     );
   }
 
-  getPokeImage(index) {
+  getPokeImage(index: number): string {
     return `${this.imageUrl}${index}.png`;
   }
 
-  getPokeDetails(index): Observable<Pokemon> {
+  getPokeDetails(index: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${this.baseUrl}/pokemon/${index}`).pipe(
       map(poke => {
+        // @ts-ignore
         const sprites = Object.keys(poke.sprites);
+
         poke.images = sprites
+          // @ts-ignore
           .map(spriteKey => poke.sprites[spriteKey])
           .filter(img => img);
         return poke;

@@ -10,7 +10,7 @@ export class HomePage {
     progress = 0;
     oneSecondHold = false;
 
-    holdHandler(event) {
+    holdHandler(event: number): void {
         console.log(event);
 
         this.progress = event / 10;
@@ -20,7 +20,7 @@ export class HomePage {
         }
     }
 
-    onReset() {
+    onReset(): void {
         this.oneSecondHold = false;
     }
 

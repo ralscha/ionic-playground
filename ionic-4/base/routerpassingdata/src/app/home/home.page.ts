@@ -24,7 +24,7 @@ export class HomePage {
 
   constructor(private readonly router: Router, private readonly dataService: DataService) { }
 
-  openDetailsWithQueryParams() {
+  openDetailsWithQueryParams(): void {
     const navigationExtras: NavigationExtras = {
       queryParams: {
         special: JSON.stringify(this.user)
@@ -33,12 +33,12 @@ export class HomePage {
     this.router.navigate(['details'], navigationExtras);
   }
 
-  openDetailsWithService() {
+  openDetailsWithService(): void {
     this.dataService.setData(42, this.user);
     this.router.navigateByUrl('/details/42');
   }
 
-  openDetailsWithState() {
+  openDetailsWithState(): void {
     const navigationExtras: NavigationExtras = {
       state: {
         user: this.user

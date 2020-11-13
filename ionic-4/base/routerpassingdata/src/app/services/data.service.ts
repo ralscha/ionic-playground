@@ -5,13 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  private readonly data = [];
+  private readonly data: any = [];
 
-  setData(id, data) {
+  setData(id: any, data: any): void {
     this.data[id] = data;
   }
 
-  getData(id) {
+  getData(id: any): any {
     return this.data[id];
   }
 }

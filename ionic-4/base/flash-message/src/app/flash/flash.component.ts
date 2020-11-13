@@ -31,8 +31,8 @@ export class FlashComponent {
 
   active = false;
   message = '';
-  private duration: number;
-  private timeout;
+  private duration = 0;
+  private timeout: number | null = null;
   activeClass = 'secondary';
 
   constructor(private readonly flashService: FlashService) {
@@ -40,7 +40,7 @@ export class FlashComponent {
     this.flashService.hide = this.hide.bind(this);
   }
 
-  show(message, duration, type?) {
+  show(message: string, duration: number, type?: string): void {
     this.message = message;
     this.active = true;
     this.duration = duration;
@@ -54,9 +54,11 @@ export class FlashComponent {
     }, duration);
   }
 
-  hide() {
+  hide(): void {
     this.active = false;
-    clearTimeout(this.timeout);
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
 }

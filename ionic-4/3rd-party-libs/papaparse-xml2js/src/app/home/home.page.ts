@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import Papa from 'papaparse';
+import {parse} from 'papaparse';
 import {Parser} from 'xml2js';
 
 @Component({
@@ -18,18 +18,19 @@ export class HomePage implements OnInit {
   }
 
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadXML();
     this.loadCSV();
     this.loadTSV();
   }
 
-  loadCSV() {
+  loadCSV(): void {
     this.httpClient.get('/assets/data/data.csv', {responseType: 'text'})
       .subscribe(data => {
-        const parsedData = Papa.parse(data, {header: true});
+        const parsedData = parse(data, {header: true});
         this.csvItems = [];
-        for (const d of parsedData.data) {
+        for (const pd of parsedData.data) {
+          const d: any = pd;
           this.csvItems.push({
             id: d.id,
             firstName: d.first_name,
@@ -40,12 +41,13 @@ export class HomePage implements OnInit {
       });
   }
 
-  loadTSV() {
+  loadTSV(): void {
     this.httpClient.get('/assets/data/data.tsv', {responseType: 'text'})
       .subscribe(data => {
-        const parsedData = Papa.parse(data, {header: true});
+        const parsedData = parse(data, {header: true});
         this.tsvItems = [];
-        for (const d of parsedData.data) {
+        for (const pd of parsedData.data) {
+          const d: any = pd;
           this.tsvItems.push({
             id: d.id,
             firstName: d.first_name,
@@ -56,21 +58,21 @@ export class HomePage implements OnInit {
       });
   }
 
-  loadXML() {
+  loadXML(): void {
     this.httpClient.get('/assets/data/data.xml', {responseType: 'text'})
       .subscribe(data => this.parseXML(data).then(xmlData => this.xmlItems = xmlData));
   }
 
 
-  parseXML(data) {
+  parseXML(data: any): Promise<void> {
     return new Promise(resolve => {
-      const arr = [];
+      const arr: any = [];
       const parser = new Parser({
         trim: true,
         explicitArray: true
       });
 
-      parser.parseString(data, (err, result) => {
+      parser.parseString(data, (err: any, result: any) => {
         for (const obj of result.dataset.record) {
           arr.push({
             id: obj.id[0],

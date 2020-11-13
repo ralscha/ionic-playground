@@ -19,13 +19,13 @@ export class DetailsPage implements OnInit {
     });
 
     this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.data = this.router.getCurrentNavigation().extras.state.user;
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.data = this.router.getCurrentNavigation()?.extras?.state?.user;
       }
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const special = this.route.snapshot.data.special;
     if (special) {
       this.data = special;

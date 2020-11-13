@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {CartService} from '../services/cart.service';
+import {CartService, Product} from '../services/cart.service';
 import {ModalController} from '@ionic/angular';
 import {CartModalPage} from '../pages/cart-modal/cart-modal.page';
 
@@ -10,27 +10,27 @@ import {CartModalPage} from '../pages/cart-modal/cart-modal.page';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
-  cart = [];
-  products = [];
-  cartItemCount: BehaviorSubject<number>;
+  cart: Product[] = [];
+  products: any = [];
+  cartItemCount!: BehaviorSubject<number>;
 
-  @ViewChild('cart', {read: ElementRef}) fab: ElementRef;
+  @ViewChild('cart', {read: ElementRef}) fab!: ElementRef;
 
   constructor(private cartService: CartService, private modalCtrl: ModalController) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.products = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
   }
 
-  addToCart(product) {
+  addToCart(product: any): void {
     this.cartService.addProduct(product);
     this.animateCSS('tada');
   }
 
-  async openCart() {
+  async openCart(): Promise<void> {
     this.animateCSS('bounceOutLeft', true);
 
     const modal = await this.modalCtrl.create({
@@ -44,12 +44,12 @@ export class HomePage implements OnInit {
     modal.present();
   }
 
-  animateCSS(animationName, keepAnimated = false) {
+  animateCSS(animationName: any, keepAnimated = false): void {
     const node = this.fab.nativeElement;
     node.classList.add('animated', animationName);
 
     // https://github.com/daneden/animate.css
-    function handleAnimationEnd() {
+    function handleAnimationEnd(): void {
       if (!keepAnimated) {
         node.classList.remove('animated', animationName);
       }

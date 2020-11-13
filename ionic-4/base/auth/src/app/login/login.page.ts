@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
@@ -8,7 +8,7 @@ import {AuthService} from '../services/auth.service';
     templateUrl: './login.page.html',
     styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
     credentials = {
         email: 'saimon@devdactic.com',
         pw: '123'
@@ -21,10 +21,7 @@ export class LoginPage implements OnInit {
     ) {
     }
 
-    ngOnInit() {
-    }
-
-    login() {
+    login(): void {
         this.auth.login(this.credentials).subscribe(async res => {
             if (res) {
                 this.router.navigateByUrl('/members');

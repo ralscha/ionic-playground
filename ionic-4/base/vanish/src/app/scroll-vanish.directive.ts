@@ -6,7 +6,7 @@ import {DomController} from '@ionic/angular';
 })
 export class ScrollVanishDirective implements OnInit {
 
-  @Input('appMyScrollVanish') scrollArea;
+  @Input('appMyScrollVanish') scrollArea: any;
 
   private hidden = false;
   private triggerDistance = 20;
@@ -14,9 +14,10 @@ export class ScrollVanishDirective implements OnInit {
   constructor(private element: ElementRef, private renderer: Renderer2, private domCtrl: DomController) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const content = document.querySelector('ion-content');
-    content.addEventListener('ionScroll', (scrollEvent: any) => {
+    // tslint:disable-next-line:no-non-null-assertion
+    content!.addEventListener('ionScroll', (scrollEvent: any) => {
       const delta = scrollEvent.detail.deltaY;
 
       if (scrollEvent.detail.currentY === 0 && this.hidden) {
@@ -31,7 +32,7 @@ export class ScrollVanishDirective implements OnInit {
 
   }
 
-  initStyles() {
+  initStyles(): void {
 
     this.domCtrl.write(() => {
       this.renderer.setStyle(this.element.nativeElement, 'transition', '0.3s linear');
@@ -39,7 +40,7 @@ export class ScrollVanishDirective implements OnInit {
 
   }
 
-  hide() {
+  hide(): void {
 
     this.domCtrl.write(() => {
       this.renderer.setStyle(this.element.nativeElement, 'min-height', '0px');
@@ -52,7 +53,7 @@ export class ScrollVanishDirective implements OnInit {
 
   }
 
-  show() {
+  show(): void {
 
     this.domCtrl.write(() => {
       this.renderer.setStyle(this.element.nativeElement, 'height', '44px');

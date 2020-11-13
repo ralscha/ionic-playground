@@ -6,14 +6,11 @@ import {Injectable} from '@angular/core';
 export class FlashService {
 
   constructor() {
-
   }
 
-  show(message, duration, type?) {
-
+  show(message: string, duration: number, type?: string): void {
   }
 
-  hide() {
-
+  hide(): void {
   }
 }

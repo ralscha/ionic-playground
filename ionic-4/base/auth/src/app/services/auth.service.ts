@@ -14,14 +14,14 @@ const TOKEN_KEY = 'jwt-token';
 })
 export class AuthService {
 
-    public user: Observable<any>;
+    public user!: Observable<any>;
     private userData = new BehaviorSubject(null);
 
-    constructor(private http: HttpClient, private plt: Platform, private router: Router) {
+    constructor(private readonly http: HttpClient, private readonly plt: Platform, private readonly router: Router) {
         this.loadStoredToken();
     }
 
-    loadStoredToken() {
+    loadStoredToken(): void {
         const platformObs = from(this.plt.ready());
 
         this.user = platformObs.pipe(
@@ -38,10 +38,10 @@ export class AuthService {
         );
     }
 
-    login(credentials: { email: string, pw: string }) {
+    login(credentials: { email: string, pw: string }): Observable<boolean> {
         // Normally make a POST request to your APi with your login credentials
         if (credentials.email !== 'saimon@devdactic.com' || credentials.pw !== '123') {
-            return of(null);
+            return of(false);
         }
 
         return this.http.get('https://randomuser.me/api/').pipe(
@@ -59,11 +59,11 @@ export class AuthService {
         );
     }
 
-    getUser() {
+    getUser(): any {
         return this.userData.getValue();
     }
 
-    logout() {
+    logout(): void {
         localStorage.removeItem(TOKEN_KEY);
         this.router.navigateByUrl('/');
         this.userData.next(null);

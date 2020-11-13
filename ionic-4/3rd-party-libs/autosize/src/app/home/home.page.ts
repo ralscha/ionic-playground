@@ -28,12 +28,9 @@ export class HomePage {
 
   currentUser = 'simon';
   newMsg = '';
-  @ViewChild(IonContent) content: IonContent;
+  @ViewChild(IonContent) content!: IonContent;
 
-  constructor() {
-  }
-
-  sendMessage() {
+  sendMessage(): void {
     this.messages.push({
       user: 'simon',
       createdAt: new Date().getTime(),

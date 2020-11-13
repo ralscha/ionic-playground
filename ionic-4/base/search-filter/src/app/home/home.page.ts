@@ -19,7 +19,7 @@ export class HomePage implements OnInit {
     this.searchControl = new FormControl();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.setFilteredItems('');
 
     this.searchControl.valueChanges
@@ -31,11 +31,11 @@ export class HomePage implements OnInit {
 
   }
 
-  onSearchInput() {
+  onSearchInput(): void {
     this.searching = true;
   }
 
-  setFilteredItems(searchTerm) {
+  setFilteredItems(searchTerm: string) {
     this.items = this.dataService.filterItems(searchTerm);
   }
 }

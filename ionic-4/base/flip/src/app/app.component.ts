@@ -8,9 +8,9 @@ import {Animation, createAnimation} from '@ionic/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild(IonCard, {read: ElementRef}) ionCardElRef: ElementRef;
+  @ViewChild(IonCard, {read: ElementRef}) ionCardElRef!: ElementRef;
 
-  expandCard() {
+  expandCard(): void {
     // First
     const first = this.ionCardElRef.nativeElement.getBoundingClientRect();
     console.log(first);

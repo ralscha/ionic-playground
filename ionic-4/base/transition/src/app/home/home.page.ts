@@ -13,12 +13,10 @@ export class HomePage {
 
   public cards = new Array(10);
 
-  constructor(private modalCtrl: ModalController){
-
+  constructor(private readonly modalCtrl: ModalController){
   }
 
-  launchDetail(ev){
-
+  launchDetail(ev: any): void {
     this.modalCtrl.create({
       component: DetailPage,
       enterAnimation: myFadeInAnimation,

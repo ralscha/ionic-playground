@@ -1,5 +1,5 @@
 import {Component, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
-import {CalendarComponent} from 'ionic2-calendar/calendar';
+import {CalendarComponent, CalendarMode} from 'ionic2-calendar/calendar';
 import {AlertController} from '@ionic/angular';
 import {formatDate} from '@angular/common';
 
@@ -9,7 +9,7 @@ import {formatDate} from '@angular/common';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
-  collapseCard: boolean;
+  collapseCard = false;
   event = {
     title: '',
     desc: '',
@@ -20,24 +20,24 @@ export class HomePage implements OnInit {
 
   minDate = new Date().toISOString();
 
-  eventSource = [];
-  viewTitle;
+  eventSource: any = [];
+  viewTitle: any = null;
 
   calendar = {
-    mode: 'month',
+    mode: 'month' as CalendarMode,
     currentDate: new Date(),
   };
 
-  @ViewChild(CalendarComponent) myCal: CalendarComponent;
+  @ViewChild(CalendarComponent) myCal!: CalendarComponent;
 
   constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.resetEvent();
   }
 
-  resetEvent() {
+  resetEvent(): void {
     this.event = {
       title: '',
       desc: '',
@@ -48,7 +48,7 @@ export class HomePage implements OnInit {
   }
 
   // Create the right event format and reload source
-  addEvent() {
+  addEvent(): void {
     const eventCopy = {
       title: this.event.title,
       startTime: new Date(this.event.startTime),
@@ -71,35 +71,35 @@ export class HomePage implements OnInit {
   }
 
   // Change current month/week/day
-  next() {
+  next(): void {
     // @ts-ignore
     const swiper = document.querySelector('.swiper-container').swiper;
     swiper.slideNext();
   }
 
-  back() {
+  back(): void {
     // @ts-ignore
     const swiper = document.querySelector('.swiper-container').swiper;
     swiper.slidePrev();
   }
 
   // Change between month/week/day
-  changeMode(mode) {
+  changeMode(mode: any): void {
     this.calendar.mode = mode;
   }
 
   // Focus today
-  today() {
+  today(): void {
     this.calendar.currentDate = new Date();
   }
 
   // Selected date reange and hence title changed
-  onViewTitleChanged(title) {
+  onViewTitleChanged(title: string): void {
     this.viewTitle = title;
   }
 
   // Calendar event was clicked
-  async onEventSelected(event) {
+  async onEventSelected(event: any): Promise<void> {
     // Use Angular date pipe for conversion
     const start = formatDate(event.startTime, 'medium', this.locale);
     const end = formatDate(event.endTime, 'medium', this.locale);
@@ -114,7 +114,7 @@ export class HomePage implements OnInit {
   }
 
   // Time slot was clicked
-  onTimeSelected(ev) {
+  onTimeSelected(ev: any): void {
     const selected = new Date(ev.selectedTime);
     this.event.startTime = selected.toISOString();
     selected.setHours(selected.getHours() + 1);

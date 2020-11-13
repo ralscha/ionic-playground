@@ -19,25 +19,25 @@ export class CartService {
     {id: 3, name: 'Salad', price: 6.99, amount: 1}
   ];
 
-  private cart = [];
+  private cart: Product[] = [];
   private cartItemCount = new BehaviorSubject(0);
 
   constructor() {
   }
 
-  getProducts() {
+  getProducts(): Product[] {
     return this.data;
   }
 
-  getCart() {
+  getCart(): Product[] {
     return this.cart;
   }
 
-  getCartItemCount() {
+  getCartItemCount(): BehaviorSubject<number> {
     return this.cartItemCount;
   }
 
-  addProduct(product) {
+  addProduct(product: Product): void{
     let added = false;
     for (const p of this.cart) {
       if (p.id === product.id) {
@@ -52,7 +52,7 @@ export class CartService {
     this.cartItemCount.next(this.cartItemCount.value + 1);
   }
 
-  decreaseProduct(product) {
+  decreaseProduct(product: Product): void {
     for (const [index, p] of this.cart.entries()) {
       if (p.id === product.id) {
         p.amount -= 1;
@@ -64,7 +64,7 @@ export class CartService {
     this.cartItemCount.next(this.cartItemCount.value - 1);
   }
 
-  removeProduct(product) {
+  removeProduct(product: Product): void {
     for (const [index, p] of this.cart.entries()) {
       if (p.id === product.id) {
         this.cartItemCount.next(this.cartItemCount.value - p.amount);

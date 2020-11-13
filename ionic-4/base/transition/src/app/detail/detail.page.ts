@@ -8,7 +8,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 })
 export class DetailPage implements OnInit {
 
-  @ViewChild('header', { static: true }) headerImage: ElementRef;
+  @ViewChild('header', { static: true }) headerImage!: ElementRef;
 
   constructor(
     private modalCtrl: ModalController,
@@ -16,7 +16,7 @@ export class DetailPage implements OnInit {
     private renderer: Renderer2
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     const coords = this.navParams.get('coords');
 
@@ -29,7 +29,7 @@ export class DetailPage implements OnInit {
 
   }
 
-  close(){
+  close(): void {
     this.modalCtrl.dismiss();
   }
 

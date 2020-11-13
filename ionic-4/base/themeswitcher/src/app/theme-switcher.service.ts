@@ -20,7 +20,7 @@ export class ThemeSwitcherService {
   private themes: Theme[] = [];
   private currentTheme = 0;
 
-  constructor(private domCtrl: DomController, @Inject(DOCUMENT) private document) {
+  constructor(private domCtrl: DomController, @Inject(DOCUMENT) private document: Document) {
 
     this.themes = [
       {
@@ -58,11 +58,9 @@ export class ThemeSwitcherService {
         ]
       }
     ];
-
   }
 
   cycleTheme(): void {
-
     if (this.themes.length > this.currentTheme + 1) {
       this.currentTheme++;
     } else {
@@ -70,21 +68,17 @@ export class ThemeSwitcherService {
     }
 
     this.setTheme(this.themes[this.currentTheme].name);
-
   }
 
-  setTheme(name): void {
-
+  setTheme(name: string): void {
     const theme = this.themes.find(th => th.name === name);
-
-    this.domCtrl.write(() => {
-
-      theme.styles.forEach(style => {
-        document.documentElement.style.setProperty(style.themeVariable, style.value);
+    if (theme) {
+      this.domCtrl.write(() => {
+        theme.styles.forEach(style => {
+          document.documentElement.style.setProperty(style.themeVariable, style.value);
+        });
       });
-
-    });
-
+    }
   }
 
 }
