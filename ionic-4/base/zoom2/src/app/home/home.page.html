@@ -1,0 +1,19 @@
+<ion-content>
+  <!-- Background drop while zoom -->
+  <div *ngIf="zoomActive" class="backdrop" [style.opacity]="zoomScale"></div>
+
+  <ion-card *ngFor="let img of [1, 2, 3, 4]" class="image-card" #card>
+    <ion-slides class="image-slide" [options]="sliderZoomOpts" #zoomslides>
+      <ion-slide>
+        <div class="swiper-zoom-container" (touchstart)="touchStart(card)"
+             (touchend)="touchEnd(zoomslides, card)">
+          <img src="assets/{{ img }}.jpg">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-card-content>
+      Almost like Instagram
+    </ion-card-content>
+  </ion-card>
+</ion-content>

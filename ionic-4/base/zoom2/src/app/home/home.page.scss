@@ -1,0 +1,16 @@
+.image-slide,
+.image-card {
+  overflow: visible;
+}
+
+.image-card {
+  z-index: 9;
+}
+
+.backdrop {
+  height: 200%;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  z-index: 10;
+}

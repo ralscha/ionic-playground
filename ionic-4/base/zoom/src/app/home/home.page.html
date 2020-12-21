@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ionic Image Zoom
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-slides [options]="sliderOpts" class="preview-slides">
+    <ion-slide *ngFor="let img of [1, 2, 3, 4]">
+      <img src="assets/{{img}}.jpg" tappable (click)="openPreview(img)">
+    </ion-slide>
+  </ion-slides>
+</ion-content>
