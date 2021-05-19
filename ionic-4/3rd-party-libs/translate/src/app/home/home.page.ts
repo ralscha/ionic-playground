@@ -29,7 +29,7 @@ export class HomePage {
     alert.present();
   }
 
-  // tslint:disable-next-line:no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async openLanguagePopover(ev: any): Promise<void> {
     const popover = await this.popoverCtrl.create({
       component: LanguagePopoverPage,

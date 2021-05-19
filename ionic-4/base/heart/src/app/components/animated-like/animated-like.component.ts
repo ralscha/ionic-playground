@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
@@ -21,17 +21,10 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
     ])
   ]
 })
-export class AnimatedLikeComponent implements OnInit {
+export class AnimatedLikeComponent {
 
   public likeState = 'unliked';
   public iconName = 'heart-empty';
-
-  constructor() {
-  }
-
-  ngOnInit() {
-
-  }
 
   toggleLikeState() {
 

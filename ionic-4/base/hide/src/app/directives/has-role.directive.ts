@@ -10,7 +10,7 @@ export class HasRoleDirective implements OnInit {
   roles!: string[];
 
   constructor(private readonly authService: AuthService,
-              // tslint:disable-next-line:no-any
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               private readonly templateRef: TemplateRef<any>,
               private readonly viewContainer: ViewContainerRef) { }
 

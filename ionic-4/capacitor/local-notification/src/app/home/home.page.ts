@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LocalNotificationPendingList, LocalNotificationRequest, Plugins} from '@capacitor/core';
+import {LocalNotifications, LocalNotificationPendingList, LocalNotificationRequest} from '@capacitor/local-notifications';
 import {AlertController} from '@ionic/angular';
 
 @Component({
@@ -13,12 +13,12 @@ export class HomePage {
 
   constructor(private alertCtrl: AlertController) {
 
-    Plugins.LocalNotifications.addListener('localNotificationReceived', notification => {
+    LocalNotifications.addListener('localNotificationReceived', notification => {
       const msg = notification.extra ? notification.extra.mydata : '';
       this.showAlert(notification.title, notification.body, msg);
     });
 
-    Plugins.LocalNotifications.addListener('localNotificationActionPerformed', actionperformed => {
+    LocalNotifications.addListener('localNotificationActionPerformed', actionperformed => {
       const notification = actionperformed.notification;
       console.log(actionperformed.actionId, actionperformed.inputValue);
       const msg = notification.extra ? notification.extra.mydata : '';
@@ -28,7 +28,7 @@ export class HomePage {
   }
 
   scheduleNotification(): void {
-    Plugins.LocalNotifications.schedule({
+    LocalNotifications.schedule({
       notifications: [
         {
           title: 'Attention',
@@ -46,7 +46,7 @@ export class HomePage {
   }
 
   recurringNotification(): void {
-    Plugins.LocalNotifications.schedule({
+    LocalNotifications.schedule({
       notifications: [
         {
           title: 'Recurring',
@@ -63,7 +63,7 @@ export class HomePage {
   }
 
   repeatingDaily(): void {
-    Plugins.LocalNotifications.schedule({
+    LocalNotifications.schedule({
       notifications: [
         {
           title: 'Good Morning',
@@ -89,7 +89,7 @@ export class HomePage {
   }
 
   getAll(): void {
-    Plugins.LocalNotifications.getPending().then(list => this.scheduled = list.notifications);
+    LocalNotifications.getPending().then(list => this.scheduled = list.notifications);
   }
 
 }

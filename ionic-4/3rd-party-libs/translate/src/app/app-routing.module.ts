@@ -4,7 +4,7 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)},
-  {path: 'language-popover', loadChildren: './pages/language-popover/language-popover.module#LanguagePopoverPageModule'}
+  {path: 'language-popover', loadChildren: () => import('./pages/language-popover/language-popover.module').then(m => m.LanguagePopoverPageModule)}
 ];
 
 @NgModule({

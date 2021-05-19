@@ -37,7 +37,7 @@
         <ion-label text-wrap>{{ information.Actors }}</ion-label>
       </ion-item>
 
-      <ion-button (click)="openWebsite()" *ngIf="information.Website && information.Website != 'N/A'" expand="full">
+      <ion-button (click)="openWebsite()" *ngIf="information.Website && information.Website !== 'N/A'" expand="full">
         <ion-icon name="open" slot="start"></ion-icon>
         Open Website
       </ion-button>

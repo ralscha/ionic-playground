@@ -16,7 +16,7 @@ export class ScrollVanishDirective implements OnInit {
 
   ngOnInit(): void {
     const content = document.querySelector('ion-content');
-    // tslint:disable-next-line:no-non-null-assertion
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     content!.addEventListener('ionScroll', (scrollEvent: any) => {
       const delta = scrollEvent.detail.deltaY;
 

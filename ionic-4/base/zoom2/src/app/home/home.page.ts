@@ -21,7 +21,7 @@ export class HomePage {
       maxRatio: 5
     },
     on: {
-      // tslint:disable-next-line:no-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       zoomChange: (scale: any, imageEl: any, slideEl: any) => {
         this.zoomActive = true;
         this.zoomScale = scale / 5;
@@ -30,7 +30,7 @@ export class HomePage {
     }
   }
 
-  // tslint:disable-next-line:no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async touchEnd(zoomslides: IonSlides, card: any): Promise<void> {
     // Zoom back to normal
     const slider = await zoomslides.getSwiper();
@@ -44,7 +44,7 @@ export class HomePage {
     this.changeDetectorRef.detectChanges();
   }
 
-  // tslint:disable-next-line:no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   touchStart(card: any): void {
     // Make card appear above backdrop
     card.el.style['z-index'] = 11;

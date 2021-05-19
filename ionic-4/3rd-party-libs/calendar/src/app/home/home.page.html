@@ -38,7 +38,7 @@
         <ion-label>All Day?</ion-label>
         <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
       </ion-item>
-      <ion-button (click)="addEvent()" [disabled]="event.title == ''" expand="block" fill="outline">Add Event
+      <ion-button (click)="addEvent()" [disabled]="event.title === ''" expand="block" fill="outline">Add Event
       </ion-button>
 
     </ion-card-content>
@@ -47,17 +47,17 @@
   <ion-row>
     <!-- Change the displayed calendar mode -->
     <ion-col size="4">
-      <ion-button (click)="changeMode('month')" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'"
+      <ion-button (click)="changeMode('month')" [color]="calendar.mode === 'month' ? 'primary' : 'secondary'"
                   expand="block">Month
       </ion-button>
     </ion-col>
     <ion-col size="4">
-      <ion-button (click)="changeMode('week')" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'"
+      <ion-button (click)="changeMode('week')" [color]="calendar.mode === 'week' ? 'primary' : 'secondary'"
                   expand="block">Week
       </ion-button>
     </ion-col>
     <ion-col size="4">
-      <ion-button (click)="changeMode('day')" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'" expand="block">
+      <ion-button (click)="changeMode('day')" [color]="calendar.mode === 'day' ? 'primary' : 'secondary'" expand="block">
         Day
       </ion-button>
     </ion-col>
