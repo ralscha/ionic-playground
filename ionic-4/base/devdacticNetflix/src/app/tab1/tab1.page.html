@@ -1,0 +1,79 @@
+<ion-header #header class="ion-no-border">
+  <ion-toolbar>
+    <img class="logo" src="/assets/mockdata/logo.png">
+    <ion-row class="ion-justify-content-center ion-text-center">
+      <ion-col size="4" class="ion-text-right">
+        TV Shows
+      </ion-col>
+      <ion-col size="4">
+        Movies
+      </ion-col>
+      <ion-col size="4" tappable (click)="openCategories()" class="ion-text-left">
+        Categories <ion-icon name="caret-down-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+
+  <div class="spotlight" [style.background-image]="'url(/assets/mockdata/'+spotlight.id+'-cover.jpg)'">
+    <div class="gradient"></div>
+    <div class="info">
+      <img class="title" [src]="'/assets/mockdata/'+spotlight.id+'-title.png'">
+      <span class="rating">{{ spotlight.rating }}</span>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="4" class="ion-tex-center">
+          <div class="btn-vertical">
+            <ion-icon name="add"></ion-icon>
+            <span>My List</span>
+          </div>
+        </ion-col>
+        <ion-col size="4" class="ion-tex-center">
+          <div class="btn-play">
+            <ion-icon name="play" color="dark"></ion-icon>
+            <span>Play</span>
+          </div>
+        </ion-col>
+        <ion-col size="4" class="ion-tex-center">
+          <div class="btn-vertical">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>Info</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <div *ngFor="let section of sections" class="ion-padding">
+    <span class="section-title">{{ section.title }}</span>
+    <ion-slides [options]="opts">
+
+      <ion-slide *ngFor="let series of section.series">
+        <img *ngIf="section.type !== 'continue'" [src]="'/assets/mockdata/'+section.type+'-'+series.id+'.jpg'">
+        <div class="continue" *ngIf="section.type === 'continue'">
+
+          <img [src]="'/assets/mockdata/'+section.type+'-'+series.id+'.jpg'">
+          <div class="progress-bar">
+            <div class="progress" [style.width]="series['progress'] + '%'"></div>
+          </div>
+          <ion-row class="ion-no-padding">
+            <ion-col size="6" class="ion-text-left ion-no-padding">
+              <ion-button fill="clear" color="medium" size="small">
+                <ion-icon name="information-circle-outline" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="6" class="ion-text-right ion-no-padding">
+              <ion-button fill="clear" (click)="openInfo(series)" color="medium" size="small">
+                <ion-icon name="ellipsis-vertical" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+
+</ion-content>

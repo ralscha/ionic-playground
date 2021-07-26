@@ -1,0 +1,96 @@
+// General styling
+ion-content {
+  --offset-top: 0px;
+  position: absolute;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: large;
+}
+
+ion-slides {
+  margin-top: 4px;
+}
+
+.continue {
+  background: #191919;
+}
+
+// Progress bar inside slides
+.progress-bar {
+  height: 2px;
+  width: 100%;
+  background: #262626;
+
+  .progress {
+    background: #E40A15;
+    height: 100%;
+  }
+}
+
+// Spotlight section with gradient background
+.spotlight {
+  width: 100%;
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 20px;
+  position: relative;
+
+  // Image overlay gradient
+  .gradient {
+    background: linear-gradient(#ffffff00 40%, #000000c2, #000 95%);
+    width: 100%;
+    height: 100%;
+  }
+
+  .info {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+
+    img {
+      max-width: 50%;
+    }
+
+    .rating {
+      display: block;
+      font-weight: 700;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    // Action button row
+    .btn-vertical {
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-play {
+      background: #fff;
+      font-weight: 500;
+      border-radius: 2px;
+      color: #000;
+      padding: 4px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// Header area
+.logo {
+  margin-left: 16px;
+  width: 20px;
+}
+
+ion-toolbar {
+  --background: linear-gradient(180deg, rgba(0, 0, 0, 0.8715861344537815) 0%, rgba(0, 0, 0, 0.8463760504201681) 57%, rgba(0, 0, 0, 0.6923144257703081) 80%, rgba(0, 0, 0, 0.5438550420168067) 89%, rgba(0, 0, 0, 0) 100%);
+}

@@ -1,0 +1,11 @@
+.drawer {
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+  width: 100%;
+  border-radius: 4px;
+  bottom: -300px;
+  height: 300px;
+  z-index: 11;
+  background: #2B2B2C;
+  color: #fff;
+}

@@ -1,0 +1,53 @@
+<ion-header class="mobile-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="myMenu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-row class="header ion-align-items-center">
+  <ion-col size="2" class="ion-align-items-center">
+    <img src="https://ionicacademy.com/wp-content/uploads/2020/02/ionic-Logo.svg" width="50px">
+  </ion-col>
+  <ion-col size="8" class="ion-text-left">
+    <ion-button fill="clear" color="dark" routerLink="/" routerDirection="root" routerLinkActive="active-item"
+                [routerLinkActiveOptions]="{exact: true}">
+      Home
+    </ion-button>
+    <!-- Button with dropdown -->
+    <ion-button #productbtn (mouseenter)="dropdown=true" (mouseleave)="hideDropdown($event)" fill="clear" color="dark"
+                routerLink="/products" routerDirection="root" routerLinkActive="active-item">
+      Products
+      <ion-icon slot="end" [name]="dropdown ? 'chevron-down' : 'chevron-up'"></ion-icon>
+    </ion-button>
+    <div *ngIf="dropdown" class="dropdown" (mouseleave)="dropdown = false" #dropdownbox>
+      <ion-item (click)="dropdown = false" routerLink="/products" [queryParams]="{ category: 'popular'}" lines="none" routerDirection="root" >
+        Popular
+      </ion-item>
+      <ion-item (click)="dropdown = false" button routerLink="/products" [queryParams]="{ category: 'cloth'}"
+                lines="none" routerDirection="root" >
+        Cloth
+      </ion-item>
+      <ion-item (click)="dropdown = false" button routerLink="/products" [queryParams]="{ category: 'gadgets'}"
+                lines="none" routerDirection="root">
+        Gadgets
+      </ion-item>
+    </div>
+    <ion-button fill="clear" color="dark" routerLink="/about" routerDirection="root" routerLinkActive="active-item">
+      About
+    </ion-button>
+  </ion-col>
+  <ion-col size="2" class="ion-text-right">
+    <ion-button fill="clear" color="dark">
+      <ion-icon slot="icon-only" name="cart"></ion-icon>
+    </ion-button>
+  </ion-col>
+
+</ion-row>

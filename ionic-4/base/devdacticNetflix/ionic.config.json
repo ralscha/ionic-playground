@@ -1,0 +1,7 @@
+{
+  "name": "devdacticNetflix",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

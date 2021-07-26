@@ -1,0 +1,69 @@
+<ion-content scrollEvents="true" [appHideHeader]="hideheader" (ionScroll)="onScroll($event)">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-row class="info-row" #hideheader>
+    <ion-col size="2" class="ion-padding-start">
+      <img src="./assets/delivery.png">
+    </ion-col>
+    <ion-col size="8">
+      <ion-text color="dark">
+        <span>Now</span><br>
+        <b>London</b>
+        <ion-icon name="chevron-down-outline" color="primary"></ion-icon>
+      </ion-text>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button fill="clear">
+        <ion-icon name="person-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="sticky-row">
+    <ion-col size="10">
+      <ion-text class="ion-padding-start" color="medium"
+                [ngClass]="{'location-visible': showLocationDetail, 'location-hidden': !showLocationDetail}">
+        London</ion-text>
+      <ion-searchbar placeholder="Dishes, restaurants or cuisines"></ion-searchbar>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button fill="clear">
+        <ion-icon name="options-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-slides [options]="catSlideOpts">
+    <ion-slide *ngFor="let cat of categories">
+      <img [src]="cat.img">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides [options]="highlightSlideOpts">
+    <ion-slide *ngFor="let h of highlights">
+      <img [src]="h.img">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-text color="dark"><b style="padding-left: 10px;">Featured</b></ion-text>
+
+  <ion-slides [options]="featuredSlideOpts">
+    <ion-slide *ngFor="let f of featured" class="featured-slide" routerLink="/details">
+      <img [src]="f.img">
+      <div class="info">
+        <ion-text color="dark"><b>{{f.name }}</b></ion-text>
+        <span>
+          <ion-icon name="star" color="secondary"></ion-icon>
+          <ion-text color="secondary"> {{ f.rating }} </ion-text>{{ f.ratings }}
+        </span>
+        <span>
+          <ion-icon name="location-outline"></ion-icon> {{ f.distance }}
+        </span>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

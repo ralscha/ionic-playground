@@ -1,0 +1,21 @@
+<ion-menu contentId="main" menuId="myMenu" side="start">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-menu-toggle *ngFor="let item of menuItems">
+      <ion-item button (click)="setTitle(item.title)" [routerLink]="item.path" routerDirection="root"
+                routerLinkActive="active-item" [routerLinkActiveOptions]="{exact: true}">
+        <ion-icon [name]="item.icon" slot="start"></ion-icon>
+        {{ item.title }}
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+
+<!-- Global App Header -->
+<app-header [title]="title"></app-header>
+
+<ion-router-outlet id="main"></ion-router-outlet>

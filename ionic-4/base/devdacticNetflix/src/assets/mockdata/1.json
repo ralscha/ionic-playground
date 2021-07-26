@@ -1,0 +1,63 @@
+{
+    "id": 1,
+    "title": "Bridgerton",
+    "year": "2020",
+    "totalSeasons": 1,
+    "match": 80,
+    "cast": "Adjoa Andoh, Julie Andrews, Lorraine Ashbourne",
+    "creators": "Chris Van Dusen",
+    "desc": "The eight close-knit siblings of the Bridgerton family look for love and happiness in London high society. Inspired by Julia Quinn's bestselling novels.",
+    "seasons": [
+        {
+            "order": 1,
+            "episodes": [
+                {
+                    "duration": 3480,
+                    "title": "Diamond of the First Water",
+                    "desc": "Daphne debuts on London's marriage market as a new gossip sheet sets high society atwitter and Simon, the eligible Duke of Hastings, returns to town.",
+                    "progress": 100
+                },
+                {
+                    "duration": 3660,
+                    "title": "Shock an Delight",
+                    "desc": "Simon’s apparent courtship of Daphne angers her brother Anthony and threatens to ruin the arrangements he made. Marina opens up to a curious Penelope.",
+                    "progress": 100
+                },
+                {
+                    "duration": 3420,
+                    "title": "Art of the Swoon",
+                    "desc": "After Daphne catches the eye of a royal suitor, she turns to Simon for relationship advice. Lady Featherington tries to browbeat Marina into marriage.",
+                    "progress": 42
+                },
+                {
+                    "duration": 3420,
+                    "title": "An Affair of Honor",
+                    "desc": "Daphne receives a stunning gift from Prince Friedrich but soon courts scandal at a ball. Eloise searches for clues to Lady Whistledown's identity.",
+                    "progress": 0
+                }
+            ]
+        },
+        {
+            "order": 2,
+            "episodes": []
+        },
+        {
+            "order": 3,
+            "episodes": []
+        },
+        {
+            "order": 4,
+            "episodes": []
+        }
+    ],
+    "trailers": [
+        {
+            "title": "Season 1 Teaser: Bridgerton",
+            "cover": "1-teaser.png"
+        },
+        {
+            "title": "Season 1 Trailer: Bridgerton",
+            "cover": "1-trailer.png"
+        }
+    ]
+}

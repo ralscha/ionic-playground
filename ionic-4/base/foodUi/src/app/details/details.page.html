@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button fill="solid" shape="round" color="light" routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ data?.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon slot="icon-only" name="share-outline" color="primary"></ion-icon>
+      </ion-button>
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon slot="icon-only" name="search-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scrollEvents="true" (ionScroll)="onScroll($event)" [appParallax]="img">
+
+  <div #img class="header-image" [style.background-image]="'url(' + data?.img + ')'">
+  </div>
+
+  <ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar color="light">
+      <ion-title size="large">{{ data?.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="data">
+    <ion-row>
+      <ion-col size="12" class="light-bg ion-padding-start">
+        <ion-icon name="star" color="primary"></ion-icon>
+        <ion-text color="primary">
+          {{ data.rating }}</ion-text>
+        <ion-text color="medium"> {{ data.ratings }}<span *ngFor="let tag of data.tags | slice:0:2"> · {{ tag }} </span>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12" class="light-bg ion-padding-start">
+        <ion-icon name="location-outline" color="medium"></ion-icon>
+        <ion-text>
+          {{ data.distance }}
+        </ion-text>
+      </ion-col>
+      <ion-col size="12" class="light-bg ion-padding">
+        <ion-badge color="danger">
+          <ion-icon name="pricetag-outline"></ion-icon>
+          Meal Deals
+        </ion-badge>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item lines="full">
+          <ion-label class="ion-text-wrap">
+            {{ data.about }}
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="light-bg">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="1">
+            <ion-icon color="medium" name="location-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="10">
+            <ion-label>Restaurant info
+              <p>Map, allergene ad hygiene rating</p>
+            </ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon color="primary" name="chevron-forward"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf="data" class="ion-padding">
+    Please do not call {{ data.name }} for any amends to your order, as these cannot be made once your order is
+    received.
+  </div>
+
+  <div slot="fixed">
+    <ion-slides [options]="opts" *ngIf="data"
+                [ngClass]="{'slides-visible': categorySlidesVisible, 'slides-hidden': !categorySlidesVisible}">
+      <ion-slide *ngFor="let entry of data.food; let i = index;">
+        <ion-button [class.active-category]="activeCategory == i" fill="clear" (click)="selectCategory(i)">
+          {{ entry.category }}
+        </ion-button>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-list *ngFor="let entry of data?.food">
+    <ion-list-header>
+      <ion-label>{{ entry.category}}</ion-label>
+    </ion-list-header>
+    <ion-row *ngFor="let meal of entry.meals" class="ion-padding meal-row">
+      <ion-col size="8" class="border-bottom">
+        <ion-label>
+          {{ meal.name }}
+          <p>{{ meal.info }}</p>
+        </ion-label>
+        <ion-text color="dark"><b>{{ meal.price | currency:'EUR' }}</b></ion-text>
+      </ion-col>
+      <ion-col size="4" class="border-bottom">
+        <div class="meal-image" [style.background-image]="'url(' + meal.img + ')'"></div>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

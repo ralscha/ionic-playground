@@ -1,0 +1,61 @@
+{
+  "categories": [{
+      "title": "Offers",
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/c1.png"
+    },
+    {
+      "title": "Burgers",
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/c2.png"
+    },
+    {
+      "title": "Chicken",
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/c3.png"
+    },
+    {
+      "title": "Pizza",
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/c4.png"
+    },
+    {
+      "title": "Asian",
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/c5.png"
+    },
+    {
+      "title": "Italian",
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/c6.png"
+    },
+    {
+      "title": "Dessert",
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/c7.png"
+    }
+  ],
+  "highlights": [{
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/n1.png"
+    },
+    {
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/n2.png"
+    },
+    {
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/n3.png"
+    },
+    {
+      "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/n4.png"
+    }
+  ],
+  "featured": [
+      {
+        "name": "Vapiano",
+        "rating": "4.5 Excellent",
+        "ratings": "(500+)",
+        "distance": "0.7 miles away",
+        "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/f1.jpeg"
+      },
+      {
+          "name": "✨Urban Greens✨",
+          "id": "2",
+          "rating": "4.8 Excellent",
+          "ratings": "(500+)",
+          "distance": "0.7 miles away",
+          "img": "https://devdactic.fra1.digitaloceanspaces.com/foodui/f2.jpeg"
+      }
+  ]
+}

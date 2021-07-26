@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" size-xl="2" *ngFor="let p of products | async">
+        <ion-card>
+          <img [src]="p.image">
+          <ion-card-content>
+            <ion-label>
+              {{ p.title}}
+              <p>{{ p.price | currency:'USD' }}</p>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

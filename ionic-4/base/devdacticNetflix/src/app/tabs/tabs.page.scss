@@ -1,0 +1,18 @@
+.backdrop {
+  width: 100%;
+  height: 100%;
+  background: #000000d2;
+  z-index: 10;
+  position: absolute;
+}
+
+.fade {
+  transition: 0.4s linear all;
+  opacity: 0;
+  z-index: -1;
+}
+
+.fade-in {
+  transition: 0.4s linear all;
+  opacity: 1;
+}
