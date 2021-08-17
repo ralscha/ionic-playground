@@ -1,0 +1,24 @@
+<ion-content>
+
+  <ion-row class="ion-no-padding" *ngFor="let entry of data; let isFirst = first">
+    <!--  Section Title -->
+    <ion-col size="9">
+      <h2 class="section-header">{{ entry.title }}</h2>
+    </ion-col>
+    <ion-col size="3" class="ion-text-end">
+      <ion-button fill="clear" color="light" *ngIf="isFirst">
+        <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <!-- Horizontal scroll view -->
+    <ion-slides [options]="opts">
+      <ion-slide *ngFor="let album of entry.albums" tappable (click)="openAlbum(album)">
+        <img [src]="'/assets/images/albums/'+dasherize(album.image)+'.jpg'">
+        <span class="title">{{ album.title }}</span>
+      </ion-slide>
+
+    </ion-slides>
+  </ion-row>
+
+</ion-content>

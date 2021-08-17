@@ -1,0 +1,52 @@
+<ion-header #header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="menu-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon color="primary" name="logo-twitter" size="large"></ion-icon>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="pulse-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-segment #segmentcontrol [(ngModel)]="segment" mode="md">
+  <ion-segment-button value="home">
+    <ion-label>Home</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="content">
+    <ion-label>cr-content-suggest</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+<ion-content [appHideHeader]="header" [appStickySegment]="segmentcontrol" [fullscreen]="true" scrollEvents="true">
+  <div [hidden]="segment !== 'home'">
+    <!-- Stoy section at the top -->
+    <ion-slides [options]="opts">
+      <ion-slide *ngFor="let tweet of tweets">
+        <ion-avatar>
+          <img [src]="tweet.img">
+        </ion-avatar>
+      </ion-slide>
+    </ion-slides>
+
+    <!-- List of Tweets -->
+    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet"></app-tweet>
+  </div>
+
+  <ion-fab horizontal="end" slot="fixed" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon name="pencil"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div [hidden]="segment !== 'content'">
+    Other content
+  </div>
+</ion-content>
