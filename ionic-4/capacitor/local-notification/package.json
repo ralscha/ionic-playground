@@ -25,7 +25,7 @@
     "@capacitor/haptics": "^1.0.0",
     "@capacitor/keyboard": "^1.0.0",
     "@capacitor/local-notifications": "^1.0.0",
-    "@ionic/angular": "5.9.1",
+    "@ionic/angular": "5.9.2",
     "rxjs": "7.4.0",
     "tslib": "2.3.1",
     "zone.js": "0.11.4"
