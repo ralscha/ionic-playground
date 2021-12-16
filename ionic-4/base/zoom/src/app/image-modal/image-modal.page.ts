@@ -9,7 +9,7 @@ import {IonSlides, ModalController, ViewDidEnter} from '@ionic/angular';
 export class ImageModalPage implements ViewDidEnter {
 
   @ViewChild(IonSlides) slides!: IonSlides;
-  @Input img!: number;
+  @Input() img!: number;
 
   readonly sliderOpts = {
     zoom: true

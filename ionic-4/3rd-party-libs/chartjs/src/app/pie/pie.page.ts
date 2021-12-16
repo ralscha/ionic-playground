@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ChartConfiguration, ChartData, ChartType} from 'chart.js';
 
 @Component({
   selector: 'app-pie',
@@ -7,9 +8,20 @@ import {Component} from '@angular/core';
 })
 export class PiePage {
 
-  public pieChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
-
-  public pieChartData = [120, 150, 180, 90];
-
-  public pieChartType = 'pie';
+  public pieChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      }
+    }
+  };
+  public pieChartData: ChartData<'pie', number[], string | string[]> = {
+    labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
+    datasets: [ {
+      data: [ 300, 500, 100 ]
+    } ]
+  };
+  public pieChartType: ChartType = 'pie';
 }

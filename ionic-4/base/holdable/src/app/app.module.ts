@@ -15,14 +15,13 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [AppComponent, HomePage, HoldableDirective],
-    entryComponents: [],
     imports: [BrowserModule,
         CommonModule,
         FormsModule,
         IonicModule.forRoot(),
         RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
     providers: [
-        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]
 })

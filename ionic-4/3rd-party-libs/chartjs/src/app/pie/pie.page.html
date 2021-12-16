@@ -5,8 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <canvas [chartType]="pieChartType" [data]="pieChartData"
-          [labels]="pieChartLabels"
-          baseChart
-          height="300"></canvas>
+  <canvas baseChart
+          [data]="pieChartData"
+          [type]="pieChartType"
+          [options]="pieChartOptions"
+          height="300">
+  </canvas>
 </ion-content>

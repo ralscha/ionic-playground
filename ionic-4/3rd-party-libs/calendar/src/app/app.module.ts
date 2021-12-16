@@ -4,6 +4,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {RouteReuseStrategy} from '@angular/router';
+import {NgCalendarModule} from 'ionic2-calendar';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import {RouteReuseStrategy} from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    NgCalendarModule,
     IonicModule.forRoot(),
     AppRoutingModule
   ],

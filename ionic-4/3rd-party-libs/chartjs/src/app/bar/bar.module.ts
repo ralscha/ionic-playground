@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {IonicModule} from '@ionic/angular';
 import {BarPage} from './bar.page';
-import {ChartsModule} from 'ng2-charts';
+import {NgChartsModule} from 'ng2-charts';
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     IonicModule,
-    ChartsModule,
+    NgChartsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [BarPage]

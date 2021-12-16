@@ -11,13 +11,12 @@ import {FlashComponent} from './flash/flash.component';
 import {TimeBarComponent} from './time-bar/time-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, FlashComponent, TimeBarComponent],
-  entryComponents: [],
-  imports: [BrowserModule, BrowserAnimationsModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [
-    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, FlashComponent, TimeBarComponent],
+    imports: [BrowserModule, BrowserAnimationsModule, IonicModule.forRoot(), AppRoutingModule],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -7,19 +7,18 @@ import {RouteReuseStrategy} from '@angular/router';
 import {ImageViewerComponent} from './component/image-viewer/image-viewer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent, ImageViewerComponent
-  ],
-  entryComponents: [ImageViewerComponent],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule
-  ],
-  providers: [
-    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent, ImageViewerComponent
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule
+    ],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

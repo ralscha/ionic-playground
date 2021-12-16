@@ -15,18 +15,17 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomePage, ScrollVanishDirective],
-  entryComponents: [],
-  imports: [BrowserModule,
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    IonicModule.forRoot(),
-    RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
-  providers: [
-    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, HomePage, ScrollVanishDirective],
+    imports: [BrowserModule,
+        CommonModule,
+        HttpClientModule,
+        FormsModule,
+        IonicModule.forRoot(),
+        RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

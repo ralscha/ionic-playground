@@ -16,19 +16,18 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomePage, AnimatedLikeComponent],
-  entryComponents: [],
-  imports: [BrowserModule,
-    CommonModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    IonicModule.forRoot(),
-    RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
-  providers: [
-    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, HomePage, AnimatedLikeComponent],
+    imports: [BrowserModule,
+        CommonModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        IonicModule.forRoot(),
+        RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ChartData, ChartType} from 'chart.js';
 
 @Component({
   selector: 'app-doughnut',
@@ -7,10 +8,15 @@ import {Component} from '@angular/core';
 })
 export class DoughnutPage {
 
-  public doughnutChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
-
-  public doughnutChartData = [120, 150, 180, 90];
-
-  public doughnutChartType = 'doughnut';
+  public doughnutChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
+  public doughnutChartData: ChartData<'doughnut'> = {
+    labels: this.doughnutChartLabels,
+    datasets: [
+      { data: [ 350, 450, 100 ] },
+      { data: [ 50, 150, 120 ] },
+      { data: [ 250, 130, 70 ] }
+    ]
+  };
+  public doughnutChartType: ChartType = 'doughnut';
 
 }

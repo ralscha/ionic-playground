@@ -16,7 +16,7 @@ export class LanguageService {
 
   setInitialAppLanguage(): void {
     const language = this.translate.getBrowserLang();
-    this.translate.setDefaultLang(language);
+    this.translate.setDefaultLang(language!);
 
     const val = localStorage.getItem(LanguageService.LNG_KEY);
     if (val) {

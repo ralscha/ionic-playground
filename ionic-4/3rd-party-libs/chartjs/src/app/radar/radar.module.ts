@@ -5,7 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {IonicModule} from '@ionic/angular';
 
 import {RadarPage} from './radar.page';
-import {ChartsModule} from 'ng2-charts';
+import {NgChartsModule} from 'ng2-charts';
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    ChartsModule,
+    NgChartsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
