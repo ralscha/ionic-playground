@@ -1,0 +1,13 @@
+.category-select {
+  ion-button {
+    color: var(--ion-color-primary);
+    --background: transparent;
+    --background-activated: var(--ion-color-primary);
+  }
+
+  .selected {
+    font-weight: 600;
+    color: #fff;
+    --background: var(--ion-color-primary);
+  }
+}

@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-row>
+    <ion-col size="12" class="ion-text-center category-select">
+      <ion-button size="small" shape="round" (click)="changeChoice(0)" [class.selected]="choice == 0">
+        Credit Card
+      </ion-button>
+      <ion-button size="small" shape="round" (click)="changeChoice(1)" [class.selected]="choice == 1">
+        Paypal
+      </ion-button>
+      <ion-button size="small" shape="round" (click)="changeChoice(2)" [class.selected]="choice == 2">
+        Bank transfer
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-button expand="block" color="primary" strong="true" (click)="close()" class="ion-margin-top">
+    Confirm
+  </ion-button>
+</ion-content>
