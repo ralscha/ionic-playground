@@ -1,8 +1,8 @@
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 export class AgeValidator {
 
-  static isValid(control: FormControl): any {
+  static isValid(control: UntypedFormControl): any {
 
     if (isNaN(control.value)) {
       return {

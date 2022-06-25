@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {debounceTime} from 'rxjs/operators';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {NavController} from '@ionic/angular';
 import {DataService} from '../services/data.service';
 
@@ -11,12 +11,12 @@ import {DataService} from '../services/data.service';
 })
 export class HomePage implements OnInit {
 
-  searchControl: FormControl;
+  searchControl: UntypedFormControl;
   items: any;
   searching: any = false;
 
   constructor(public navCtrl: NavController, public dataService: DataService) {
-    this.searchControl = new FormControl();
+    this.searchControl = new UntypedFormControl();
   }
 
   ngOnInit(): void {

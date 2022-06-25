@@ -1,8 +1,8 @@
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 export class UsernameValidator {
 
-  static checkUsername(control: FormControl): any {
+  static checkUsername(control: UntypedFormControl): any {
 
     return new Promise(resolve => {
 

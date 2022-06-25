@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {UsernameValidator} from '../validators/username';
 import {AgeValidator} from '../validators/age';
 import {IonSlides} from '@ionic/angular';
@@ -13,12 +13,12 @@ export class HomePage {
 
   @ViewChild('signupSlider', { static: true }) signupSlider!: IonSlides;
 
-  public slideOneForm: FormGroup;
-  public slideTwoForm: FormGroup;
+  public slideOneForm: UntypedFormGroup;
+  public slideTwoForm: UntypedFormGroup;
 
   public submitAttempt = false;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: UntypedFormBuilder) {
     this.slideOneForm = formBuilder.group({
       firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
