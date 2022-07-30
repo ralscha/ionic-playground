@@ -1,0 +1,61 @@
+<ion-header #header>
+  <ion-toolbar color="light">
+    <img src="./assets/data/logo.png" width="100px" />
+
+    <ion-buttons slot="end">
+      <ion-button size="small"> <ion-icon name="tv-outline"></ion-icon> </ion-button>
+      <ion-button size="small"> <ion-icon name="notifications-outline"></ion-icon> </ion-button>
+      <ion-button size="small"> <ion-icon name="search-outline"></ion-icon> </ion-button>
+      <ion-button size="small"> <ion-icon name="person-circle-outline"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <div class="button-bar">
+      <ion-button
+        size="small"
+        shape="round"
+        *ngFor="let seg of segments; let i = index;"
+        [ngClass]="{'activated': seg.selected, 'inactive': !seg.selected}"
+        (click)="selectSegment(i)"
+      >
+        {{ seg.title }}
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [appHideHeader]="header" scrollEvents="true">
+  <div *ngIf="!videos.length">
+    <div *ngFor="let i of [].constructor(4)" class="ion-margin-bottom">
+      <ion-skeleton-text animated style="width: 100%; height: 30vh !important"></ion-skeleton-text>
+      <ion-skeleton-text style="width: 75%; height: 20px !important; margin: 10px"></ion-skeleton-text>
+      <ion-skeleton-text style="width: 40%; height: 20px !important; margin: 10px"></ion-skeleton-text>
+    </div>
+  </div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="crescent" pullingIcon="refresh-outline"></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngFor="let video of videos" class="video ion-margin-bottom">
+    <div class="duration">{{ video.duration * 1000 | date:'mm:ss' }}</div>
+
+    <img [src]="'./assets/data/' + video.id + '.jpeg'" />
+    <ion-row>
+      <ion-col size="2" class="ion-align-items-center">
+        <ion-avatar>
+          <ion-img [src]="'./assets/data/' + video.id + '-channel.jpeg'"></ion-img>
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="8">
+        <ion-text>{{ video.title }}</ion-text>
+        <div>
+          <ion-text color="medium" style="font-size: small"> {{ video.author }} · {{ video.views }} views · {{ video.ago }} ago </ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-right">
+        <ion-button size="small" fill="clear"><ion-icon name="ellipsis-vertical"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

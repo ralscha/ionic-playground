@@ -1,0 +1,1 @@
+https://devdactic.com/angular-material-app-capacitor/

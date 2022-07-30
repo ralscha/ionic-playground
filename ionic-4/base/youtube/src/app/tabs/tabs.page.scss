@@ -1,0 +1,10 @@
+ion-tab-bar {
+  --background: #fff;
+}
+
+ion-tab-button {
+  --color: var(--ion-color-primary);
+  ion-icon {
+    --ionicon-stroke-width: 16px;
+  }
+}

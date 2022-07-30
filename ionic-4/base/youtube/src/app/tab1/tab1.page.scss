@@ -1,0 +1,32 @@
+.button-bar {
+  display: flex;
+  overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.activated {
+  --background: #606060;
+  --color: #fff;
+}
+
+.inactive {
+  --background: #edefef;
+  --color: var(--ion-color-primary);
+}
+
+.video {
+  position: relative;
+}
+
+.duration {
+  position: absolute;
+  right: 15px;
+  top: 175px;
+  color: #fff;
+  font-weight: 500;
+  background: #000;
+  padding: 4px;
+}
