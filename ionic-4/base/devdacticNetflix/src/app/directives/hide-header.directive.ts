@@ -31,12 +31,11 @@ export class HideHeaderDirective implements AfterViewInit {
     if (newPosition < -this.headerHeight) {
       newPosition = -this.headerHeight;
     }
-    let newOpacity = 1 - (newPosition / -this.headerHeight);
-
+    const newOpacity = 1 - (newPosition / -this.headerHeight);
 
     this.domCtrl.write(() => {
       this.renderer.setStyle(this.header, 'top', newPosition + 'px');
-      for (let c of this.children) {
+      for (const c of this.children) {
         this.renderer.setStyle(c, 'opacity', newOpacity);
       }
     });

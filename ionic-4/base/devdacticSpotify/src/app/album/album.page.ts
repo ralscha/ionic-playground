@@ -8,20 +8,22 @@ import albums from '../../assets/mockdata//albums';
   styleUrls: ['./album.page.scss'],
 })
 export class AlbumPage implements OnInit {
-  data = null;
+  data!: any;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     const title = this.activatedRoute.snapshot.paramMap.get('title');
-    const decodedTitle = decodeURIComponent(title);
-    this.data = albums[decodedTitle];    
+    if (title) {
+      const decodedTitle = decodeURIComponent(title);
+      this.data = albums[decodedTitle];
+    }
   }
 
     // Helper function for image names
-    dasherize(string) {
-      return string.replace(/[A-Z]/g, function(char, index) {
+    dasherize(str: string) {
+      return str.replace(/[A-Z]/g, function(char, index) {
         return (index !== 0 ? '-' : '') + char.toLowerCase();
       });
-    };
+    }
 }

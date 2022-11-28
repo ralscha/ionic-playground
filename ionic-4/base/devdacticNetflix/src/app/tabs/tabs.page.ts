@@ -9,10 +9,10 @@ import { DrawerService } from '../services/drawer.service';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  @ViewChild(IonTabs) tabs;
+  @ViewChild(IonTabs) tabs!: any;
   selected = '';
 
-  @ViewChild(DrawerComponent) drawer: DrawerComponent;
+  @ViewChild(DrawerComponent) drawer!: DrawerComponent;
   backdropVisible = false;
 
   constructor(private drawerService: DrawerService, private changeDetectorRef: ChangeDetectorRef) {
@@ -31,7 +31,7 @@ export class TabsPage {
     this.drawer.closeDrawer();
   }
 
-  toggleBackdrop(isVisible) {
+  toggleBackdrop(isVisible: boolean) {
     this.backdropVisible = isVisible;
     this.changeDetectorRef.detectChanges();
   }

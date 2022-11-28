@@ -36,20 +36,20 @@ export class MenuPage implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  private onResize(event) {
+  private onResize(event: any) {
     const newWidth = event.target.innerWidth;
     this.toggleMenu(newWidth);
   }
 
-  toggleMenu(width) {
+  toggleMenu(width: number) {
     if (width > 768) {
-      this.menuCtrl.enable(false, 'myMenu');
+      this.menuCtrl?.enable(false, 'myMenu');
     } else {
-      this.menuCtrl.enable(true, 'myMenu');
+      this.menuCtrl?.enable(true, 'myMenu');
     }
   }
 
-  setTitle(title) {
+  setTitle(title: string) {
     this.title = title
   }
 

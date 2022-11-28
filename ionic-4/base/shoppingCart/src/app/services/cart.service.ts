@@ -22,9 +22,6 @@ export class CartService {
   private cart: Product[] = [];
   private cartItemCount = new BehaviorSubject(0);
 
-  constructor() {
-  }
-
   getProducts(): Product[] {
     return this.data;
   }

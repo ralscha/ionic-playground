@@ -56,9 +56,6 @@ export class HomePage {
   group = null;
   selected = [];
 
-  constructor() {
-  }
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   userChanged(event: { component: IonicSelectableComponent, value: any }): void {
     console.log('Selected: ', event);

@@ -14,12 +14,6 @@ export class MathService {
   storedValued: number;
 
   /**
-   * @ignore
-   */
-  constructor() {
-  }
-
-  /**
    * Performs a very special operation
    *
    * @example

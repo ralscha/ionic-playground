@@ -38,15 +38,15 @@ export class Tab1Page {
 
   }
 
-  openAlbum(album) {
+  openAlbum(album: any) {
     const titleEscaped = encodeURIComponent(album.title);
     this.router.navigateByUrl(`/tabs/tab1/${titleEscaped}`);
   }
 
   // Helper function for image names
-  dasherize(string) {
-    return string.replace(/[A-Z]/g, function(char, index) {
+  dasherize(str: string) {
+    return str.replace(/[A-Z]/g, function(char, index) {
       return (index !== 0 ? '-' : '') + char.toLowerCase();
     });
-  };
+  }
 }

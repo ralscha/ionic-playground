@@ -6,8 +6,8 @@ import { DomController } from '@ionic/angular';
 })
 export class ParallaxDirective {
   @Input('appParallax') imageEl: any;
-  private moveImage: number;
-  private scaleImage: number;
+  private moveImage!: number;
+  private scaleImage!: number;
 
   constructor(
     private renderer: Renderer2,

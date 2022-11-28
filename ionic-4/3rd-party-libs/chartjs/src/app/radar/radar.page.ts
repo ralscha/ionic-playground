@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ChartConfiguration, ChartType} from 'chart.js';
 
 @Component({
   selector: 'app-radar',
@@ -14,6 +15,6 @@ export class RadarPage {
     {data: [90, 150, 200, 45], label: '2018'}
   ];
 
-  public radarChartType = 'radar';
+  public radarChartType: ChartType = 'radar';
 
 }

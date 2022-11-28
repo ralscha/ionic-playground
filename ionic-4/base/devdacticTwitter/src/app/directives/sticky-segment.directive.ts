@@ -1,10 +1,10 @@
-import {Directive, HostListener, Input, Renderer2} from '@angular/core';
+import {AfterViewInit, Directive, HostListener, Input, Renderer2} from '@angular/core';
 import {DomController, isPlatform} from '@ionic/angular';
 
 @Directive({
   selector: '[appStickySegment]'
 })
-export class StickySegmentDirective {
+export class StickySegmentDirective implements AfterViewInit {
   @Input('appStickySegment') segment: any;
   private headerHeight = isPlatform('ios') ? 44 : 56;
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 
 @Component({
@@ -6,11 +6,9 @@ import { PopoverController } from '@ionic/angular';
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage implements OnInit {
+export class AccountPage {
 
   constructor(private popoverCtrl: PopoverController) { }
-
-  ngOnInit() {}
 
   close() {
     this.popoverCtrl.dismiss();

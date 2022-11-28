@@ -83,7 +83,7 @@
     <ion-slides [options]="opts" *ngIf="data"
                 [ngClass]="{'slides-visible': categorySlidesVisible, 'slides-hidden': !categorySlidesVisible}">
       <ion-slide *ngFor="let entry of data.food; let i = index;">
-        <ion-button [class.active-category]="activeCategory == i" fill="clear" (click)="selectCategory(i)">
+        <ion-button [class.active-category]="activeCategory === i" fill="clear" (click)="selectCategory(i)">
           {{ entry.category }}
         </ion-button>
       </ion-slide>

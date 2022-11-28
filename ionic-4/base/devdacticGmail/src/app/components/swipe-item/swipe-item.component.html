@@ -9,23 +9,23 @@
 <!-- The actual item -->
 <ion-item class="email" lines="none">
   <ion-row class="ion-align-items-center">
-    <ion-col size="2" (click)="openDetails(m.id)">
-      <div class="email-circle" [style.background]="m.color">
-        {{ m.from | slice:0:1 }}
+    <ion-col size="2" (click)="openDetails(email.id)">
+      <div class="email-circle" [style.background]="email.color">
+        {{ email.from | slice:0:1 }}
       </div>
     </ion-col>
-    <ion-col size="8" (click)="openDetails(m.id)">
-      <ion-label color="dark" [style.font-weight]="!m.read ? 'bold' : ''" class="ion-text-capitalize ion-text-wrap">
-        {{ m.from.split('@')[0] }}
+    <ion-col size="8" (click)="openDetails(email.id)">
+      <ion-label color="dark" [style.font-weight]="!email.read ? 'bold' : ''" class="ion-text-capitalize ion-text-wrap">
+        {{ email.from.split('@')[0] }}
         <p class="excerpt">
-          {{ (m.content.length>50)? (m.content | slice:0:50)+'...' : (m.content) }}
+          {{ (email.content.length>50)? (email.content | slice:0:50)+'...' : (email.content) }}
         </p>
       </ion-label>
     </ion-col>
     <ion-col size="2">
-      <div class="ion-text-right" tappable (click)="m.star = !m.star;">
-        <p class="date">{{ m.date | date:'dd. MMM' }}</p>
-        <ion-icon [name]="m.star ? 'star' : 'star-outline'" [color]="m.star ? 'warning' : 'medium'">
+      <div class="ion-text-right" tappable (click)="email.star = !email.star;">
+        <p class="date">{{ email.date | date:'dd. MMM' }}</p>
+        <ion-icon [name]="email.star ? 'star' : 'star-outline'" [color]="email.star ? 'warning' : 'medium'">
         </ion-icon>
       </div>
     </ion-col>

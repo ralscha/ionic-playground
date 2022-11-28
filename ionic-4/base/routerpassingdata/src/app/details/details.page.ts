@@ -13,20 +13,20 @@ export class DetailsPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
-      if (params && params.special) {
-        this.data = JSON.parse(params.special);
+      if (params && params['special']) {
+        this.data = JSON.parse(params['special']);
       }
     });
 
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(() => {
       if (this.router.getCurrentNavigation()?.extras.state) {
-        this.data = this.router.getCurrentNavigation()?.extras?.state?.user;
+        this.data = this.router.getCurrentNavigation()?.extras?.state?.['user'];
       }
     });
   }
 
   ngOnInit(): void {
-    const special = this.route.snapshot.data.special;
+    const special = this.route.snapshot.data['special'];
     if (special) {
       this.data = special;
     }

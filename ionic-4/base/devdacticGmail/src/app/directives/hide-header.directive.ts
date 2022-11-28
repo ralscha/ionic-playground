@@ -36,7 +36,7 @@ export class HideHeaderDirective {
       newPosition = -this.scrollDistance;
     }
 
-    let newOpacity = 1 - (newPosition / -this.scrollDistance);
+    const newOpacity = 1 - (newPosition / -this.scrollDistance);
 
     this.domCtrl.write(() => {
       this.renderer.setStyle(this.header, 'top', Math.min(0, newPosition) + 'px');

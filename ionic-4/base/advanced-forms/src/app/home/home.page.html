@@ -32,32 +32,32 @@
           <ion-item>
             <ion-label position="floating">First Name</ion-label>
             <ion-input formControlName="firstName" type="text"
-                       [class.invalid]="!slideOneForm.controls.firstName.valid && (slideOneForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+                       [class.invalid]="!slideOneForm.controls['firstName'].valid && (slideOneForm.controls['firstName'].dirty || submitAttempt)"></ion-input>
           </ion-item>
 
           <ion-item
-            *ngIf="!slideOneForm.controls.firstName.valid  && (slideOneForm.controls.firstName.dirty || submitAttempt)">
+            *ngIf="!slideOneForm.controls['firstName'].valid  && (slideOneForm.controls['firstName'].dirty || submitAttempt)">
             <p>Please enter a valid name.</p>
           </ion-item>
 
           <ion-item>
             <ion-label position="floating">Last Name</ion-label>
             <ion-input formControlName="lastName" type="text"
-                       [class.invalid]="!slideOneForm.controls.lastName.valid && (slideOneForm.controls.age.dirty || submitAttempt)"></ion-input>
+                       [class.invalid]="!slideOneForm.controls['lastName'].valid && (slideOneForm.controls['lastName'].dirty || submitAttempt)"></ion-input>
           </ion-item>
 
           <ion-item
-            *ngIf="!slideOneForm.controls.lastName.valid  && (slideOneForm.controls.lastName.dirty || submitAttempt)">
+            *ngIf="!slideOneForm.controls['lastName'].valid  && (slideOneForm.controls['lastName'].dirty || submitAttempt)">
             <p>Please enter a valid name.</p>
           </ion-item>
 
           <ion-item>
             <ion-label position="floating">Age</ion-label>
             <ion-input formControlName="age" type="number"
-                       [class.invalid]="!slideOneForm.controls.age.valid && (slideOneForm.controls.age.dirty || submitAttempt)"></ion-input>
+                       [class.invalid]="!slideOneForm.controls['age'].valid && (slideOneForm.controls['age'].dirty || submitAttempt)"></ion-input>
           </ion-item>
 
-          <ion-item *ngIf="!slideOneForm.controls.age.valid  && (slideOneForm.controls.age.dirty || submitAttempt)">
+          <ion-item *ngIf="!slideOneForm.controls['age'].valid  && (slideOneForm.controls['age'].dirty || submitAttempt)">
             <p>Please enter a valid age.</p>
           </ion-item>
 
@@ -76,23 +76,23 @@
           <ion-item>
             <ion-label position="floating">Username</ion-label>
             <ion-input
-              [class.invalid]="!slideTwoForm.controls.username.valid && (slideTwoForm.controls.username.dirty || submitAttempt)"
+              [class.invalid]="!slideTwoForm.controls['username'].valid && (slideTwoForm.controls['username'].dirty || submitAttempt)"
               formControlName="username" type="text"></ion-input>
           </ion-item>
 
-          <ion-item *ngIf="slideTwoForm.controls.username.pending">
+          <ion-item *ngIf="slideTwoForm.controls['username'].pending">
             <p>Checking username...</p>
           </ion-item>
 
           <ion-item
-            *ngIf="!slideTwoForm.controls.username.valid && !slideTwoForm.controls.username.pending && (slideTwoForm.controls.username.dirty || submitAttempt)">
+            *ngIf="!slideTwoForm.controls['username'].valid && !slideTwoForm.controls['username'].pending && (slideTwoForm.controls['username'].dirty || submitAttempt)">
             <p>Sorry, that username can not be used!</p>
           </ion-item>
 
           <ion-item>
             <ion-label position="floating">Privacy</ion-label>
             <ion-select
-              [class.invalid]="!slideTwoForm.controls.privacy.valid && (slideTwoForm.controls.privacy.dirty || submitAttempt)"
+              [class.invalid]="!slideTwoForm.controls['privacy'].valid && (slideTwoForm.controls['privacy'].dirty || submitAttempt)"
               formControlName="privacy">
               <ion-select-option value="public">Public</ion-select-option>
               <ion-select-option value="friends">Friends Only</ion-select-option>

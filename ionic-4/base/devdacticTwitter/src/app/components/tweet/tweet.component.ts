@@ -7,10 +7,7 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class TweetComponent implements OnInit {
-  @Input() tweet: any;
-
-  constructor() {
-  }
+  @Input() tweet!: any;
 
   ngOnInit() {
     console.log('one tweet: ', this.tweet);
@@ -18,8 +15,8 @@ export class TweetComponent implements OnInit {
   }
 
   parseTweet() {
-    this.tweet.text = this.tweet.text.replace(/\#[a-zA-Z]+/g, "\<span class\=\"highlight\"\>$&\<\/span\>");
-    this.tweet.text = this.tweet.text.replace(/\@[a-zA-Z]+/g, "\<span class\=\"highlight\"\>$&\<\/span\>");
+    this.tweet.text = this.tweet.text.replace(/#[a-zA-Z]+/g, "<span class=\"highlight\">$&</span>");
+    this.tweet.text = this.tweet.text.replace(/@[a-zA-Z]+/g, "<span class=\"highlight\">$&</span>");
   }
 
 }

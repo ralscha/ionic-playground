@@ -53,7 +53,7 @@ export class HomePage {
       this.choice = value;
     });
 
-    modal.onDidDismiss().then((_ => {
+    modal.onDidDismiss().then((() => {
       mySubject.unsubscribe();
     }));
   }
@@ -69,9 +69,7 @@ export class HomePage {
     await modal.present();
 
     // Optional: Hide the modal after a duration!
-    setTimeout(() => {
-      modal.dismiss();
-    }, 2000);
+    setTimeout(() => modal.dismiss(), 2000);
   }
 
 }

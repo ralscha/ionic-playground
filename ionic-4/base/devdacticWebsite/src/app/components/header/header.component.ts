@@ -1,22 +1,18 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  @Input() title: string;
+  @Input() title!: string;
   dropdown = false;
 
-  @ViewChild('productbtn', { read: ElementRef })productbtn: ElementRef;
+  @ViewChild('productbtn', { read: ElementRef }) productbtn!: ElementRef;
 
-  constructor() { }
-
-  ngOnInit() { }
-
-  hideDropdown(event) {
+  hideDropdown(event: any) {
     const xTouch = event.clientX;
     const yTouch = event.clientY;
 

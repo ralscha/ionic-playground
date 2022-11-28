@@ -35,7 +35,7 @@ export class Tab1Page {
     await modal.present();
   }
 
-  openInfo(series) {
+  openInfo(series: any) {
     this.drawerService.openDrawer(series.title);
   }
 

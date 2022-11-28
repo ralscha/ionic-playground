@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ChartType} from 'chart.js';
 
 @Component({
   selector: 'app-bar',
@@ -14,7 +15,7 @@ export class BarPage {
 
   public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
 
-  public barChartType = 'bar';
+  public barChartType: ChartType = 'bar';
 
   public barChartLegend = true;
 

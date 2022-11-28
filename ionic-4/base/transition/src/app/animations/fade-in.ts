@@ -5,12 +5,16 @@ export function myFadeInAnimation(baseEl: HTMLElement): Animation {
   const baseAnimation = createAnimation();
 
   const backdropAnimation = createAnimation();
-  // @ts-ignore
-  backdropAnimation.addElement(baseEl.querySelector('ion-backdrop'));
+  const el = baseEl.querySelector('ion-backdrop');
+  if (el) {
+    backdropAnimation.addElement(el);
+  }
 
   const wrapperAnimation = createAnimation();
-  // @ts-ignore
-  wrapperAnimation.addElement(baseEl.querySelector('.modal-wrapper'));
+  const el1 = baseEl.querySelector('.modal-wrapper');
+  if (el1) {
+    wrapperAnimation.addElement(el1);
+  }
 
   wrapperAnimation.beforeStyles({ opacity: 1 })
     .fromTo('translateX', '0%', '0%');

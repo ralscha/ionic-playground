@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsPage implements OnInit {
 
-  products: Observable<any>;
+  products!: Observable<any>;
 
   constructor(private http: HttpClient) { }
 

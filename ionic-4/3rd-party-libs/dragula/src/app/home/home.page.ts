@@ -30,6 +30,7 @@ export class HomePage {
 
   constructor(private dragulaService: DragulaService, private toastController: ToastController) {
     this.dragulaService.drag('bag')
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .subscribe(({name, el, source}) => {
         el.setAttribute('color', 'danger');
       });
@@ -67,8 +68,6 @@ export class HomePage {
         this.todo.color = 'warning';
         break;
     }
-    // @ts-ignore
-    this[this.selectedQuadrant].push(this.todo);
     this.todo = {value: '', color: ''};
   }
 

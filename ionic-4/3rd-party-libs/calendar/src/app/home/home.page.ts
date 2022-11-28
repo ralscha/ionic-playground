@@ -2,7 +2,7 @@ import {Component, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
 import {CalendarComponent} from 'ionic2-calendar';
 import {AlertController} from '@ionic/angular';
 import {formatDate} from '@angular/common';
-import {CalendarMode} from 'ionic2-calendar/calendar';
+import {CalendarMode, IEvent, ITimeSelected} from 'ionic2-calendar/calendar';
 
 @Component({
   selector: 'app-home',
@@ -21,8 +21,8 @@ export class HomePage implements OnInit {
 
   minDate = new Date().toISOString();
 
-  eventSource: any = [];
-  viewTitle: any = null;
+  eventSource:  {title: string, startTime: Date, endTime: Date, allDay: boolean, desc: string}[] = [];
+  viewTitle = '';
 
   calendar = {
     mode: 'month' as CalendarMode,
@@ -74,18 +74,18 @@ export class HomePage implements OnInit {
   // Change current month/week/day
   next(): void {
     // @ts-ignore
-    const swiper = document.querySelector('.swiper-container').swiper;
+    const swiper = document.querySelector('.swiper-container')?.swiper;
     swiper.slideNext();
   }
 
   back(): void {
     // @ts-ignore
-    const swiper = document.querySelector('.swiper-container').swiper;
+    const swiper = document.querySelector('.swiper-container')?.swiper;
     swiper.slidePrev();
   }
 
   // Change between month/week/day
-  changeMode(mode: any): void {
+  changeMode(mode: CalendarMode): void {
     this.calendar.mode = mode;
   }
 
@@ -100,14 +100,13 @@ export class HomePage implements OnInit {
   }
 
   // Calendar event was clicked
-  async onEventSelected(event: any): Promise<void> {
+  async onEventSelected(event: IEvent): Promise<void> {
     // Use Angular date pipe for conversion
     const start = formatDate(event.startTime, 'medium', this.locale);
     const end = formatDate(event.endTime, 'medium', this.locale);
 
     const alert = await this.alertCtrl.create({
       header: event.title,
-      subHeader: event.desc,
       message: 'From: ' + start + '<br><br>To: ' + end,
       buttons: ['OK']
     });
@@ -115,7 +114,7 @@ export class HomePage implements OnInit {
   }
 
   // Time slot was clicked
-  onTimeSelected(ev: any): void {
+  onTimeSelected(ev: ITimeSelected): void {
     const selected = new Date(ev.selectedTime);
     this.event.startTime = selected.toISOString();
     selected.setHours(selected.getHours() + 1);

@@ -41,7 +41,7 @@
       <ion-col size="6" class="q1">
         <div class="q-header">Do</div>
         <ion-list dragula="bag" [(dragulaModel)]="q1" lines="none">
-          <ion-item *ngFor="let item of q1" [color]="item.color" expand="block" class="ion-text-wrap">
+          <ion-item *ngFor="let item of q1" [color]="item.color" class="ion-text-wrap">
             {{ item.value }}
           </ion-item>
         </ion-list>
@@ -50,7 +50,7 @@
       <ion-col size="6" class="q2">
         <div class="q-header">Schedule</div>
         <ion-list dragula="bag" [(dragulaModel)]="q2" lines="none">
-          <ion-item *ngFor="let item of q2" [color]="item.color" expand="block" class="ion-text-wrap">
+          <ion-item *ngFor="let item of q2" [color]="item.color" class="ion-text-wrap">
             {{ item.value }}
           </ion-item>
         </ion-list>
@@ -59,7 +59,7 @@
       <ion-col size="6" class="q3">
         <div class="q-header">Delegate</div>
         <ion-list dragula="bag" [(dragulaModel)]="q3" lines="none">
-          <ion-item *ngFor="let item of q3" [color]="item.color" expand="block" class="ion-text-wrap">
+          <ion-item *ngFor="let item of q3" [color]="item.color" class="ion-text-wrap">
             {{ item.value }}
           </ion-item>
         </ion-list>
@@ -68,7 +68,7 @@
       <ion-col size="6" class="q4">
         <div class="q-header">Don't do</div>
         <ion-list dragula="bag" [(dragulaModel)]="q4" lines="none">
-          <ion-item *ngFor="let item of q4" [color]="item.color" expand="block" class="ion-text-wrap">
+          <ion-item *ngFor="let item of q4" [color]="item.color" class="ion-text-wrap">
             {{ item.value }}
           </ion-item>
         </ion-list>
@@ -76,7 +76,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-row class="delete-area" class="ion-align-items-center ion-justify-content-center">
+  <ion-row class="delete-area ion-align-items-center ion-justify-content-center">
     <ion-icon name="trash" color="medium"></ion-icon>
   </ion-row>
 

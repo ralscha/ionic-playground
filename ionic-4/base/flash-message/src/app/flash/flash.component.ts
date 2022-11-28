@@ -32,7 +32,7 @@ export class FlashComponent {
   active = false;
   message = '';
   private duration = 0;
-  private timeout: number | null = null;
+  private timeout: any = null;
   activeClass = 'secondary';
 
   constructor(private readonly flashService: FlashService) {

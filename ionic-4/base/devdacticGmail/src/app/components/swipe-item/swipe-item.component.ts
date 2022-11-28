@@ -11,19 +11,19 @@ const ANIMATION_BREAKPOINT = 70;
   styleUrls: ['./swipe-item.component.scss'],
 })
 export class SwipeItemComponent implements AfterViewInit {
-  @Input('email') m: any;
-  @ViewChild(IonItem, { read: ElementRef }) item: ElementRef;
-  @ViewChild('wrapper') wrapper: ElementRef;
-  @ViewChild('trash', { read: ElementRef, static: false }) trashIcon: ElementRef;
-  @ViewChild('archive', { read: ElementRef }) archiveIcon: ElementRef;
+  @Input() email!: any;
+  @ViewChild(IonItem, { read: ElementRef }) item!: ElementRef;
+  @ViewChild('wrapper') wrapper!: ElementRef;
+  @ViewChild('trash', { read: ElementRef, static: false }) trashIcon!: ElementRef;
+  @ViewChild('archive', { read: ElementRef }) archiveIcon!: ElementRef;
 
   @Output() delete: EventEmitter<any> = new EventEmitter();
 
   bigIcon = false;
 
-  trashAnimation: Animation;
-  archiveAnimation: Animation;
-  deleteAnimation: Animation;
+  trashAnimation!: Animation;
+  archiveAnimation!: Animation;
+  deleteAnimation!: Animation;
 
   constructor(private router: Router, private gestureCtrl: GestureController, private animationCtrl: AnimationController) { }
 
@@ -43,7 +43,7 @@ export class SwipeItemComponent implements AfterViewInit {
       el: this.item.nativeElement,
       gestureName: 'move',
       threshold: 0,
-      onStart: ev => {
+      onStart: () => {
         style.transition = '';
       },
       onMove: ev => {
@@ -114,7 +114,7 @@ export class SwipeItemComponent implements AfterViewInit {
       .fromTo('transform', 'scale(1)', 'scale(1.5)')
   }
 
-  animateTrash(zoomIn) {
+  animateTrash(zoomIn: boolean) {
     this.bigIcon = zoomIn;
     if (zoomIn) {
       this.trashAnimation.direction('alternate').play();
@@ -124,7 +124,7 @@ export class SwipeItemComponent implements AfterViewInit {
     Haptics.impact({ style: ImpactStyle.Light });
   }
 
-  animateArchive(zoomIn) {
+  animateArchive(zoomIn: boolean) {
     this.bigIcon = zoomIn;
     if (zoomIn) {
       this.archiveAnimation.direction('alternate').play();
@@ -134,7 +134,7 @@ export class SwipeItemComponent implements AfterViewInit {
     Haptics.impact({ style: ImpactStyle.Light });
   }
 
-  openDetails(id) {
+  openDetails(id: string) {
     this.router.navigate(['tabs', 'mail', id]);
   }
 }

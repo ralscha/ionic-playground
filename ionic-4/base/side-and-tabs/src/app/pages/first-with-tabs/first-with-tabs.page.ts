@@ -5,12 +5,6 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './first-with-tabs.page.html',
   styleUrls: ['./first-with-tabs.page.scss'],
 })
-export class FirstWithTabsPage implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class FirstWithTabsPage {
 
 }

@@ -6,25 +6,23 @@ import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular
   styleUrls: ['./drawer.component.scss'],
 })
 export class DrawerComponent {
-  @ViewChild('drawer', { read: ElementRef }) drawer: ElementRef;
-  @Output('openStateChanged') openState: EventEmitter<boolean> = new EventEmitter();
+  @ViewChild('drawer', { read: ElementRef }) drawer!: ElementRef;
+  @Output() openStateChanged: EventEmitter<boolean> = new EventEmitter();
 
   title = '';
 
-  constructor() { }
-
-  openDrawer(title) {
+  openDrawer(title: any) {
     this.title = title;
     const drawer = this.drawer.nativeElement;
     drawer.style.transition = '.2s ease-in';
     drawer.style.transform = `translateY(-300px) `;
-    this.openState.emit(true);
+    this.openStateChanged.emit(true);
   }
 
   closeDrawer() {
     const drawer = this.drawer.nativeElement;
     drawer.style.transition = '.2s ease-out';
     drawer.style.transform = '';
-    this.openState.emit(false);
+    this.openStateChanged.emit(false);
   }
 }

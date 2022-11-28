@@ -6,11 +6,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DrawerService {
 
-  drawerOpen = new BehaviorSubject(null);
+  drawerOpen = new BehaviorSubject<{open: boolean, title: string} | null>(null);
 
-  constructor() { }
-
-  openDrawer(title) {
+  openDrawer(title: string) {
     this.drawerOpen.next({open: true, title});
   }
 }

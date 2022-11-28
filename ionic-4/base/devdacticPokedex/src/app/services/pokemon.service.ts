@@ -47,13 +47,12 @@ export class PokemonService {
   getPokeDetails(index: string): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${this.baseUrl}/pokemon/${index}`).pipe(
       map(poke => {
-        // @ts-ignore
-        const sprites = Object.keys(poke.sprites);
-
-        poke.images = sprites
-          // @ts-ignore
-          .map(spriteKey => poke.sprites[spriteKey])
-          .filter(img => img);
+        if (poke.sprites) {
+          const sprites = Object.keys(poke.sprites);
+          poke.images = sprites
+            .map(spriteKey => poke.sprites ? poke.sprites[spriteKey] : '')
+            .filter(img => img);
+        }
         return poke;
       })
     );

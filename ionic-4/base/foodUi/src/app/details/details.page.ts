@@ -9,7 +9,7 @@ import { IonContent, IonList, IonSlides, isPlatform } from '@ionic/angular';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit, AfterViewInit {
-  data = null;
+  data: any = null;
 
   opts = {
     freeMode: true,
@@ -19,10 +19,10 @@ export class DetailsPage implements OnInit, AfterViewInit {
   }
 
   activeCategory = 0;
-  @ViewChildren(IonList, { read: ElementRef }) lists: QueryList<ElementRef>;
-  listElements = [];
-  @ViewChild(IonSlides) slides: IonSlides;
-  @ViewChild(IonContent) content: IonContent;
+  @ViewChildren(IonList, { read: ElementRef }) lists!: QueryList<ElementRef>;
+  listElements: any = [];
+  @ViewChild(IonSlides) slides!: IonSlides;
+  @ViewChild(IonContent) content!: IonContent;
   categorySlidesVisible = false;
 
   constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document) { }
@@ -39,21 +39,21 @@ export class DetailsPage implements OnInit, AfterViewInit {
 
   // Get all list viewchildren when ready
   ngAfterViewInit() {
-    this.lists.changes.subscribe(_ => {
+    this.lists.changes.subscribe(() => {
       this.listElements = this.lists.toArray();
     });
   }
 
   // Handle click on a button within slides
   // Automatically scroll to viewchild
-  selectCategory(index) {
+  selectCategory(index: number) {
     const child = this.listElements[index].nativeElement;
     this.content.scrollToPoint(0, child.offsetTop - 120, 1000);
   }
 
   // Listen to ion-content scroll output
   // Set currently visible active section
-  onScroll(ev) {
+  onScroll(ev: any) {
     const offset = ev.detail.scrollTop;
     this.categorySlidesVisible = offset > 500;
 
@@ -67,7 +67,7 @@ export class DetailsPage implements OnInit, AfterViewInit {
     }
   }
 
-  isElementInViewport(el) {
+  isElementInViewport(el: any) {
     const rect = el.getBoundingClientRect();
 
     return (

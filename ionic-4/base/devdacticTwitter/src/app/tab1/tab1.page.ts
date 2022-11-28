@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  tweets = [];
+  tweets: any = [];
   segment = 'home';
   opts = {
     slidesPerView: 4.5,

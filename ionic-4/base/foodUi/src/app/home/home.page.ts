@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  categories = [];
-  highlights = [];
-  featured = [];
+  categories: any = [];
+  highlights: any = [];
+  featured: any = [];
 
   catSlideOpts = {
     slidesPerView: 3.5,
@@ -44,14 +44,14 @@ export class HomePage implements OnInit {
   }
 
   // Dummy refresher function
-  doRefresh(event) {
+  doRefresh(event: any) {
     setTimeout(() => {
       event.target.complete();
     }, 2000);
   }
 
   // show or hide a location string later
-  onScroll(ev) {
+  onScroll(ev: any) {
     const offset = ev.detail.scrollTop;
     this.showLocationDetail = offset > 40;
   }
