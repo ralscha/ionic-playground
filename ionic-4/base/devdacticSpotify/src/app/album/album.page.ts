@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import albums from '../../assets/mockdata//albums';
+import {albums} from '../../assets/mockdata/albums';
 
 @Component({
   selector: 'app-album',
@@ -16,6 +16,7 @@ export class AlbumPage implements OnInit {
     const title = this.activatedRoute.snapshot.paramMap.get('title');
     if (title) {
       const decodedTitle = decodeURIComponent(title);
+      // @ts-ignore
       this.data = albums[decodedTitle];
     }
   }

@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
-import {LocalNotifications, LocalNotificationPendingList, LocalNotificationRequest} from '@capacitor/local-notifications';
+import {
+  LocalNotifications,
+  LocalNotificationDescriptor
+} from '@capacitor/local-notifications';
 import {AlertController} from '@ionic/angular';
 
 @Component({
@@ -9,26 +12,30 @@ import {AlertController} from '@ionic/angular';
 })
 export class HomePage {
 
-  scheduled: LocalNotificationRequest[] = [];
+  scheduled: LocalNotificationDescriptor[] = [];
 
   constructor(private alertCtrl: AlertController) {
+    this.hasPermission().then(() => {
+      LocalNotifications.addListener('localNotificationReceived', notification => {
+        const msg = notification.extra ? notification.extra.mydata : '';
+        this.showAlert(notification.title, notification.body, msg);
+      });
 
-    LocalNotifications.addListener('localNotificationReceived', notification => {
-      const msg = notification.extra ? notification.extra.mydata : '';
-      this.showAlert(notification.title, notification.body, msg);
-    });
-
-    LocalNotifications.addListener('localNotificationActionPerformed', actionperformed => {
-      const notification = actionperformed.notification;
-      console.log(actionperformed.actionId, actionperformed.inputValue);
-      const msg = notification.extra ? notification.extra.mydata : '';
-      this.showAlert(notification.title, notification.body, msg);
+      LocalNotifications.addListener('localNotificationActionPerformed', actionperformed => {
+        const notification = actionperformed.notification;
+        console.log(actionperformed.actionId, actionperformed.inputValue);
+        const msg = notification.extra ? notification.extra.mydata : '';
+        this.showAlert(notification.title, notification.body, msg);
+      });
     });
 
   }
 
-  scheduleNotification(): void {
-    LocalNotifications.schedule({
+  async scheduleNotification() {
+    if (!await this.hasPermission()) {
+      return;
+    }
+    await LocalNotifications.schedule({
       notifications: [
         {
           title: 'Attention',
@@ -45,8 +52,11 @@ export class HomePage {
 
   }
 
-  recurringNotification(): void {
-    LocalNotifications.schedule({
+  async recurringNotification() {
+    if (!await this.hasPermission()) {
+      return;
+    }
+    await LocalNotifications.schedule({
       notifications: [
         {
           title: 'Recurring',
@@ -62,8 +72,11 @@ export class HomePage {
     });
   }
 
-  repeatingDaily(): void {
-    LocalNotifications.schedule({
+  async repeatingDaily() {
+    if (!await this.hasPermission()) {
+      return;
+    }
+    await LocalNotifications.schedule({
       notifications: [
         {
           title: 'Good Morning',
@@ -90,6 +103,17 @@ export class HomePage {
 
   getAll(): void {
     LocalNotifications.getPending().then(list => this.scheduled = list.notifications);
+  }
+
+  async hasPermission(): Promise<boolean> {
+    const permissions = await LocalNotifications.checkPermissions();
+    if (permissions.display !== 'granted') {
+      const newPermissions = await LocalNotifications.requestPermissions();
+      if (newPermissions.display === 'denied') {
+        return false;
+      }
+    }
+    return true;
   }
 
 }

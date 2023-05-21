@@ -24,7 +24,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class AnimatedLikeComponent {
 
   public likeState = 'unliked';
-  public iconName = 'heart-empty';
+  public iconName = 'heart-outline';
 
   toggleLikeState() {
 
@@ -33,7 +33,7 @@ export class AnimatedLikeComponent {
       this.iconName = 'heart';
     } else {
       this.likeState = 'unliked';
-      this.iconName = 'heart-empty';
+      this.iconName = 'heart-outline';
     }
 
   }

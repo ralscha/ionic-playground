@@ -17,10 +17,12 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "ES2020",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,	
     "useDefineForClassFields": false,
     "lib": [
-      "ES2022",
+      "es2018", 
       "dom"
     ]
   },

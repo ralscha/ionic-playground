@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import {DataService} from '../services/data.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataResolverService implements Resolve<any> {
+export class DataResolverService  {
 
   constructor(private readonly dataService: DataService) {
   }

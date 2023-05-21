@@ -14,6 +14,7 @@ export class AnimatedFabDirective implements AfterViewInit {
   expanded = true;
 
   ngAfterViewInit() {
+    // @ts-ignore
     this.fab = this.fabButton.el;
     this.setupAnimation();
   }

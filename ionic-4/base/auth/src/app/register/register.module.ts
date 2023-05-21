@@ -9,13 +9,13 @@ import {RegisterPageRoutingModule} from './register-routing.module';
 import {RegisterPage} from './register.page';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RegisterPageRoutingModule
-    ],
-    declarations: [RegisterPage]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RegisterPageRoutingModule
+  ],
+  declarations: [RegisterPage]
 })
 export class RegisterPageModule {
 }

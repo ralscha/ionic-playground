@@ -55,7 +55,7 @@
 
           <img [src]="'/assets/mockdata/'+section.type+'-'+series.id+'.jpg'">
           <div class="progress-bar">
-            <div class="progress" [style.width]="series['progress'] + '%'"></div>
+            <div class="progress" [style.width]="$any(series)['progress'] + '%'"></div>
           </div>
           <ion-row class="ion-no-padding">
             <ion-col size="6" class="ion-text-left ion-no-padding">

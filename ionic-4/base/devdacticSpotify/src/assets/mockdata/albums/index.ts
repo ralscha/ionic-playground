@@ -8,14 +8,14 @@ import swimming from './swimming.json';
 import whenWeAllFallAsleep from './whenWeAllFallAsleep.json';
 import wishYouWereHere from './wishYouWereHere.json';
 
-export default {
+export const albums = {
   'Born To Die': bornToDie,
   'Come Around Sundown': comeAroundSundown,
   'Ex:Re': exRe,
   'Extraordinary Machine': extraordinaryMachine,
   'Man On The Moon II: The Legend of Mr. Rager': manOnTheMoon2,
   'Sea Of Cowards': seaOfCowards,
-  Swimming: swimming,
+  'Swimming': swimming,
   'WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?': whenWeAllFallAsleep,
   'Wish You Were Here': wishYouWereHere
 };

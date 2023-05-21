@@ -12,6 +12,7 @@ export class NotesService {
   public loaded = false;
 
   constructor(private readonly storage: Storage) {
+    storage.create();
   }
 
   load(): Promise<boolean> {

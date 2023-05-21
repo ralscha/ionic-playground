@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { PopoverController } from '@ionic/angular';
+import {PopoverController, RefresherCustomEvent} from '@ionic/angular';
 import { AccountPage } from '../account/account.page';
 
 type emails = {
@@ -66,7 +66,7 @@ export class MailPage implements OnInit {
     await popover.present();
   }
 
-  doRefresh(ev: Event) {
+  doRefresh(ev: RefresherCustomEvent) {
     setTimeout(() => ev.target?.complete(), 2000);
   }
 
