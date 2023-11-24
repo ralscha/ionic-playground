@@ -4,7 +4,7 @@ import {IonicModule} from '@ionic/angular';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HomePage} from './home.page';
-import {IonicSelectableModule} from 'ionic-selectable';
+import {IonicSelectableComponent} from "ionic-selectable";
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import {IonicSelectableModule} from 'ionic-selectable';
         component: HomePage
       }
     ]),
-    IonicSelectableModule
+    IonicSelectableComponent
   ],
   declarations: [HomePage]
 })

@@ -2,7 +2,8 @@ import {Component, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
 import {CalendarComponent} from 'ionic2-calendar';
 import {AlertController} from '@ionic/angular';
 import {formatDate} from '@angular/common';
-import {CalendarMode, IEvent, ITimeSelected} from 'ionic2-calendar/calendar';
+import {CalendarMode} from 'ionic2-calendar';
+import {IEvent, ITimeSelected} from "ionic2-calendar/calendar.interface";
 
 @Component({
   selector: 'app-home',
