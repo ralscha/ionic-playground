@@ -37,7 +37,7 @@
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
     "cordova-plugin-googlemaps"
   ],
   "cordovaPlatforms": [

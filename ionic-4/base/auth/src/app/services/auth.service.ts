@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {BehaviorSubject, from, Observable, of} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {map, switchMap, take} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {Platform} from '@ionic/angular';

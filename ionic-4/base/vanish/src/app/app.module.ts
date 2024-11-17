@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {HomePage} from './home/home.page';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ScrollVanishDirective } from './scroll-vanish.directive';
 
 const routes: Routes = [
@@ -14,18 +14,14 @@ const routes: Routes = [
   {path: 'home', component: HomePage},
 ];
 
-@NgModule({
-    declarations: [AppComponent, HomePage, ScrollVanishDirective],
-    imports: [BrowserModule,
+@NgModule({ declarations: [AppComponent, HomePage, ScrollVanishDirective],
+    bootstrap: [AppComponent], imports: [BrowserModule,
         CommonModule,
-        HttpClientModule,
         FormsModule,
         IonicModule.forRoot(),
-        RouterModule.forRoot(routes, { useHash: true })],
-    providers: [
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-    ],
-    bootstrap: [AppComponent]
-})
+        RouterModule.forRoot(routes, { useHash: true })], providers: [
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {
 }
