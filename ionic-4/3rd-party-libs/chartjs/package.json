@@ -21,7 +21,7 @@
     "@ionic/angular": "7.8.2",
     "chart.js": "4.4.6",
     "ng2-charts": "5.0.4",
-    "rxjs": "7.8.1",
+    "rxjs": "7.8.2",
     "tslib": "2.6.2",
     "zone.js": "0.14.4"
   },

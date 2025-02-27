@@ -20,7 +20,7 @@
     "@angular/router": "17.3.2",
     "@ionic/angular": "7.8.2",
     "ionic2-calendar": "2.3.0",
-    "rxjs": "7.8.1",
+    "rxjs": "7.8.2",
     "tslib": "2.6.2",
     "zone.js": "0.14.4"
   },
