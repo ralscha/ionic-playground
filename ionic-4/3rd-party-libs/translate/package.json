@@ -31,9 +31,9 @@
     "angular-eslint": "18.4.3",
     "@angular/cli": "18.2.12",
     "@angular/compiler-cli": "18.2.13",
-    "@ionic/angular-toolkit": "12.1.1",
-    "typescript-eslint": "8.28.0",
-    "eslint": "9.23.0",
+    "@ionic/angular-toolkit": "12.2.0",
+    "typescript-eslint": "8.31.0",
+    "eslint": "9.25.1",
     "local-web-server": "5.4.0",
     "typescript": "5.5.4"
   }
