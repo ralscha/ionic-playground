@@ -10,7 +10,7 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
-    "@angular/common": "2.4.8",
+    "@angular/common": "19.2.16",
     "@angular/compiler": "2.4.8",
     "@angular/compiler-cli": "2.4.8",
     "@angular/core": "2.4.8",
