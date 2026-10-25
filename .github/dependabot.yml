@@ -1,0 +1,310 @@
+# Weekly version updates; security updates are enabled in repository settings.
+# Minor and patch releases are grouped; major releases remain separate.
+version: 2
+updates:
+- package-ecosystem: maven
+  directories:
+  - /ionic-2/server/background-geo-server
+  - /ionic-2/server/hotel-server
+  - /ionic-2/server/login-jwt-server
+  - /ionic-2/server/push-sender
+  - /ionic-2/server/realty-server
+  - /ionic-2/server/review-server
+  - /ionic-2/server/weather-server
+  - /ionic-3/server/rss-server
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-2/base/animations
+  - /ionic-2/base/animations-login
+  - /ionic-2/base/array
+  - /ionic-2/base/async-login
+  - /ionic-2/base/card-layout
+  - /ionic-2/base/filter
+  - /ionic-2/base/flashcard
+  - /ionic-2/base/grid
+  - /ionic-2/base/lifecycle
+  - /ionic-2/base/lists
+  - /ionic-2/base/observables
+  - /ionic-2/base/parallax
+  - /ionic-2/base/pipe
+  - /ionic-2/base/progress-component
+  - /ionic-2/base/providers
+  - /ionic-2/base/quiz
+  - /ionic-2/base/sidemenu-highlight
+  - /ionic-2/base/simplelogin
+  - /ionic-2/base/slide
+  - /ionic-2/base/slide-animation
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-a:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-2/base/todo-client
+  - /ionic-2/base/todo2
+  - /ionic-2/base/translate
+  - /ionic-2/base/virtual-scroll
+  - /ionic-2/jslib/dragula
+  - /ionic-2/jslib/pouchdb
+  - /ionic-2/jslib/pouchdb-sync
+  - /ionic-2/jslib/swipe
+  - /ionic-2/native/augmented
+  - /ionic-2/native/backgroundgeo
+  - /ionic-2/native/deeplink
+  - /ionic-2/native/diagnostics
+  - /ionic-2/native/gallery
+  - /ionic-2/native/maps-native
+  - /ionic-2/native/play
+  - /ionic-2/native/rate
+  - /ionic-2/native/recorder
+  - /ionic-2/native/securestorage
+  - /ionic-2/native/shake
+  - /ionic-2/native/signaturepad
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-b:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-2/native/sqlnote
+  - /ionic-2/server/background-geo-client
+  - /ionic-2/server/hotel-client
+  - /ionic-2/server/login-jwt
+  - /ionic-2/server/push
+  - /ionic-2/server/realty-client
+  - /ionic-2/server/review-client
+  - /ionic-2/server/weather-client
+  - /ionic-2/server/weather-client-offline
+  - /ionic-2/service/angularfire2
+  - /ionic-2/service/apiApp
+  - /ionic-2/service/event
+  - /ionic-2/service/maps-cluster
+  - /ionic-2/service/maps1-js
+  - /ionic-2/service/maps2-js
+  - /ionic-2/service/nearby
+  - /ionic-2/service/twitch
+  - /ionic-2/service/youtube
+  - /ionic-3/base/add-to-cart
+  - /ionic-3/base/animated-splashscreen
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-c:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-3/base/checkbox-validator
+  - /ionic-3/base/clip-path
+  - /ionic-3/base/content-drawer
+  - /ionic-3/base/different-form-controls
+  - /ionic-3/base/drag
+  - /ionic-3/base/drawing
+  - /ionic-3/base/expandable-header
+  - /ionic-3/base/expandableList
+  - /ionic-3/base/flexibleSize
+  - /ionic-3/base/focus-cards
+  - /ionic-3/base/i18n
+  - /ionic-3/base/lazyLoading
+  - /ionic-3/base/minigallery
+  - /ionic-3/base/music-interface
+  - /ionic-3/base/overslide
+  - /ionic-3/base/panorama-feed
+  - /ionic-3/base/permatimer
+  - /ionic-3/base/photo-tilt
+  - /ionic-3/base/reactions
+  - /ionic-3/base/readspeeder
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-d:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-3/base/shrinking-segment-header
+  - /ionic-3/base/smiley-rate
+  - /ionic-3/base/svg-animation
+  - /ionic-3/base/svg-background
+  - /ionic-3/base/tab-sounds
+  - /ionic-3/base/tap-reveal
+  - /ionic-3/base/video-background
+  - /ionic-3/jslib/imageGallery
+  - /ionic-3/jslib/input-mask
+  - /ionic-3/jslib/markdown
+  - /ionic-3/jslib/pouchdb
+  - /ionic-3/jslib/swipeable-tabs
+  - /ionic-3/native/background-geolocation
+  - /ionic-3/native/codeScanner
+  - /ionic-3/native/local-notifications
+  - /ionic-3/native/speechRecognition
+  - /ionic-3/server/couchdb-blog
+  - /ionic-3/server/couchdb-todo
+  - /ionic-3/server/rss-client
+  - /ionic-3/service/gravatar
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-e:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-3/service/location-select
+  - /ionic-3/service/turnbyturn
+  - /ionic-4/3rd-party-libs/autosize
+  - /ionic-4/3rd-party-libs/calendar
+  - /ionic-4/3rd-party-libs/chartjs
+  - /ionic-4/3rd-party-libs/compodoc
+  - /ionic-4/3rd-party-libs/datatable
+  - /ionic-4/3rd-party-libs/dragula
+  - /ionic-4/3rd-party-libs/papaparse-xml2js
+  - /ionic-4/3rd-party-libs/pipes
+  - /ionic-4/3rd-party-libs/selectable
+  - /ionic-4/3rd-party-libs/translate
+  - /ionic-4/base/accordion
+  - /ionic-4/base/achievement
+  - /ionic-4/base/advanced-forms
+  - /ionic-4/base/auth
+  - /ionic-4/base/devdacticGmail
+  - /ionic-4/base/devdacticNetflix
+  - /ionic-4/base/devdacticPokedex
+  - /ionic-4/base/devdacticSpotify
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-f:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-4/base/devdacticTwitter
+  - /ionic-4/base/devdacticWebsite
+  - /ionic-4/base/dynamicinput
+  - /ionic-4/base/flash-message
+  - /ionic-4/base/flip
+  - /ionic-4/base/foodUi
+  - /ionic-4/base/gradient
+  - /ionic-4/base/heart
+  - /ionic-4/base/hide
+  - /ionic-4/base/holdable
+  - /ionic-4/base/intersection
+  - /ionic-4/base/notepad
+  - /ionic-4/base/passing-data
+  - /ionic-4/base/picker
+  - /ionic-4/base/routerpassingdata
+  - /ionic-4/base/search-filter
+  - /ionic-4/base/shoppingCart
+  - /ionic-4/base/side-and-tabs
+  - /ionic-4/base/sidesubmenu
+  - /ionic-4/base/slides
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-g:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directories:
+  - /ionic-4/base/slides-zoom
+  - /ionic-4/base/staggered
+  - /ionic-4/base/svg
+  - /ionic-4/base/tabs-sub-navigation
+  - /ionic-4/base/themeswitcher
+  - /ionic-4/base/transition
+  - /ionic-4/base/vanish
+  - /ionic-4/base/youtube
+  - /ionic-4/base/zoom
+  - /ionic-4/base/zoom2
+  - /ionic-4/capacitor/local-notification
+  - /ionic-4/capacitor/materialApp
+  - /ionic-4/external-service/omdb
+  - /ionic-6/bottomModal
+  schedule:
+    interval: weekly
+    day: monday
+    time: "09:00"
+    timezone: Europe/Zurich
+  open-pull-requests-limit: 5
+  groups:
+    minor-and-patch-h:
+      applies-to: version-updates
+      patterns:
+      - '*'
+      update-types:
+      - minor
+      - patch
