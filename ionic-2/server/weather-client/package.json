@@ -28,7 +28,7 @@
     "sw-toolbox": "3.4.0"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.1.4",
+    "@ionic/app-scripts": "3.2.4",
     "typescript": "2.0.9"
   },
   "description": "weather-client: An Ionic project",
